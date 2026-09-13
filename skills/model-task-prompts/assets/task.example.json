@@ -1,0 +1,11 @@
+{
+  "id": "seo-semantics-example", "type": "SEO-01", "status": "draft",
+  "goal": "Проверить семантику и интенты по переданным выгрузкам",
+  "output": "deliverables/v1/semantic-map.json и CSV; checks/run-001.json",
+  "inputs": [], "permissions": ["Читать переданные выгрузки", "Создавать производные файлы в подтверждённой папке задачи"],
+  "constraints": ["Не менять исходные выгрузки", "Частотность Wordstat и показы GSC хранить отдельными измерениями с source_id; неизвестное null"],
+  "tools": [{"capability": "keyword_volume", "service": "wordstat", "binding": null, "status": "unverified", "fallback": "manual_export"}],
+  "storage": {"root": null, "sources": "sources.json", "raw": "raw/run-001/", "data": "data/", "result": "deliverables/v1/", "checks": "checks/run-001.json", "run": "runs/run-001/", "handoff": "handoff.md"},
+  "acceptance": ["У каждого измерения source_id, период и регион либо явное unknown", "У каждого интента query_id и основание; спорные помечены review_needed", "Пропуски не превращены в нули, изменения привязаны к исходной строке"],
+  "model": {"provider": "codex", "model": "gpt-5.6-luna", "effort": "high", "serviceTier": "fast"}
+}

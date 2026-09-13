@@ -1,0 +1,50 @@
+{
+  "schema_version": "agency-copy-manifest/1.0",
+  "recipe_id": "ADS-03",
+  "copy": [
+    {
+      "from": "prompts/ADS-03/PROMPT.md",
+      "to": "PROMPT.md"
+    },
+    {
+      "from": "prompts/ADS-03/recipe.json",
+      "to": "recipe.json"
+    },
+    {
+      "from": "skills/model-task-prompts",
+      "to": "_kit/skills/model-task-prompts"
+    },
+    {
+      "from": "skills/agency-artifacts",
+      "to": "_kit/skills/agency-artifacts"
+    },
+    {
+      "from": "docs/agent-handoff.md",
+      "to": "_kit/README.md"
+    }
+  ],
+  "preparation_options": [],
+  "optional_skills": [
+    {
+      "name": "copywriter",
+      "when": "Рекламное сообщение",
+      "status": "candidate_verify_at_run"
+    },
+    {
+      "name": "ru-text",
+      "when": "Русский текст",
+      "status": "candidate_verify_at_run"
+    },
+    {
+      "name": "google-ads",
+      "when": "Только Google Ads",
+      "status": "candidate_verify_at_run"
+    },
+    {
+      "name": "yandex-direct",
+      "when": "Только Яндекс.Директ",
+      "status": "candidate_verify_at_run"
+    }
+  ],
+  "note": "Профильные навыки не входят в пакет. Проверить необходимость и наличие; не устанавливать всё автоматически. Ссылки на внешние поручения остаются в исходном репозитории; копировать их только если подготовка действительно нужна."
+}

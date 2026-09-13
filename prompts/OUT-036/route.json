@@ -1,0 +1,225 @@
+{
+  "id": "out-036",
+  "title": "Аудитория → контент-план и готовые посты",
+  "department": "SOCIAL",
+  "group": "Соцсети и медиа",
+  "description": "Ведение соцсетей. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-036-1",
+      "title": "Выбрать рубрики",
+      "role": "writer",
+      "model_profile": "TEXT",
+      "kind": "work",
+      "reads": [
+        "Цель канала, боли и голос бренда",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-036-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-036-2",
+      "title": "подготовить сообщения/визуалы",
+      "role": "writer",
+      "model_profile": "TEXT",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-036-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-036-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-036-1"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-036-3",
+      "title": "проверить и разложить по календарю",
+      "role": "writer",
+      "model_profile": "TEXT",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-036-2.md"
+      ],
+      "writes": [
+        "marketing/social/<channel>/PLAN.md + posts/"
+      ],
+      "acceptance": [
+        "Даты и аккаунт подтверждены; публикация в рамках полномочий"
+      ],
+      "depends_on": [
+        "out-036-2"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-036-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "marketing/social/<channel>/PLAN.md + posts/"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Даты и аккаунт подтверждены; публикация в рамках полномочий",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-036-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-036-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-036-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "marketing/social/<channel>/PLAN.md + posts/",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-036-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-036",
+  "deliverables": [
+    "marketing/social/<channel>/PLAN.md + posts/"
+  ],
+  "source_ids": [
+    "R5"
+  ],
+  "value": "Ведение соцсетей",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

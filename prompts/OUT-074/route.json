@@ -1,0 +1,223 @@
+{
+  "id": "out-074",
+  "title": "Повторяющаяся проблема → шаблон или мини-продукт",
+  "department": "STRATEGY",
+  "group": "Неочевидные продукты и услуги",
+  "description": "Продажа шаблона или подписка на инструмент. Предложенный нами сценарий; внешнее подтверждение этой цепочки не заявляется",
+  "nodes": [
+    {
+      "id": "out-074-1",
+      "title": "Проверить повторяемость",
+      "role": "orchestrator",
+      "model_profile": "PLAN",
+      "kind": "work",
+      "reads": [
+        "Подтверждённые запросы и собственная экспертиза",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-074-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "model-task-prompts",
+          "when": "Подготовка поручения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "app-architect",
+          "when": "Проектирование приложения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "tasks",
+          "when": "Если учёт в BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-074-2",
+      "title": "собрать узкий инструмент/шаблон",
+      "role": "orchestrator",
+      "model_profile": "PLAN",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-074-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-074-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-074-1"
+      ],
+      "skills": [
+        {
+          "name": "model-task-prompts",
+          "when": "Подготовка поручения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "app-architect",
+          "when": "Проектирование приложения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "tasks",
+          "when": "Если учёт в BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-074-3",
+      "title": "протестировать и подготовить продажу",
+      "role": "orchestrator",
+      "model_profile": "PLAN",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-074-2.md"
+      ],
+      "writes": [
+        "product/micro-products/<id>/pilot/"
+      ],
+      "acceptance": [
+        "Не считать интерес покупкой; права на исходники и готовность проверены"
+      ],
+      "depends_on": [
+        "out-074-2"
+      ],
+      "skills": [
+        {
+          "name": "model-task-prompts",
+          "when": "Подготовка поручения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "app-architect",
+          "when": "Проектирование приложения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "tasks",
+          "when": "Если учёт в BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-074-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "product/micro-products/<id>/pilot/"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Не считать интерес покупкой; права на исходники и готовность проверены",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-074-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-074-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-074-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "product/micro-products/<id>/pilot/",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-074-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-074",
+  "deliverables": [
+    "product/micro-products/<id>/pilot/"
+  ],
+  "source_ids": [],
+  "value": "Продажа шаблона или подписка на инструмент",
+  "evidence_scope": "Предложенный нами сценарий; внешнее подтверждение этой цепочки не заявляется"
+}

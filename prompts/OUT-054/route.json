@@ -1,0 +1,210 @@
+{
+  "id": "out-054",
+  "title": "Поставщики → сравнительная таблица предложений",
+  "department": "OPS",
+  "group": "Документы и операции",
+  "description": "Подготовка закупочного решения. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-054-1",
+      "title": "Извлечь состав/условия",
+      "role": "operator",
+      "model_profile": "DATA",
+      "kind": "work",
+      "reads": [
+        "Реальные КП и критерии закупки",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-054-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-054-2",
+      "title": "привести сопоставимые единицы",
+      "role": "operator",
+      "model_profile": "DATA",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-054-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-054-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-054-1"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-054-3",
+      "title": "показать расхождения и вопросы",
+      "role": "operator",
+      "model_profile": "DATA",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-054-2.md"
+      ],
+      "writes": [
+        "operations/procurement/<id>/comparison.xlsx"
+      ],
+      "acceptance": [
+        "Владелец выбирает поставщика; отсутствующие цены неизвестны"
+      ],
+      "depends_on": [
+        "out-054-2"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-054-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "operations/procurement/<id>/comparison.xlsx"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Владелец выбирает поставщика; отсутствующие цены неизвестны",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-054-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-054-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-054-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "operations/procurement/<id>/comparison.xlsx",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-054-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-054",
+  "deliverables": [
+    "operations/procurement/<id>/comparison.xlsx"
+  ],
+  "source_ids": [
+    "N2"
+  ],
+  "value": "Подготовка закупочного решения",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

@@ -1,0 +1,225 @@
+{
+  "id": "out-040",
+  "title": "Ниша → список авторов для партнёрств",
+  "department": "SOCIAL",
+  "group": "Соцсети и медиа",
+  "description": "Подбор блогеров и партнёрств. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-040-1",
+      "title": "Найти авторов",
+      "role": "writer",
+      "model_profile": "TEXT",
+      "kind": "work",
+      "reads": [
+        "Площадка, аудитория, требования и бюджет",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-040-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-040-2",
+      "title": "проверить релевантность и фактические показатели",
+      "role": "writer",
+      "model_profile": "TEXT",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-040-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-040-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-040-1"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-040-3",
+      "title": "подготовить персональный бриф",
+      "role": "writer",
+      "model_profile": "TEXT",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-040-2.md"
+      ],
+      "writes": [
+        "marketing/partnerships/creators/shortlist.json"
+      ],
+      "acceptance": [
+        "Числа не восстановлены догадкой; контакт и бюджет приняты"
+      ],
+      "depends_on": [
+        "out-040-2"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-040-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "marketing/partnerships/creators/shortlist.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Числа не восстановлены догадкой; контакт и бюджет приняты",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-040-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-040-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-040-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "marketing/partnerships/creators/shortlist.json",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-040-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-040",
+  "deliverables": [
+    "marketing/partnerships/creators/shortlist.json"
+  ],
+  "source_ids": [
+    "O3"
+  ],
+  "value": "Подбор блогеров и партнёрств",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

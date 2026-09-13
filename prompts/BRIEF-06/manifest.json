@@ -1,0 +1,40 @@
+{
+  "schema_version": "agency-copy-manifest/1.0",
+  "recipe_id": "BRIEF-06",
+  "copy": [
+    {
+      "from": "prompts/BRIEF-06/PROMPT.md",
+      "to": "PROMPT.md"
+    },
+    {
+      "from": "prompts/BRIEF-06/recipe.json",
+      "to": "recipe.json"
+    },
+    {
+      "from": "skills/model-task-prompts",
+      "to": "_kit/skills/model-task-prompts"
+    },
+    {
+      "from": "skills/agency-artifacts",
+      "to": "_kit/skills/agency-artifacts"
+    },
+    {
+      "from": "docs/agent-handoff.md",
+      "to": "_kit/README.md"
+    }
+  ],
+  "preparation_options": [],
+  "optional_skills": [
+    {
+      "name": "app-architect",
+      "when": "Проектирование приложения",
+      "status": "candidate_verify_at_run"
+    },
+    {
+      "name": "tasks",
+      "when": "Если учёт в BB Tasks",
+      "status": "candidate_verify_at_run"
+    }
+  ],
+  "note": "Профильные навыки не входят в пакет. Проверить необходимость и наличие; не устанавливать всё автоматически. Ссылки на внешние поручения остаются в исходном репозитории; копировать их только если подготовка действительно нужна."
+}

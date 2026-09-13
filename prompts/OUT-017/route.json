@@ -1,0 +1,255 @@
+{
+  "id": "out-017",
+  "title": "Сайт → технический SEO-аудит и backlog",
+  "department": "SEO",
+  "group": "SEO и локальный поиск",
+  "description": "Аудит плюс исправления. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-017-1",
+      "title": "Просканировать страницы",
+      "role": "seo",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "Домен, разрешённый обход, GSC при наличии",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-017-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "cocoon-pilot",
+          "when": "Семантический кокон",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "topical-graph-architect",
+          "when": "Архитектура интентов/страниц",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "gist-content-logic",
+          "when": "Контент-бриф",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Данные GSC",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-webmaster",
+          "when": "Данные Вебмастера",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-017-2",
+      "title": "подтвердить дефекты",
+      "role": "seo",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-017-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-017-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-017-1"
+      ],
+      "skills": [
+        {
+          "name": "cocoon-pilot",
+          "when": "Семантический кокон",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "topical-graph-architect",
+          "when": "Архитектура интентов/страниц",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "gist-content-logic",
+          "when": "Контент-бриф",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Данные GSC",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-webmaster",
+          "when": "Данные Вебмастера",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-017-3",
+      "title": "оценить влияние и поставить задачи",
+      "role": "seo",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-017-2.md"
+      ],
+      "writes": [
+        "marketing/seo/audits/<id>/issues.json"
+      ],
+      "acceptance": [
+        "Каждая проблема воспроизводится на URL; доступ к GSC не предполагается"
+      ],
+      "depends_on": [
+        "out-017-2"
+      ],
+      "skills": [
+        {
+          "name": "cocoon-pilot",
+          "when": "Семантический кокон",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "topical-graph-architect",
+          "when": "Архитектура интентов/страниц",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "gist-content-logic",
+          "when": "Контент-бриф",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Данные GSC",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-webmaster",
+          "when": "Данные Вебмастера",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-017-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "marketing/seo/audits/<id>/issues.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Каждая проблема воспроизводится на URL; доступ к GSC не предполагается",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-017-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-017-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-017-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "marketing/seo/audits/<id>/issues.json",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-017-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-017",
+  "deliverables": [
+    "marketing/seo/audits/<id>/issues.json"
+  ],
+  "source_ids": [
+    "P1"
+  ],
+  "value": "Аудит плюс исправления",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

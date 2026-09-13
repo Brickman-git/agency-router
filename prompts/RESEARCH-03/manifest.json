@@ -1,0 +1,45 @@
+{
+  "schema_version": "agency-copy-manifest/1.0",
+  "recipe_id": "RESEARCH-03",
+  "copy": [
+    {
+      "from": "prompts/RESEARCH-03/PROMPT.md",
+      "to": "PROMPT.md"
+    },
+    {
+      "from": "prompts/RESEARCH-03/recipe.json",
+      "to": "recipe.json"
+    },
+    {
+      "from": "skills/model-task-prompts",
+      "to": "_kit/skills/model-task-prompts"
+    },
+    {
+      "from": "skills/agency-artifacts",
+      "to": "_kit/skills/agency-artifacts"
+    },
+    {
+      "from": "docs/agent-handoff.md",
+      "to": "_kit/README.md"
+    }
+  ],
+  "preparation_options": [],
+  "optional_skills": [
+    {
+      "name": "text-insights",
+      "when": "Переданный корпус",
+      "status": "candidate_verify_at_run"
+    },
+    {
+      "name": "social-insights",
+      "when": "Сбор соцкорпуса",
+      "status": "candidate_verify_at_run"
+    },
+    {
+      "name": "reddit-mapper",
+      "when": "Форумы и Reddit",
+      "status": "candidate_verify_at_run"
+    }
+  ],
+  "note": "Профильные навыки не входят в пакет. Проверить необходимость и наличие; не устанавливать всё автоматически. Ссылки на внешние поручения остаются в исходном репозитории; копировать их только если подготовка действительно нужна."
+}

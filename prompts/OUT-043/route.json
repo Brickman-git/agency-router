@@ -1,0 +1,210 @@
+{
+  "id": "out-043",
+  "title": "Потенциальный клиент → персональное предложение",
+  "department": "CRM",
+  "group": "Продажи и CRM",
+  "description": "Outbound-пакеты для агентств. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-043-1",
+      "title": "Изучить компанию",
+      "role": "operator",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "Карточка компании, оффер и доказательства",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-043-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-043-2",
+      "title": "выбрать релевантную проблему",
+      "role": "operator",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-043-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-043-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-043-1"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-043-3",
+      "title": "собрать предложение и CTA",
+      "role": "operator",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-043-2.md"
+      ],
+      "writes": [
+        "marketing/crm/outreach/<id>/message.md"
+      ],
+      "acceptance": [
+        "Проблема подтверждена; нет выдуманного знакомства или результата"
+      ],
+      "depends_on": [
+        "out-043-2"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-043-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "marketing/crm/outreach/<id>/message.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Проблема подтверждена; нет выдуманного знакомства или результата",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-043-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-043-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-043-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "marketing/crm/outreach/<id>/message.md",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-043-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-043",
+  "deliverables": [
+    "marketing/crm/outreach/<id>/message.md"
+  ],
+  "source_ids": [
+    "O3"
+  ],
+  "value": "Outbound-пакеты для агентств",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

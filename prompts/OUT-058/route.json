@@ -1,0 +1,225 @@
+{
+  "id": "out-058",
+  "title": "Регламент → обучение новых сотрудников",
+  "department": "OPS",
+  "group": "Команда и знания",
+  "description": "Внутреннее обучение под ключ. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-058-1",
+      "title": "Разложить операции",
+      "role": "orchestrator",
+      "model_profile": "PLAN",
+      "kind": "work",
+      "reads": [
+        "Принятый SOP и реальные примеры",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-058-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "model-task-prompts",
+          "when": "Подготовка поручения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "app-architect",
+          "when": "Проектирование приложения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "tasks",
+          "when": "Если учёт в BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-058-2",
+      "title": "подготовить примеры и упражнения",
+      "role": "orchestrator",
+      "model_profile": "PLAN",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-058-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-058-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-058-1"
+      ],
+      "skills": [
+        {
+          "name": "model-task-prompts",
+          "when": "Подготовка поручения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "app-architect",
+          "when": "Проектирование приложения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "tasks",
+          "when": "Если учёт в BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-058-3",
+      "title": "проверить ответы с владельцем",
+      "role": "orchestrator",
+      "model_profile": "PLAN",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-058-2.md"
+      ],
+      "writes": [
+        "operations/training/<role>/course.md"
+      ],
+      "acceptance": [
+        "Учебные случаи помечены, правила не придуманы"
+      ],
+      "depends_on": [
+        "out-058-2"
+      ],
+      "skills": [
+        {
+          "name": "model-task-prompts",
+          "when": "Подготовка поручения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "app-architect",
+          "when": "Проектирование приложения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "tasks",
+          "when": "Если учёт в BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-058-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "operations/training/<role>/course.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Учебные случаи помечены, правила не придуманы",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-058-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-058-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-058-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "operations/training/<role>/course.md",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-058-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-058",
+  "deliverables": [
+    "operations/training/<role>/course.md"
+  ],
+  "source_ids": [
+    "R4"
+  ],
+  "value": "Внутреннее обучение под ключ",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

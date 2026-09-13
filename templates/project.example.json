@@ -1,0 +1,130 @@
+{
+  "schema_version": "0.2",
+  "project_id": null,
+  "host": null,
+  "canonical_root": null,
+  "status": "template",
+  "knowledge_refs": {
+    "brand.identity": {
+      "path": "brand/BRAND.md",
+      "owner_role": "Бренд-стратег",
+      "status": "template_unverified",
+      "version": null
+    },
+    "brand.voice": {
+      "path": "brand/VOICE.md",
+      "owner_role": "Редактор",
+      "status": "template_unverified",
+      "version": null
+    },
+    "brand.assets": {
+      "path": "brand/assets/",
+      "owner_role": "Дизайнер",
+      "status": "template_unverified",
+      "version": null
+    },
+    "product.facts": {
+      "path": "product/PRODUCT.md",
+      "owner_role": "Владелец продукта",
+      "status": "template_unverified",
+      "version": null
+    },
+    "product.offer": {
+      "path": "product/offers/<offer-id>/OFFER.md",
+      "owner_role": "Стратег",
+      "status": "template_unverified",
+      "version": null
+    },
+    "audience.segments": {
+      "path": "research/audience/AUDIENCE.md",
+      "owner_role": "Исследователь",
+      "status": "template_unverified",
+      "version": null
+    },
+    "audience.pains": {
+      "path": "research/audience/PAINS.md",
+      "owner_role": "Исследователь",
+      "status": "template_unverified",
+      "version": null
+    },
+    "audience.language": {
+      "path": "research/audience/LANGUAGE.md",
+      "owner_role": "Исследователь/редактор",
+      "status": "template_unverified",
+      "version": null
+    },
+    "market.context": {
+      "path": "research/market/MARKET.md",
+      "owner_role": "Исследователь",
+      "status": "template_unverified",
+      "version": null
+    },
+    "design.research": {
+      "path": "design/research/COMPARISON.md",
+      "owner_role": "UX-исследователь",
+      "status": "template_unverified",
+      "version": null
+    },
+    "design.direction": {
+      "path": "design/direction/DIRECTION.md",
+      "owner_role": "Дизайн-лид",
+      "status": "template_unverified",
+      "version": null
+    },
+    "design.system": {
+      "path": "design/system/DESIGN.md",
+      "owner_role": "Дизайн-лид",
+      "status": "template_unverified",
+      "version": null
+    },
+    "seo.structure": {
+      "path": "marketing/seo/architecture/page-map.json",
+      "owner_role": "SEO-архитектор",
+      "status": "template_unverified",
+      "version": null
+    },
+    "analytics.plan": {
+      "path": "analytics/MEASUREMENT.md",
+      "owner_role": "Аналитик",
+      "status": "template_unverified",
+      "version": null
+    },
+    "development.repo": {
+      "path": "development/repo.ref.json",
+      "owner_role": "Разработчик",
+      "status": "template_unverified",
+      "version": null
+    },
+    "marketing.strategy": {
+      "path": "marketing/STRATEGY.md",
+      "owner_role": "Стратег",
+      "status": "template_unverified",
+      "version": null
+    }
+  },
+  "department_roots": {
+    "BRIEF": "operations/account/",
+    "RESEARCH": "research/",
+    "STRATEGY": "marketing/",
+    "SEO": "marketing/seo/",
+    "CONTENT": "content/",
+    "ADS": "marketing/<ad-platform>/campaigns/<campaign-id>/",
+    "DESIGN": "design/",
+    "WEB": "development/",
+    "SOFTWARE": "development/",
+    "ANALYTICS": "analytics/",
+    "SOCIAL": "marketing/social/<channel>/",
+    "VIDEO": "media/",
+    "CRM": "marketing/crm/",
+    "COMMERCE": "commerce/",
+    "OPS": "operations/",
+    "CARE": "operations/quality/"
+  },
+  "systems": {
+    "task_tracker": null,
+    "asset_store": null,
+    "repository": null
+  },
+  "existing_contracts": [],
+  "active_journeys": []
+}

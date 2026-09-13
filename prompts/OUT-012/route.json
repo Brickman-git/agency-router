@@ -1,0 +1,225 @@
+{
+  "id": "out-012",
+  "title": "Идея услуги → проверяемый план пилота",
+  "department": "STRATEGY",
+  "group": "Стратегия и предложения",
+  "description": "Упаковка и запуск пилота. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-012-1",
+      "title": "Сформулировать спрос-гипотезу",
+      "role": "orchestrator",
+      "model_profile": "PLAN",
+      "kind": "work",
+      "reads": [
+        "Идея, рынок, ограничения ресурсов",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-012-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "model-task-prompts",
+          "when": "Подготовка поручения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "app-architect",
+          "when": "Проектирование приложения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "tasks",
+          "when": "Если учёт в BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-012-2",
+      "title": "определить предложение и каналы",
+      "role": "orchestrator",
+      "model_profile": "PLAN",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-012-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-012-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-012-1"
+      ],
+      "skills": [
+        {
+          "name": "model-task-prompts",
+          "when": "Подготовка поручения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "app-architect",
+          "when": "Проектирование приложения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "tasks",
+          "when": "Если учёт в BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-012-3",
+      "title": "задать тест, метрики и stop rule",
+      "role": "orchestrator",
+      "model_profile": "PLAN",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-012-2.md"
+      ],
+      "writes": [
+        "marketing/experiments/<id>/PILOT.md"
+      ],
+      "acceptance": [
+        "Владелец принимает объём и бюджет; спрос не объявляется доказанным"
+      ],
+      "depends_on": [
+        "out-012-2"
+      ],
+      "skills": [
+        {
+          "name": "model-task-prompts",
+          "when": "Подготовка поручения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "app-architect",
+          "when": "Проектирование приложения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "tasks",
+          "when": "Если учёт в BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-012-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "marketing/experiments/<id>/PILOT.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Владелец принимает объём и бюджет; спрос не объявляется доказанным",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-012-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-012-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-012-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "marketing/experiments/<id>/PILOT.md",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-012-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-012",
+  "deliverables": [
+    "marketing/experiments/<id>/PILOT.md"
+  ],
+  "source_ids": [
+    "R4"
+  ],
+  "value": "Упаковка и запуск пилота",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

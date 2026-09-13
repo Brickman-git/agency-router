@@ -1,0 +1,240 @@
+{
+  "id": "out-026",
+  "title": "Оффер → Facebook-кампания с креативами",
+  "department": "ADS",
+  "group": "Реклама и креативы",
+  "description": "Настройка и ведение рекламы. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-026-1",
+      "title": "Сформировать гипотезы",
+      "role": "ads",
+      "model_profile": "IDEA",
+      "kind": "work",
+      "reads": [
+        "Оффер, аудитория, кабинет, лимит расходов",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-026-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Рекламное сообщение",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-ads",
+          "when": "Только Google Ads",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-direct",
+          "when": "Только Яндекс.Директ",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-026-2",
+      "title": "написать copy и ТЗ",
+      "role": "ads",
+      "model_profile": "IDEA",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-026-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-026-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-026-1"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Рекламное сообщение",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-ads",
+          "when": "Только Google Ads",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-direct",
+          "when": "Только Яндекс.Директ",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-026-3",
+      "title": "проверить landing/tracking и пакет",
+      "role": "ads",
+      "model_profile": "IDEA",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-026-2.md"
+      ],
+      "writes": [
+        "marketing/facebook/campaigns/<id>/releases/v1/"
+      ],
+      "acceptance": [
+        "Владелец принимает пакет и предел расхода до запуска"
+      ],
+      "depends_on": [
+        "out-026-2"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Рекламное сообщение",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-ads",
+          "when": "Только Google Ads",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-direct",
+          "when": "Только Яндекс.Директ",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-026-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "marketing/facebook/campaigns/<id>/releases/v1/"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Владелец принимает пакет и предел расхода до запуска",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-026-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-026-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-026-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "marketing/facebook/campaigns/<id>/releases/v1/",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-026-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-026",
+  "deliverables": [
+    "marketing/facebook/campaigns/<id>/releases/v1/"
+  ],
+  "source_ids": [
+    "O2"
+  ],
+  "value": "Настройка и ведение рекламы",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

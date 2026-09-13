@@ -1,0 +1,225 @@
+{
+  "id": "out-039",
+  "title": "Комментарии → очередь ответов и темы контента",
+  "department": "SOCIAL",
+  "group": "Соцсети и медиа",
+  "description": "Community management. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-039-1",
+      "title": "Классифицировать обращения",
+      "role": "writer",
+      "model_profile": "TEXT",
+      "kind": "work",
+      "reads": [
+        "Разрешённый канал и brand policy",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-039-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-039-2",
+      "title": "подготовить ответы",
+      "role": "writer",
+      "model_profile": "TEXT",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-039-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-039-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-039-1"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-039-3",
+      "title": "передать сложные случаи и новые темы",
+      "role": "writer",
+      "model_profile": "TEXT",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-039-2.md"
+      ],
+      "writes": [
+        "marketing/social/<channel>/community/queue.json"
+      ],
+      "acceptance": [
+        "Не отвечать от имени бренда без полномочия; спорные жалобы видит владелец"
+      ],
+      "depends_on": [
+        "out-039-2"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-039-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "marketing/social/<channel>/community/queue.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Не отвечать от имени бренда без полномочия; спорные жалобы видит владелец",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-039-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-039-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-039-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "marketing/social/<channel>/community/queue.json",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-039-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-039",
+  "deliverables": [
+    "marketing/social/<channel>/community/queue.json"
+  ],
+  "source_ids": [
+    "O6"
+  ],
+  "value": "Community management",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

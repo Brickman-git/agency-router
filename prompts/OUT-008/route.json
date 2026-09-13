@@ -1,0 +1,225 @@
+{
+  "id": "out-008",
+  "title": "Рынок → карта конкурентов и возможностей",
+  "department": "RESEARCH",
+  "group": "Исследования и данные",
+  "description": "Платный market brief. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-008-1",
+      "title": "Найти релевантные компании",
+      "role": "research",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "Ниша, рынок, критерии сравнения",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-008-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "text-insights",
+          "when": "Переданный корпус",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "social-insights",
+          "when": "Сбор соцкорпуса",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "reddit-mapper",
+          "when": "Форумы и Reddit",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-008-2",
+      "title": "прочитать продуктовые источники",
+      "role": "research",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-008-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-008-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-008-1"
+      ],
+      "skills": [
+        {
+          "name": "text-insights",
+          "when": "Переданный корпус",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "social-insights",
+          "when": "Сбор соцкорпуса",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "reddit-mapper",
+          "when": "Форумы и Reddit",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-008-3",
+      "title": "сравнить предложения и незакрытые задачи",
+      "role": "research",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-008-2.md"
+      ],
+      "writes": [
+        "research/market/landscape.md"
+      ],
+      "acceptance": [
+        "Размер рынка и успех конкурентов не угадываются"
+      ],
+      "depends_on": [
+        "out-008-2"
+      ],
+      "skills": [
+        {
+          "name": "text-insights",
+          "when": "Переданный корпус",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "social-insights",
+          "when": "Сбор соцкорпуса",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "reddit-mapper",
+          "when": "Форумы и Reddit",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-008-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "research/market/landscape.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Размер рынка и успех конкурентов не угадываются",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-008-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-008-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-008-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "research/market/landscape.md",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-008-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-008",
+  "deliverables": [
+    "research/market/landscape.md"
+  ],
+  "source_ids": [
+    "O7"
+  ],
+  "value": "Платный market brief",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

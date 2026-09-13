@@ -1,0 +1,849 @@
+{
+  "id": "out-031",
+  "title": "Бриф → сайт в production",
+  "department": "WEB",
+  "group": "Сайты и дизайн",
+  "description": "Разработка сайта под ключ. Предложенный нами сценарий; внешнее подтверждение этой цепочки не заявляется",
+  "nodes": [
+    {
+      "id": "brief",
+      "title": "Бриф и решения созвона",
+      "kind": "work",
+      "role": "orchestrator",
+      "model_profile": "PLAN",
+      "reads": [
+        "calls/<call-id>/transcript.md",
+        "product/PRODUCT.md"
+      ],
+      "writes": [
+        "operations/account/SCOPE.md",
+        "calls/<call-id>/decisions.md"
+      ],
+      "acceptance": [
+        "Цель, рынок, объём, бюджет и определение клиента не выдуманы"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "model-task-prompts",
+          "when": "Подготовка поручения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "app-architect",
+          "when": "Проектирование приложения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "tasks",
+          "when": "Если учёт в BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "goal",
+      "title": "Цель и границы заказа",
+      "kind": "human",
+      "role": "human",
+      "model_profile": null,
+      "reads": [
+        "operations/account/SCOPE.md"
+      ],
+      "writes": [
+        "work/journeys/<id>/decisions/goal/decision.json"
+      ],
+      "acceptance": [
+        "Есть решение владельца или ссылка на уже данное действующее поручение"
+      ],
+      "depends_on": [
+        "brief"
+      ],
+      "skills": [],
+      "status": "template_not_started",
+      "human_question": "Какой рынок, состав запуска и критерий результата принимаем?",
+      "decision_pack": "work/journeys/<journey-id>/decisions/goal/review-pack.md",
+      "decision_record": "work/journeys/<journey-id>/decisions/goal/decision.json",
+      "on_rework": "brief"
+    },
+    {
+      "id": "foundation",
+      "title": "Общие факты, бренд и голос",
+      "kind": "work",
+      "role": "writer",
+      "model_profile": "TEXT",
+      "reads": [
+        "operations/account/SCOPE.md",
+        "calls/<call-id>/decisions.md",
+        "Клиент: подтверждённые факты и существующие бренд-материалы"
+      ],
+      "writes": [
+        "product/PRODUCT.md",
+        "product/offers/<offer-id>/OFFER.md",
+        "brand/BRAND.md",
+        "brand/VOICE.md",
+        "research/market/MARKET.md"
+      ],
+      "acceptance": [
+        "Источники и владелец каждого знания заданы; недостающий факт стал вопросом; черновики ждут принятия на concept"
+      ],
+      "depends_on": [
+        "goal"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "audience",
+      "title": "Аудитория и продукт",
+      "kind": "work",
+      "role": "research",
+      "model_profile": "RESEARCH",
+      "reads": [
+        "product/PRODUCT.md",
+        "calls/<call-id>/transcript.md"
+      ],
+      "writes": [
+        "research/audience/AUDIENCE.md",
+        "research/audience/PAINS.md",
+        "research/audience/LANGUAGE.md"
+      ],
+      "acceptance": [
+        "Выводы связаны с источниками; гипотезы помечены"
+      ],
+      "depends_on": [
+        "foundation"
+      ],
+      "skills": [
+        {
+          "name": "text-insights",
+          "when": "Переданный корпус",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "social-insights",
+          "when": "Сбор соцкорпуса",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "reddit-mapper",
+          "when": "Форумы и Reddit",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "search",
+      "title": "Спрос и интенты",
+      "kind": "work",
+      "role": "seo",
+      "model_profile": "RESEARCH",
+      "reads": [
+        "research/audience/AUDIENCE.md",
+        "product/PRODUCT.md"
+      ],
+      "writes": [
+        "marketing/seo/research/queries.jsonl",
+        "marketing/seo/research/intents.jsonl",
+        "marketing/seo/research/sources.json"
+      ],
+      "acceptance": [
+        "Метрики раздельны; регион/период заданы; спорные интенты сверены с SERP"
+      ],
+      "depends_on": [
+        "audience"
+      ],
+      "skills": [
+        {
+          "name": "cocoon-pilot",
+          "when": "Семантический кокон",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "topical-graph-architect",
+          "when": "Архитектура интентов/страниц",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "gist-content-logic",
+          "when": "Контент-бриф",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Данные GSC",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-webmaster",
+          "when": "Данные Вебмастера",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "competitors",
+      "title": "Разбор дизайна конкурентов",
+      "kind": "work",
+      "role": "designer",
+      "model_profile": "VISUAL",
+      "reads": [
+        "research/market/MARKET.md",
+        "brand/BRAND.md"
+      ],
+      "writes": [
+        "design/research/competitors/<id>/DESIGN.md",
+        "design/research/COMPARISON.md"
+      ],
+      "acceptance": [
+        "Обычно 5 реальных релевантных конкурентов; URL, дата, скриншоты; исключение с причиной и решением"
+      ],
+      "depends_on": [
+        "foundation"
+      ],
+      "skills": [
+        {
+          "name": "ui-review",
+          "when": "Интерфейс и конкуренты",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "page-prototype",
+          "when": "Wireframe",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "imagegen",
+          "when": "Растровое изображение",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "canva:canva-edit-design",
+          "when": "Существующий макет Canva",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "map",
+      "title": "Карта страниц и визуальные варианты",
+      "kind": "work",
+      "role": "orchestrator",
+      "model_profile": "PLAN",
+      "reads": [
+        "marketing/seo/research/intents.jsonl",
+        "design/research/COMPARISON.md"
+      ],
+      "writes": [
+        "marketing/seo/architecture/page-map.json",
+        "design/direction/DIRECTION.md"
+      ],
+      "acceptance": [
+        "Страницы имеют задачи; направление связано с брендом; исследование достаточно"
+      ],
+      "depends_on": [
+        "search",
+        "competitors"
+      ],
+      "skills": [
+        {
+          "name": "model-task-prompts",
+          "when": "Подготовка поручения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "app-architect",
+          "when": "Проектирование приложения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "tasks",
+          "when": "Если учёт в BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "concept",
+      "title": "Выбор структуры и направления",
+      "kind": "human",
+      "role": "human",
+      "model_profile": null,
+      "reads": [
+        "marketing/seo/architecture/page-map.json",
+        "design/direction/DIRECTION.md",
+        "brand/BRAND.md",
+        "brand/VOICE.md",
+        "product/offers/<offer-id>/OFFER.md"
+      ],
+      "writes": [
+        "work/journeys/<id>/decisions/concept/decision.json"
+      ],
+      "acceptance": [
+        "Приняты конкретные версии карты, направления, бренда/голоса и оффера"
+      ],
+      "depends_on": [
+        "map"
+      ],
+      "skills": [],
+      "status": "template_not_started",
+      "human_question": "Принимаем структуру и выбранное направление; что меняем?",
+      "decision_pack": "work/journeys/<journey-id>/decisions/concept/review-pack.md",
+      "decision_record": "work/journeys/<journey-id>/decisions/concept/decision.json",
+      "on_rework": "map"
+    },
+    {
+      "id": "copy",
+      "title": "Брифы и тексты страниц",
+      "kind": "work",
+      "role": "writer",
+      "model_profile": "TEXT",
+      "reads": [
+        "marketing/seo/architecture/page-map.json",
+        "brand/VOICE.md",
+        "research/audience/PAINS.md"
+      ],
+      "writes": [
+        "content/pages/<id>/BRIEF.md",
+        "content/pages/<id>/drafts/v1/page.md",
+        "content/pages/<id>/visual-plan.json",
+        "content/pages/<id>/visual-briefs.md"
+      ],
+      "acceptance": [
+        "Текст и краткие ТЗ сданы вместе; количество 0…N, смысл и desktop/mobile размещение обоснованы; редактор или автор по self-review принимает план до дизайна"
+      ],
+      "depends_on": [
+        "concept"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "ux",
+      "title": "Прототип и дизайн-система",
+      "kind": "work",
+      "role": "designer",
+      "model_profile": "VISUAL",
+      "reads": [
+        "design/direction/DIRECTION.md",
+        "marketing/seo/architecture/page-map.json"
+      ],
+      "writes": [
+        "design/system/DESIGN.md",
+        "design/prototypes/<id>/"
+      ],
+      "acceptance": [
+        "Ключевые сценарии, адаптивность и состояния отражены"
+      ],
+      "depends_on": [
+        "concept"
+      ],
+      "skills": [
+        {
+          "name": "ui-review",
+          "when": "Интерфейс и конкуренты",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "page-prototype",
+          "when": "Wireframe",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "imagegen",
+          "when": "Растровое изображение",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "canva:canva-edit-design",
+          "when": "Существующий макет Canva",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "images",
+      "title": "Иллюстрации и ассеты",
+      "kind": "work",
+      "role": "designer",
+      "model_profile": "VISUAL",
+      "reads": [
+        "design/requests/<id>/BRIEF.md",
+        "design/system/DESIGN.md",
+        "content/pages/<id>/drafts/v1/page.md"
+      ],
+      "writes": [
+        "design/assets/<asset-id>/v1/asset.json",
+        "design/assets/<asset-id>/v1/export.webp"
+      ],
+      "acceptance": [
+        "Каждый slot связан с asset; визуальный и смысловой контроль пройден"
+      ],
+      "depends_on": [
+        "copy",
+        "ux"
+      ],
+      "skills": [
+        {
+          "name": "ui-review",
+          "when": "Интерфейс и конкуренты",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "page-prototype",
+          "when": "Wireframe",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "imagegen",
+          "when": "Растровое изображение",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "canva:canva-edit-design",
+          "when": "Существующий макет Canva",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "build",
+      "title": "Разработка и интеграция контента",
+      "kind": "work",
+      "role": "developer",
+      "model_profile": "CODE",
+      "reads": [
+        "development/repo.ref.json",
+        "design/system/DESIGN.md",
+        "content/pages/<id>/drafts/v1/page.md",
+        "design/assets/<asset-id>/v1/asset.json"
+      ],
+      "writes": [
+        "development/releases/<release-id>/preview.json",
+        "repo: изменённый код и тесты"
+      ],
+      "acceptance": [
+        "Работают страницы, формы, ошибки и мобильный сценарий"
+      ],
+      "depends_on": [
+        "copy",
+        "ux",
+        "images"
+      ],
+      "skills": [
+        {
+          "name": "browser-automation",
+          "when": "Браузерная проверка UI",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "measure",
+      "title": "План измерения и проверка событий",
+      "kind": "work",
+      "role": "analyst",
+      "model_profile": "MEASURE",
+      "reads": [
+        "operations/account/SCOPE.md",
+        "development/releases/<release-id>/preview.json"
+      ],
+      "writes": [
+        "analytics/MEASUREMENT.md",
+        "analytics/events.json",
+        "analytics/checks/events.json"
+      ],
+      "acceptance": [
+        "Различены посещение/лид/клиент; тестовые события не считаются клиентами"
+      ],
+      "depends_on": [
+        "build"
+      ],
+      "skills": [
+        {
+          "name": "google-analytics",
+          "when": "GA4",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-metrica",
+          "when": "Метрика",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Google organic search",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "qa",
+      "title": "SEO и функциональная приёмка staging",
+      "kind": "quality",
+      "role": "developer",
+      "model_profile": "CHECK",
+      "reads": [
+        "development/releases/<release-id>/preview.json",
+        "analytics/checks/events.json",
+        "marketing/seo/architecture/page-map.json"
+      ],
+      "writes": [
+        "development/releases/<release-id>/checks.json",
+        "development/releases/<release-id>/rollback.md"
+      ],
+      "acceptance": [
+        "Формы, ссылки, каноникал, robots/sitemap, выбранные показатели производительности и доступности проверены; риски перечислены"
+      ],
+      "depends_on": [
+        "measure"
+      ],
+      "skills": [
+        {
+          "name": "browser-automation",
+          "when": "Браузерная проверка UI",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started",
+      "on_rework": "build"
+    },
+    {
+      "id": "launch",
+      "title": "Решение о выпуске",
+      "kind": "human",
+      "role": "human",
+      "model_profile": null,
+      "reads": [
+        "development/releases/<release-id>/preview.json",
+        "development/releases/<release-id>/checks.json",
+        "development/releases/<release-id>/rollback.md"
+      ],
+      "writes": [
+        "work/journeys/<id>/decisions/launch/decision.json"
+      ],
+      "acceptance": [
+        "Есть полномочие на этот release/домен; исключения явно приняты"
+      ],
+      "depends_on": [
+        "qa"
+      ],
+      "skills": [],
+      "status": "template_not_started",
+      "human_question": "Выпускаем этот релиз с указанными проверками, исключениями и откатом?",
+      "decision_pack": "work/journeys/<journey-id>/decisions/launch/review-pack.md",
+      "decision_record": "work/journeys/<journey-id>/decisions/launch/decision.json",
+      "on_rework": "qa"
+    },
+    {
+      "id": "production",
+      "title": "Production и проверка после выпуска",
+      "kind": "work",
+      "role": "developer",
+      "model_profile": "OPERATE",
+      "reads": [
+        "development/releases/<release-id>/checks.json",
+        "work/journeys/<id>/decisions/launch/decision.json"
+      ],
+      "writes": [
+        "development/releases/<release-id>/deployment.json",
+        "development/releases/<release-id>/post-release-checks.json"
+      ],
+      "acceptance": [
+        "Публичный URL, формы и события работают; план отката применим"
+      ],
+      "depends_on": [
+        "launch"
+      ],
+      "skills": [
+        {
+          "name": "browser-automation",
+          "when": "Браузерная проверка UI",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "indexing",
+      "title": "Обнаружение и индексация",
+      "kind": "observation",
+      "role": "seo",
+      "model_profile": "OPERATE",
+      "reads": [
+        "development/releases/<release-id>/deployment.json",
+        "marketing/seo/architecture/page-map.json"
+      ],
+      "writes": [
+        "marketing/seo/monitoring/<period>/indexing.json"
+      ],
+      "acceptance": [
+        "Sitemap/URL проверены; ожидание и ошибки сохранены; нет обещания индексации"
+      ],
+      "depends_on": [
+        "production"
+      ],
+      "skills": [
+        {
+          "name": "cocoon-pilot",
+          "when": "Семантический кокон",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "topical-graph-architect",
+          "when": "Архитектура интентов/страниц",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "gist-content-logic",
+          "when": "Контент-бриф",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Данные GSC",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-webmaster",
+          "when": "Данные Вебмастера",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started",
+      "on_rework": "qa"
+    },
+    {
+      "id": "traffic",
+      "title": "Первые органические посещения",
+      "kind": "outcome",
+      "role": "analyst",
+      "model_profile": "MEASURE",
+      "reads": [
+        "analytics/MEASUREMENT.md",
+        "marketing/seo/monitoring/<period>/indexing.json"
+      ],
+      "writes": [
+        "analytics/reports/<period>/organic-traffic.json"
+      ],
+      "acceptance": [
+        "Есть фактические органические данные за заданный период; clicks и sessions раздельны; тестовый трафик учтён"
+      ],
+      "depends_on": [
+        "indexing"
+      ],
+      "skills": [
+        {
+          "name": "google-analytics",
+          "when": "GA4",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-metrica",
+          "when": "Метрика",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Google organic search",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started",
+      "on_rework": "search"
+    },
+    {
+      "id": "customer",
+      "title": "Лиды и первые SEO-клиенты",
+      "kind": "outcome",
+      "role": "analyst",
+      "model_profile": "MEASURE",
+      "reads": [
+        "analytics/reports/<period>/organic-traffic.json",
+        "CRM: события/сделки по подтверждённому доступу"
+      ],
+      "writes": [
+        "analytics/reports/<period>/seo-customers.json"
+      ],
+      "acceptance": [
+        "Лид и клиент различены; атрибуция проверена либо unknown; нет фиктивной сделки"
+      ],
+      "depends_on": [
+        "traffic"
+      ],
+      "skills": [
+        {
+          "name": "google-analytics",
+          "when": "GA4",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-metrica",
+          "when": "Метрика",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Google organic search",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started",
+      "on_rework": "measure"
+    },
+    {
+      "id": "review",
+      "title": "Приёмка результата и следующий цикл",
+      "kind": "human",
+      "role": "human",
+      "model_profile": null,
+      "reads": [
+        "analytics/reports/<period>/organic-traffic.json",
+        "analytics/reports/<period>/seo-customers.json"
+      ],
+      "writes": [
+        "work/journeys/<id>/decisions/review/decision.json"
+      ],
+      "acceptance": [
+        "Владелец видит фактический результат, ограничения и цену следующей гипотезы"
+      ],
+      "depends_on": [
+        "customer"
+      ],
+      "skills": [],
+      "status": "template_not_started",
+      "human_question": "Принимаем результат или меняем гипотезу, объём и период наблюдения?",
+      "decision_pack": "work/journeys/<journey-id>/decisions/review/review-pack.md",
+      "decision_record": "work/journeys/<journey-id>/decisions/review/decision.json",
+      "on_rework": "search"
+    }
+  ],
+  "outcome_id": "OUT-031",
+  "deliverables": [
+    "development/releases/<id>/deployment.json"
+  ],
+  "source_ids": [],
+  "value": "Разработка сайта под ключ",
+  "evidence_scope": "Предложенный нами сценарий; внешнее подтверждение этой цепочки не заявляется"
+}

@@ -1,0 +1,403 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:agency:artifact:metadata:1.0",
+  "title": "Метаданные артефакта агентства",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "artifact_type",
+    "title",
+    "scope",
+    "project_id",
+    "department",
+    "task_ref",
+    "owner",
+    "status",
+    "version",
+    "created_at",
+    "updated_at",
+    "access"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "agency-artifact/1.0"
+    },
+    "artifact_id": {
+      "type": "string",
+      "pattern": "^art_[a-z0-9][a-z0-9_-]*$"
+    },
+    "artifact_type": {
+      "enum": [
+        "brief",
+        "research",
+        "plan",
+        "copy",
+        "visual-plan",
+        "design-brief",
+        "asset-manifest",
+        "report",
+        "dataset",
+        "decision",
+        "handoff",
+        "task",
+        "index",
+        "template",
+        "specification",
+        "other"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "enum": [
+        "project",
+        "shared",
+        "template"
+      ]
+    },
+    "project_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "department": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "topic": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "task_ref": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "system",
+        "id"
+      ],
+      "properties": {
+        "system": {
+          "enum": [
+            "bb-task",
+            "bb-thread",
+            "external"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "additionalProperties": false
+    },
+    "owner": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "human",
+            "agent",
+            "role"
+          ]
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "in_review",
+        "changes_requested",
+        "approved",
+        "blocked",
+        "superseded",
+        "archived"
+      ]
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "access": {
+      "enum": [
+        "internal",
+        "client",
+        "public",
+        "restricted"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "artifact_id",
+          "version",
+          "path"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "supersedes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "artifact_id",
+          "version",
+          "path"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "review": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "mode",
+        "reviewer",
+        "decided_at",
+        "decision_ref"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "human",
+            "peer",
+            "self"
+          ]
+        },
+        "reviewer": {
+          "type": "object",
+          "required": [
+            "kind",
+            "id"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "human",
+                "agent",
+                "role"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "decided_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "decision_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "target": {
+      "type": "string",
+      "minLength": 1
+    },
+    "extensions": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "in_review",
+              "approved"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "owner": {
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "in_review",
+              "approved"
+            ]
+          },
+          "scope": {
+            "const": "project"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "project_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "task_ref": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "approved"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "review"
+        ],
+        "properties": {
+          "review": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "blocked"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "blockers"
+        ],
+        "properties": {
+          "blockers": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "scope": {
+            "const": "template"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "enum": [
+              "draft",
+              "archived"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

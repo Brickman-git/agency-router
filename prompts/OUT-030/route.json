@@ -1,0 +1,240 @@
+{
+  "id": "out-030",
+  "title": "Кампания → единый отчёт для клиента",
+  "department": "ADS",
+  "group": "Реклама и креативы",
+  "description": "Ежемесячная отчётность. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-030-1",
+      "title": "Свести источники",
+      "role": "ads",
+      "model_profile": "IDEA",
+      "kind": "work",
+      "reads": [
+        "Расходы, аналитика, CRM и определения KPI",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-030-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Рекламное сообщение",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-ads",
+          "when": "Только Google Ads",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-direct",
+          "when": "Только Яндекс.Директ",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-030-2",
+      "title": "проверить валюты/срезы",
+      "role": "ads",
+      "model_profile": "IDEA",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-030-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-030-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-030-1"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Рекламное сообщение",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-ads",
+          "when": "Только Google Ads",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-direct",
+          "when": "Только Яндекс.Директ",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-030-3",
+      "title": "объяснить результат и следующий тест",
+      "role": "ads",
+      "model_profile": "IDEA",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-030-2.md"
+      ],
+      "writes": [
+        "analytics/reports/<period>/client-report.md"
+      ],
+      "acceptance": [
+        "Заявленные продажи подтверждены CRM/оплатой, unknown атрибуция видна"
+      ],
+      "depends_on": [
+        "out-030-2"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Рекламное сообщение",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-ads",
+          "when": "Только Google Ads",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-direct",
+          "when": "Только Яндекс.Директ",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-030-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "analytics/reports/<period>/client-report.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Заявленные продажи подтверждены CRM/оплатой, unknown атрибуция видна",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-030-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-030-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-030-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "analytics/reports/<period>/client-report.md",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-030-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-030",
+  "deliverables": [
+    "analytics/reports/<period>/client-report.md"
+  ],
+  "source_ids": [
+    "O2"
+  ],
+  "value": "Ежемесячная отчётность",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

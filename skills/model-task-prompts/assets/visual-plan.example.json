@@ -1,0 +1,57 @@
+{
+  "schema_version": "0.3",
+  "status": "draft",
+  "article_id": null,
+  "article_revision": null,
+  "article_hash": null,
+  "plan_revision": null,
+  "decision": "pending",
+  "rationale": null,
+  "evidence_refs": [],
+  "review": {
+    "mode": null,
+    "reviewer": null,
+    "status": "pending",
+    "decision_ref": null
+  },
+  "slots": [],
+  "slot_template": {
+    "slot_id": null,
+    "anchor": {
+      "section_id": null,
+      "relation": "after",
+      "paragraph_id": null
+    },
+    "purpose": null,
+    "claim_ref": null,
+    "rationale": null,
+    "basis": "editorial_judgment_or_evidence",
+    "evidence_refs": [],
+    "visual_type": null,
+    "brief": {
+      "show": null,
+      "labels": [],
+      "exclude": [],
+      "creation_method": null,
+      "source_refs": []
+    },
+    "desktop": {
+      "alignment": null,
+      "width": null,
+      "wrap": null
+    },
+    "mobile": {
+      "order": null,
+      "width": null,
+      "wrap": null,
+      "crop": null
+    },
+    "caption": null,
+    "alt": null,
+    "dimensions": null,
+    "request_id": null,
+    "asset_id": null,
+    "asset_version": null
+  },
+  "notes": "slots=[] in this draft is not an approved no-images decision. not_required requires reason and review. slot_template is documentation, not a requested asset."
+}

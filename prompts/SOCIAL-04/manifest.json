@@ -1,0 +1,45 @@
+{
+  "schema_version": "agency-copy-manifest/1.0",
+  "recipe_id": "SOCIAL-04",
+  "copy": [
+    {
+      "from": "prompts/SOCIAL-04/PROMPT.md",
+      "to": "PROMPT.md"
+    },
+    {
+      "from": "prompts/SOCIAL-04/recipe.json",
+      "to": "recipe.json"
+    },
+    {
+      "from": "skills/model-task-prompts",
+      "to": "_kit/skills/model-task-prompts"
+    },
+    {
+      "from": "skills/agency-artifacts",
+      "to": "_kit/skills/agency-artifacts"
+    },
+    {
+      "from": "docs/agent-handoff.md",
+      "to": "_kit/README.md"
+    }
+  ],
+  "preparation_options": [],
+  "optional_skills": [
+    {
+      "name": "copywriter",
+      "when": "Сайт/оффер",
+      "status": "candidate_verify_at_run"
+    },
+    {
+      "name": "ru-text",
+      "when": "Русский текст",
+      "status": "candidate_verify_at_run"
+    },
+    {
+      "name": "ru-check",
+      "when": "Вычитка",
+      "status": "candidate_verify_at_run"
+    }
+  ],
+  "note": "Профильные навыки не входят в пакет. Проверить необходимость и наличие; не устанавливать всё автоматически. Ссылки на внешние поручения остаются в исходном репозитории; копировать их только если подготовка действительно нужна."
+}

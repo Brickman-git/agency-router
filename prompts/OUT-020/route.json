@@ -1,0 +1,255 @@
+{
+  "id": "out-020",
+  "title": "Экспертный архив → тематический раздел сайта",
+  "department": "SEO",
+  "group": "SEO и локальный поиск",
+  "description": "Тематический раздел под ключ. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-020-1",
+      "title": "Выделить сущности и задачи",
+      "role": "seo",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "Собственные знания, интенты, репозиторий",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-020-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "cocoon-pilot",
+          "when": "Семантический кокон",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "topical-graph-architect",
+          "when": "Архитектура интентов/страниц",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "gist-content-logic",
+          "when": "Контент-бриф",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Данные GSC",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-webmaster",
+          "when": "Данные Вебмастера",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-020-2",
+      "title": "составить полезные страницы",
+      "role": "seo",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-020-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-020-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-020-1"
+      ],
+      "skills": [
+        {
+          "name": "cocoon-pilot",
+          "when": "Семантический кокон",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "topical-graph-architect",
+          "when": "Архитектура интентов/страниц",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "gist-content-logic",
+          "when": "Контент-бриф",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Данные GSC",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-webmaster",
+          "when": "Данные Вебмастера",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-020-3",
+      "title": "спланировать ссылки и редактуру",
+      "role": "seo",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-020-2.md"
+      ],
+      "writes": [
+        "marketing/seo/architecture/topic-hub.json"
+      ],
+      "acceptance": [
+        "Не создавать пустые страницы ради охвата запросов"
+      ],
+      "depends_on": [
+        "out-020-2"
+      ],
+      "skills": [
+        {
+          "name": "cocoon-pilot",
+          "when": "Семантический кокон",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "topical-graph-architect",
+          "when": "Архитектура интентов/страниц",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "gist-content-logic",
+          "when": "Контент-бриф",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Данные GSC",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-webmaster",
+          "when": "Данные Вебмастера",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-020-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "marketing/seo/architecture/topic-hub.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Не создавать пустые страницы ради охвата запросов",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-020-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-020-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-020-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "marketing/seo/architecture/topic-hub.json",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-020-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-020",
+  "deliverables": [
+    "marketing/seo/architecture/topic-hub.json"
+  ],
+  "source_ids": [
+    "O7"
+  ],
+  "value": "Тематический раздел под ключ",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

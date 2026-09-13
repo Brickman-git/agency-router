@@ -1,0 +1,225 @@
+{
+  "id": "out-079",
+  "title": "Кампания → план A/B-теста и разбор результата",
+  "department": "ANALYTICS",
+  "group": "Аналитика и экономика",
+  "description": "Экспериментальное сопровождение. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-079-1",
+      "title": "Определить вариант и метрику",
+      "role": "analyst",
+      "model_profile": "MEASURE",
+      "kind": "work",
+      "reads": [
+        "Гипотеза, baseline и схема эксперимента",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-079-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "google-analytics",
+          "when": "GA4",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-metrica",
+          "when": "Метрика",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Google organic search",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-079-2",
+      "title": "проверить сбор данных",
+      "role": "analyst",
+      "model_profile": "MEASURE",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-079-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-079-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-079-1"
+      ],
+      "skills": [
+        {
+          "name": "google-analytics",
+          "when": "GA4",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-metrica",
+          "when": "Метрика",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Google organic search",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-079-3",
+      "title": "оценить результат и ограничения",
+      "role": "analyst",
+      "model_profile": "MEASURE",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-079-2.md"
+      ],
+      "writes": [
+        "analytics/experiments/<id>/REPORT.md"
+      ],
+      "acceptance": [
+        "Не объявлять победителя без достаточного основания и контроля качества данных"
+      ],
+      "depends_on": [
+        "out-079-2"
+      ],
+      "skills": [
+        {
+          "name": "google-analytics",
+          "when": "GA4",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-metrica",
+          "when": "Метрика",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Google organic search",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-079-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "analytics/experiments/<id>/REPORT.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Не объявлять победителя без достаточного основания и контроля качества данных",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-079-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-079-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-079-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "analytics/experiments/<id>/REPORT.md",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-079-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-079",
+  "deliverables": [
+    "analytics/experiments/<id>/REPORT.md"
+  ],
+  "source_ids": [
+    "O2"
+  ],
+  "value": "Экспериментальное сопровождение",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

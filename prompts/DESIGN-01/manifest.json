@@ -1,0 +1,50 @@
+{
+  "schema_version": "agency-copy-manifest/1.0",
+  "recipe_id": "DESIGN-01",
+  "copy": [
+    {
+      "from": "prompts/DESIGN-01/PROMPT.md",
+      "to": "PROMPT.md"
+    },
+    {
+      "from": "prompts/DESIGN-01/recipe.json",
+      "to": "recipe.json"
+    },
+    {
+      "from": "skills/model-task-prompts",
+      "to": "_kit/skills/model-task-prompts"
+    },
+    {
+      "from": "skills/agency-artifacts",
+      "to": "_kit/skills/agency-artifacts"
+    },
+    {
+      "from": "docs/agent-handoff.md",
+      "to": "_kit/README.md"
+    }
+  ],
+  "preparation_options": [],
+  "optional_skills": [
+    {
+      "name": "ui-review",
+      "when": "Интерфейс и конкуренты",
+      "status": "candidate_verify_at_run"
+    },
+    {
+      "name": "page-prototype",
+      "when": "Wireframe",
+      "status": "candidate_verify_at_run"
+    },
+    {
+      "name": "imagegen",
+      "when": "Растровое изображение",
+      "status": "candidate_verify_at_run"
+    },
+    {
+      "name": "canva:canva-edit-design",
+      "when": "Существующий макет Canva",
+      "status": "candidate_verify_at_run"
+    }
+  ],
+  "note": "Профильные навыки не входят в пакет. Проверить необходимость и наличие; не устанавливать всё автоматически. Ссылки на внешние поручения остаются в исходном репозитории; копировать их только если подготовка действительно нужна."
+}

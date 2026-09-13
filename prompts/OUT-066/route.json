@@ -1,0 +1,403 @@
+{
+  "id": "out-066",
+  "title": "Бизнес без сайта → демо и предложение о покупке",
+  "department": "CRM",
+  "group": "Монетизация и поиск возможностей",
+  "description": "Продажа сайта + поддержка, доход не гарантирован. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "prospect-1",
+      "title": "Найти компании по нише и городу",
+      "role": "research",
+      "model_profile": "RESEARCH",
+      "reads": [
+        "Ниша, рынок, лимит пилота",
+        "Разрешённый источник компаний / Places API с проверенными условиями"
+      ],
+      "writes": [
+        "marketing/crm/prospecting/<company>/discovery.json"
+      ],
+      "acceptance": [
+        "Записаны разрешённые поля, provenance и retention policy; place_id/source refs при ограничениях хранения. Не складировать всё содержимое Maps автоматически"
+      ],
+      "kind": "work",
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "text-insights",
+          "when": "Переданный корпус",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "social-insights",
+          "when": "Сбор соцкорпуса",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "reddit-mapper",
+          "when": "Форумы и Reddit",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "prospect-2",
+      "title": "Проверить сайт и реальную потребность",
+      "role": "research",
+      "model_profile": "RESEARCH",
+      "reads": [
+        "marketing/crm/prospecting/<company>/discovery.json"
+      ],
+      "writes": [
+        "marketing/crm/prospecting/<company>/qualification.md"
+      ],
+      "acceptance": [
+        "Пустое website поле — сигнал, не доказательство: проверить официальный сайт/поиск/соцпрофили. Сайт может существовать; ценность нового решения надо обосновать"
+      ],
+      "kind": "quality",
+      "depends_on": [
+        "prospect-1"
+      ],
+      "skills": [
+        {
+          "name": "text-insights",
+          "when": "Переданный корпус",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "social-insights",
+          "when": "Сбор соцкорпуса",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "reddit-mapper",
+          "when": "Форумы и Reddit",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started",
+      "on_rework": "prospect-1"
+    },
+    {
+      "id": "prospect-3",
+      "title": "Собрать факты и публичные деловые контакты",
+      "role": "research",
+      "model_profile": "DATA",
+      "reads": [
+        "marketing/crm/prospecting/<company>/qualification.md",
+        "Официальные сведения компании и разрешённые источники"
+      ],
+      "writes": [
+        "marketing/crm/prospecting/<company>/facts.json",
+        "marketing/crm/prospecting/<company>/contacts.json"
+      ],
+      "acceptance": [
+        "Факты/телефон/email имеют точный источник и дату; ничего не угадывается. Если сайта нет, контакты искать в подтверждённых публичных профилях/каталогах; нет контакта = unknown"
+      ],
+      "kind": "work",
+      "depends_on": [
+        "prospect-2"
+      ],
+      "skills": [
+        {
+          "name": "text-insights",
+          "when": "Переданный корпус",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "social-insights",
+          "when": "Сбор соцкорпуса",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "reddit-mapper",
+          "when": "Форумы и Reddit",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "prospect-4",
+      "title": "Выбрать ценность демо и лимит работы",
+      "role": "orchestrator",
+      "model_profile": "PLAN",
+      "reads": [
+        "marketing/crm/prospecting/<company>/facts.json",
+        "marketing/crm/prospecting/<company>/qualification.md"
+      ],
+      "writes": [
+        "marketing/crm/prospecting/<company>/demo/BRIEF.md"
+      ],
+      "acceptance": [
+        "Предложен полезный сценарий: запись, запрос расчёта, меню или каталог; затраты ограничены пилотом; неподтверждённые функции отмечены"
+      ],
+      "kind": "work",
+      "depends_on": [
+        "prospect-3"
+      ],
+      "skills": [
+        {
+          "name": "model-task-prompts",
+          "when": "Подготовка поручения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "app-architect",
+          "when": "Проектирование приложения",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "tasks",
+          "when": "Если учёт в BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "prospect-5",
+      "title": "Собрать приватное демо сайта",
+      "role": "developer",
+      "model_profile": "CODE",
+      "reads": [
+        "marketing/crm/prospecting/<company>/demo/BRIEF.md",
+        "marketing/crm/prospecting/<company>/facts.json",
+        "Принятые дизайн/контент правила"
+      ],
+      "writes": [
+        "marketing/crm/prospecting/<company>/demo/preview.json"
+      ],
+      "acceptance": [
+        "Концепт помечен как предложение, не официальный сайт компании; без фиктивных отзывов/цен. Фото/логотипы только с подходящими правами, иначе placeholders. Формы демо не собирают реальные заявки"
+      ],
+      "kind": "work",
+      "depends_on": [
+        "prospect-4"
+      ],
+      "skills": [
+        {
+          "name": "browser-automation",
+          "when": "Браузерная проверка UI",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "prospect-6",
+      "title": "Проверить демо и подготовить предложение",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "reads": [
+        "marketing/crm/prospecting/<company>/demo/preview.json",
+        "marketing/crm/prospecting/<company>/contacts.json"
+      ],
+      "writes": [
+        "marketing/crm/prospecting/<company>/demo-offer/PROPOSAL.md",
+        "marketing/crm/prospecting/<company>/demo-offer/review-pack.md"
+      ],
+      "acceptance": [
+        "Проверены мобильная версия, факты, контакт, цена/состав предложения; готово объяснение ценности, а не обещание автоматических клиентов"
+      ],
+      "kind": "quality",
+      "depends_on": [
+        "prospect-5"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started",
+      "on_rework": "prospect-5"
+    },
+    {
+      "id": "prospect-7",
+      "title": "Принять адресатов, предложение и отправку",
+      "role": "human",
+      "model_profile": null,
+      "reads": [
+        "marketing/crm/prospecting/<company>/demo-offer/review-pack.md"
+      ],
+      "writes": [
+        "marketing/crm/prospecting/<company>/demo-offer/send-decision.json"
+      ],
+      "acceptance": [
+        "Человек принимает конкретный пилот: адресаты/канал/отправитель/текст/объём/правило остановки. Правила источника и применимые требования канала сверяются для выбранного рынка"
+      ],
+      "kind": "human",
+      "depends_on": [
+        "prospect-6"
+      ],
+      "skills": [],
+      "status": "template_not_started",
+      "human_question": "Принимаем этот конкретный пакет и условия?",
+      "decision_pack": "marketing/crm/prospecting/<company>/demo-offer/review-pack.md",
+      "decision_record": "marketing/crm/prospecting/<company>/demo-offer/send-decision.json",
+      "on_rework": "prospect-6"
+    },
+    {
+      "id": "prospect-8",
+      "title": "Отправить разрешённый пилот и разобрать ответы",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "reads": [
+        "marketing/crm/prospecting/<company>/demo-offer/send-decision.json"
+      ],
+      "writes": [
+        "marketing/crm/prospecting/<company>/outreach/log.json",
+        "marketing/crm/prospecting/<company>/outreach/replies.json"
+      ],
+      "acceptance": [
+        "Только в пределах явного разрешения; отказы прекращают контакт, ошибки доставки не обходятся. При отсутствии полномочия остаётся готовый пакет без отправки"
+      ],
+      "kind": "work",
+      "depends_on": [
+        "prospect-7"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "prospect-9",
+      "title": "Согласовать продажу и передать сайт",
+      "role": "human",
+      "model_profile": null,
+      "reads": [
+        "marketing/crm/prospecting/<company>/outreach/replies.json",
+        "marketing/crm/prospecting/<company>/demo-offer/PROPOSAL.md"
+      ],
+      "writes": [
+        "marketing/crm/prospecting/<company>/deal/decision.json"
+      ],
+      "acceptance": [
+        "Человек принимает реальные условия; ответ/интерес не равен продаже. Оплата, передача прав и production по отдельным подтверждённым этапам"
+      ],
+      "kind": "human",
+      "depends_on": [
+        "prospect-8"
+      ],
+      "skills": [],
+      "status": "template_not_started",
+      "human_question": "Принимаем этот конкретный пакет и условия?",
+      "decision_pack": "marketing/crm/prospecting/<company>/outreach/replies.json",
+      "decision_record": "marketing/crm/prospecting/<company>/deal/decision.json",
+      "on_rework": "prospect-8"
+    },
+    {
+      "id": "prospect-10",
+      "title": "Зафиксировать результат пилота",
+      "role": "analyst",
+      "model_profile": "MEASURE",
+      "reads": [
+        "marketing/crm/prospecting/<company>/outreach/log.json",
+        "marketing/crm/prospecting/<company>/deal/decision.json"
+      ],
+      "writes": [
+        "marketing/crm/prospecting/<company>/pilot-result.md"
+      ],
+      "acceptance": [
+        "Отдельно учтены контакты, ответы, встречи, сделки, оплаты и затраты. Нет сделки — результат пилота, не повод к бесконечной рассылке"
+      ],
+      "kind": "outcome",
+      "depends_on": [
+        "prospect-9"
+      ],
+      "skills": [
+        {
+          "name": "google-analytics",
+          "when": "GA4",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-metrica",
+          "when": "Метрика",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Google organic search",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-066",
+  "deliverables": [
+    "marketing/crm/prospecting/<company>/demo-offer/"
+  ],
+  "source_ids": [
+    "R1",
+    "R2",
+    "N1",
+    "P2"
+  ],
+  "value": "Продажа сайта + поддержка, доход не гарантирован",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

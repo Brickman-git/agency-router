@@ -1,0 +1,1883 @@
+{
+  "schema_version": "agency-prompt-index/1.0",
+  "version": "0.7.0",
+  "items": [
+    {
+      "id": "OUT-001",
+      "title": "Созвон → протокол, решения и задачи",
+      "kind": "outcome",
+      "aliases": [
+        "Итоги встречи"
+      ],
+      "prompt": "prompts/OUT-001/PROMPT.md",
+      "recipe": "prompts/OUT-001/recipe.json",
+      "manifest": "prompts/OUT-001/manifest.json"
+    },
+    {
+      "id": "OUT-002",
+      "title": "Переговоры → персональное коммерческое предложение",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-002/PROMPT.md",
+      "recipe": "prompts/OUT-002/recipe.json",
+      "manifest": "prompts/OUT-002/manifest.json"
+    },
+    {
+      "id": "OUT-003",
+      "title": "Продажные звонки → карта возражений и тренинг",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-003/PROMPT.md",
+      "recipe": "prompts/OUT-003/recipe.json",
+      "manifest": "prompts/OUT-003/manifest.json"
+    },
+    {
+      "id": "OUT-004",
+      "title": "Совещания → реестр обещаний и просрочек",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-004/PROMPT.md",
+      "recipe": "prompts/OUT-004/recipe.json",
+      "manifest": "prompts/OUT-004/manifest.json"
+    },
+    {
+      "id": "OUT-005",
+      "title": "Интервью владельца → регламент бизнеса",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-005/PROMPT.md",
+      "recipe": "prompts/OUT-005/recipe.json",
+      "manifest": "prompts/OUT-005/manifest.json"
+    },
+    {
+      "id": "OUT-006",
+      "title": "Интервью клиентов → исследование аудитории",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-006/PROMPT.md",
+      "recipe": "prompts/OUT-006/recipe.json",
+      "manifest": "prompts/OUT-006/manifest.json"
+    },
+    {
+      "id": "OUT-007",
+      "title": "Отзывы и форумы → боли, язык и идеи офферов",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-007/PROMPT.md",
+      "recipe": "prompts/OUT-007/recipe.json",
+      "manifest": "prompts/OUT-007/manifest.json"
+    },
+    {
+      "id": "OUT-008",
+      "title": "Рынок → карта конкурентов и возможностей",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-008/PROMPT.md",
+      "recipe": "prompts/OUT-008/recipe.json",
+      "manifest": "prompts/OUT-008/manifest.json"
+    },
+    {
+      "id": "OUT-009",
+      "title": "Сайты и PDF → нормализованная база",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-009/PROMPT.md",
+      "recipe": "prompts/OUT-009/recipe.json",
+      "manifest": "prompts/OUT-009/manifest.json"
+    },
+    {
+      "id": "OUT-010",
+      "title": "Изменения конкурентов → еженедельный дайджест",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-010/PROMPT.md",
+      "recipe": "prompts/OUT-010/recipe.json",
+      "manifest": "prompts/OUT-010/manifest.json"
+    },
+    {
+      "id": "OUT-011",
+      "title": "Продукт → позиционирование и оффер",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-011/PROMPT.md",
+      "recipe": "prompts/OUT-011/recipe.json",
+      "manifest": "prompts/OUT-011/manifest.json"
+    },
+    {
+      "id": "OUT-012",
+      "title": "Идея услуги → проверяемый план пилота",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-012/PROMPT.md",
+      "recipe": "prompts/OUT-012/recipe.json",
+      "manifest": "prompts/OUT-012/manifest.json"
+    },
+    {
+      "id": "OUT-013",
+      "title": "Маркетинг → план на квартал",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-013/PROMPT.md",
+      "recipe": "prompts/OUT-013/recipe.json",
+      "manifest": "prompts/OUT-013/manifest.json"
+    },
+    {
+      "id": "OUT-014",
+      "title": "Конкуренты → battlecards для продаж",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-014/PROMPT.md",
+      "recipe": "prompts/OUT-014/recipe.json",
+      "manifest": "prompts/OUT-014/manifest.json"
+    },
+    {
+      "id": "OUT-015",
+      "title": "Архив проектов → продаваемые кейсы",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-015/PROMPT.md",
+      "recipe": "prompts/OUT-015/recipe.json",
+      "manifest": "prompts/OUT-015/manifest.json"
+    },
+    {
+      "id": "OUT-016",
+      "title": "Запросы → семантика, интенты и карта страниц",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-016/PROMPT.md",
+      "recipe": "prompts/OUT-016/recipe.json",
+      "manifest": "prompts/OUT-016/manifest.json"
+    },
+    {
+      "id": "OUT-017",
+      "title": "Сайт → технический SEO-аудит и backlog",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-017/PROMPT.md",
+      "recipe": "prompts/OUT-017/recipe.json",
+      "manifest": "prompts/OUT-017/manifest.json"
+    },
+    {
+      "id": "OUT-018",
+      "title": "Старый контент → пакет обновлений",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-018/PROMPT.md",
+      "recipe": "prompts/OUT-018/recipe.json",
+      "manifest": "prompts/OUT-018/manifest.json"
+    },
+    {
+      "id": "OUT-019",
+      "title": "Локальный бизнес → план видимости в картах",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-019/PROMPT.md",
+      "recipe": "prompts/OUT-019/recipe.json",
+      "manifest": "prompts/OUT-019/manifest.json"
+    },
+    {
+      "id": "OUT-020",
+      "title": "Экспертный архив → тематический раздел сайта",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-020/PROMPT.md",
+      "recipe": "prompts/OUT-020/recipe.json",
+      "manifest": "prompts/OUT-020/manifest.json"
+    },
+    {
+      "id": "OUT-021",
+      "title": "Статья → текст, визуальный план и публикация",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-021/PROMPT.md",
+      "recipe": "prompts/OUT-021/recipe.json",
+      "manifest": "prompts/OUT-021/manifest.json"
+    },
+    {
+      "id": "OUT-022",
+      "title": "Лендинг → тексты, схема блоков и ТЗ дизайнеру",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-022/PROMPT.md",
+      "recipe": "prompts/OUT-022/recipe.json",
+      "manifest": "prompts/OUT-022/manifest.json"
+    },
+    {
+      "id": "OUT-023",
+      "title": "Вебинар → статья, письма и социальные посты",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-023/PROMPT.md",
+      "recipe": "prompts/OUT-023/recipe.json",
+      "manifest": "prompts/OUT-023/manifest.json"
+    },
+    {
+      "id": "OUT-024",
+      "title": "Экспертные материалы → лид-магнит",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-024/PROMPT.md",
+      "recipe": "prompts/OUT-024/recipe.json",
+      "manifest": "prompts/OUT-024/manifest.json"
+    },
+    {
+      "id": "OUT-025",
+      "title": "Контент → локализованный пакет для рынка",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-025/PROMPT.md",
+      "recipe": "prompts/OUT-025/recipe.json",
+      "manifest": "prompts/OUT-025/manifest.json"
+    },
+    {
+      "id": "OUT-026",
+      "title": "Оффер → Facebook-кампания с креативами",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-026/PROMPT.md",
+      "recipe": "prompts/OUT-026/recipe.json",
+      "manifest": "prompts/OUT-026/manifest.json"
+    },
+    {
+      "id": "OUT-027",
+      "title": "Семантика → поисковая рекламная кампания",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-027/PROMPT.md",
+      "recipe": "prompts/OUT-027/recipe.json",
+      "manifest": "prompts/OUT-027/manifest.json"
+    },
+    {
+      "id": "OUT-028",
+      "title": "Рекламный кабинет → аудит потерь бюджета",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-028/PROMPT.md",
+      "recipe": "prompts/OUT-028/recipe.json",
+      "manifest": "prompts/OUT-028/manifest.json"
+    },
+    {
+      "id": "OUT-029",
+      "title": "История объявлений → библиотека тестируемых гипотез",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-029/PROMPT.md",
+      "recipe": "prompts/OUT-029/recipe.json",
+      "manifest": "prompts/OUT-029/manifest.json"
+    },
+    {
+      "id": "OUT-030",
+      "title": "Кампания → единый отчёт для клиента",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-030/PROMPT.md",
+      "recipe": "prompts/OUT-030/recipe.json",
+      "manifest": "prompts/OUT-030/manifest.json"
+    },
+    {
+      "id": "OUT-031",
+      "title": "Бриф → сайт в production",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-031/PROMPT.md",
+      "recipe": "prompts/OUT-031/recipe.json",
+      "manifest": "prompts/OUT-031/manifest.json"
+    },
+    {
+      "id": "OUT-032",
+      "title": "Сайт → UX-аудит с исправлениями",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-032/PROMPT.md",
+      "recipe": "prompts/OUT-032/recipe.json",
+      "manifest": "prompts/OUT-032/manifest.json"
+    },
+    {
+      "id": "OUT-033",
+      "title": "Бренд → дизайн-система",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-033/PROMPT.md",
+      "recipe": "prompts/OUT-033/recipe.json",
+      "manifest": "prompts/OUT-033/manifest.json"
+    },
+    {
+      "id": "OUT-034",
+      "title": "Сложная услуга → калькулятор или квиз",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-034/PROMPT.md",
+      "recipe": "prompts/OUT-034/recipe.json",
+      "manifest": "prompts/OUT-034/manifest.json"
+    },
+    {
+      "id": "OUT-035",
+      "title": "Бумажный прайс → цифровой каталог",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-035/PROMPT.md",
+      "recipe": "prompts/OUT-035/recipe.json",
+      "manifest": "prompts/OUT-035/manifest.json"
+    },
+    {
+      "id": "OUT-036",
+      "title": "Аудитория → контент-план и готовые посты",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-036/PROMPT.md",
+      "recipe": "prompts/OUT-036/recipe.json",
+      "manifest": "prompts/OUT-036/manifest.json"
+    },
+    {
+      "id": "OUT-037",
+      "title": "Длинное видео → готовые Reels",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-037/PROMPT.md",
+      "recipe": "prompts/OUT-037/recipe.json",
+      "manifest": "prompts/OUT-037/manifest.json"
+    },
+    {
+      "id": "OUT-038",
+      "title": "Подкаст → главы, show notes и промоматериалы",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-038/PROMPT.md",
+      "recipe": "prompts/OUT-038/recipe.json",
+      "manifest": "prompts/OUT-038/manifest.json"
+    },
+    {
+      "id": "OUT-039",
+      "title": "Комментарии → очередь ответов и темы контента",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-039/PROMPT.md",
+      "recipe": "prompts/OUT-039/recipe.json",
+      "manifest": "prompts/OUT-039/manifest.json"
+    },
+    {
+      "id": "OUT-040",
+      "title": "Ниша → список авторов для партнёрств",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-040/PROMPT.md",
+      "recipe": "prompts/OUT-040/recipe.json",
+      "manifest": "prompts/OUT-040/manifest.json"
+    },
+    {
+      "id": "OUT-041",
+      "title": "Входящие заявки → квалифицированная очередь",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-041/PROMPT.md",
+      "recipe": "prompts/OUT-041/recipe.json",
+      "manifest": "prompts/OUT-041/manifest.json"
+    },
+    {
+      "id": "OUT-042",
+      "title": "Список компаний → проверенные карточки для продаж",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-042/PROMPT.md",
+      "recipe": "prompts/OUT-042/recipe.json",
+      "manifest": "prompts/OUT-042/manifest.json"
+    },
+    {
+      "id": "OUT-043",
+      "title": "Потенциальный клиент → персональное предложение",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-043/PROMPT.md",
+      "recipe": "prompts/OUT-043/recipe.json",
+      "manifest": "prompts/OUT-043/manifest.json"
+    },
+    {
+      "id": "OUT-044",
+      "title": "CRM → база без дублей и потерянных контактов",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-044/PROMPT.md",
+      "recipe": "prompts/OUT-044/recipe.json",
+      "manifest": "prompts/OUT-044/manifest.json"
+    },
+    {
+      "id": "OUT-045",
+      "title": "Затихшие сделки → план возврата в диалог",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-045/PROMPT.md",
+      "recipe": "prompts/OUT-045/recipe.json",
+      "manifest": "prompts/OUT-045/manifest.json"
+    },
+    {
+      "id": "OUT-046",
+      "title": "База знаний → помощник с передачей человеку",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-046/PROMPT.md",
+      "recipe": "prompts/OUT-046/recipe.json",
+      "manifest": "prompts/OUT-046/manifest.json"
+    },
+    {
+      "id": "OUT-047",
+      "title": "Обращения → FAQ и улучшения продукта",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-047/PROMPT.md",
+      "recipe": "prompts/OUT-047/recipe.json",
+      "manifest": "prompts/OUT-047/manifest.json"
+    },
+    {
+      "id": "OUT-048",
+      "title": "Новый клиент → пакет onboarding",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-048/PROMPT.md",
+      "recipe": "prompts/OUT-048/recipe.json",
+      "manifest": "prompts/OUT-048/manifest.json"
+    },
+    {
+      "id": "OUT-049",
+      "title": "Негативные отзывы → план ответа и исправления",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-049/PROMPT.md",
+      "recipe": "prompts/OUT-049/recipe.json",
+      "manifest": "prompts/OUT-049/manifest.json"
+    },
+    {
+      "id": "OUT-050",
+      "title": "Использование продукта → список рисков ухода",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-050/PROMPT.md",
+      "recipe": "prompts/OUT-050/recipe.json",
+      "manifest": "prompts/OUT-050/manifest.json"
+    },
+    {
+      "id": "OUT-051",
+      "title": "Счета → реестр расхождений с заказами",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-051/PROMPT.md",
+      "recipe": "prompts/OUT-051/recipe.json",
+      "manifest": "prompts/OUT-051/manifest.json"
+    },
+    {
+      "id": "OUT-052",
+      "title": "Входящие документы → заполненные шаблоны",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-052/PROMPT.md",
+      "recipe": "prompts/OUT-052/recipe.json",
+      "manifest": "prompts/OUT-052/manifest.json"
+    },
+    {
+      "id": "OUT-053",
+      "title": "Почтовый ящик → приоритеты, задачи и черновики",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-053/PROMPT.md",
+      "recipe": "prompts/OUT-053/recipe.json",
+      "manifest": "prompts/OUT-053/manifest.json"
+    },
+    {
+      "id": "OUT-054",
+      "title": "Поставщики → сравнительная таблица предложений",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-054/PROMPT.md",
+      "recipe": "prompts/OUT-054/recipe.json",
+      "manifest": "prompts/OUT-054/manifest.json"
+    },
+    {
+      "id": "OUT-055",
+      "title": "Проект → статус-отчёт и список блокеров",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-055/PROMPT.md",
+      "recipe": "prompts/OUT-055/recipe.json",
+      "manifest": "prompts/OUT-055/manifest.json"
+    },
+    {
+      "id": "OUT-056",
+      "title": "Вакансия → описание и рубрика интервью",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-056/PROMPT.md",
+      "recipe": "prompts/OUT-056/recipe.json",
+      "manifest": "prompts/OUT-056/manifest.json"
+    },
+    {
+      "id": "OUT-057",
+      "title": "Архив документов → доступная база знаний",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-057/PROMPT.md",
+      "recipe": "prompts/OUT-057/recipe.json",
+      "manifest": "prompts/OUT-057/manifest.json"
+    },
+    {
+      "id": "OUT-058",
+      "title": "Регламент → обучение новых сотрудников",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-058/PROMPT.md",
+      "recipe": "prompts/OUT-058/recipe.json",
+      "manifest": "prompts/OUT-058/manifest.json"
+    },
+    {
+      "id": "OUT-059",
+      "title": "Рабочая неделя → пакет решений руководителя",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-059/PROMPT.md",
+      "recipe": "prompts/OUT-059/recipe.json",
+      "manifest": "prompts/OUT-059/manifest.json"
+    },
+    {
+      "id": "OUT-060",
+      "title": "Идеи команды → приоритетный backlog",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-060/PROMPT.md",
+      "recipe": "prompts/OUT-060/recipe.json",
+      "manifest": "prompts/OUT-060/manifest.json"
+    },
+    {
+      "id": "OUT-061",
+      "title": "Ручная операция → скрипт с проверкой",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-061/PROMPT.md",
+      "recipe": "prompts/OUT-061/recipe.json",
+      "manifest": "prompts/OUT-061/manifest.json"
+    },
+    {
+      "id": "OUT-062",
+      "title": "Разрозненные сервисы → синхронизация данных",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-062/PROMPT.md",
+      "recipe": "prompts/OUT-062/recipe.json",
+      "manifest": "prompts/OUT-062/manifest.json"
+    },
+    {
+      "id": "OUT-063",
+      "title": "Бизнес-процесс → внутренний мини-инструмент",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-063/PROMPT.md",
+      "recipe": "prompts/OUT-063/recipe.json",
+      "manifest": "prompts/OUT-063/manifest.json"
+    },
+    {
+      "id": "OUT-064",
+      "title": "Сайт → контроль форм и ошибок",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-064/PROMPT.md",
+      "recipe": "prompts/OUT-064/recipe.json",
+      "manifest": "prompts/OUT-064/manifest.json"
+    },
+    {
+      "id": "OUT-065",
+      "title": "Старые таблицы → миграционный пакет",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-065/PROMPT.md",
+      "recipe": "prompts/OUT-065/recipe.json",
+      "manifest": "prompts/OUT-065/manifest.json"
+    },
+    {
+      "id": "OUT-066",
+      "title": "Бизнес без сайта → демо и предложение о покупке",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-066/PROMPT.md",
+      "recipe": "prompts/OUT-066/recipe.json",
+      "manifest": "prompts/OUT-066/manifest.json"
+    },
+    {
+      "id": "OUT-067",
+      "title": "Неисправный сайт → доказательный аудит и предложение ремонта",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-067/PROMPT.md",
+      "recipe": "prompts/OUT-067/recipe.json",
+      "manifest": "prompts/OUT-067/manifest.json"
+    },
+    {
+      "id": "OUT-068",
+      "title": "Отзывы → предложение улучшить конкретный процесс",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-068/PROMPT.md",
+      "recipe": "prompts/OUT-068/recipe.json",
+      "manifest": "prompts/OUT-068/manifest.json"
+    },
+    {
+      "id": "OUT-069",
+      "title": "Документная рутина ниши → пакетная услуга",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-069/PROMPT.md",
+      "recipe": "prompts/OUT-069/recipe.json",
+      "manifest": "prompts/OUT-069/manifest.json"
+    },
+    {
+      "id": "OUT-070",
+      "title": "Экспертный архив → подписной отраслевой дайджест",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-070/PROMPT.md",
+      "recipe": "prompts/OUT-070/recipe.json",
+      "manifest": "prompts/OUT-070/manifest.json"
+    },
+    {
+      "id": "OUT-071",
+      "title": "Ниша → мониторинг тендеров и событий спроса",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-071/PROMPT.md",
+      "recipe": "prompts/OUT-071/recipe.json",
+      "manifest": "prompts/OUT-071/manifest.json"
+    },
+    {
+      "id": "OUT-072",
+      "title": "Каталог поставщика → мультиязычный пакет продаж",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-072/PROMPT.md",
+      "recipe": "prompts/OUT-072/recipe.json",
+      "manifest": "prompts/OUT-072/manifest.json"
+    },
+    {
+      "id": "OUT-073",
+      "title": "Партнёрские агентства → white-label пакет услуг",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-073/PROMPT.md",
+      "recipe": "prompts/OUT-073/recipe.json",
+      "manifest": "prompts/OUT-073/manifest.json"
+    },
+    {
+      "id": "OUT-074",
+      "title": "Повторяющаяся проблема → шаблон или мини-продукт",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-074/PROMPT.md",
+      "recipe": "prompts/OUT-074/recipe.json",
+      "manifest": "prompts/OUT-074/manifest.json"
+    },
+    {
+      "id": "OUT-075",
+      "title": "Опубликованный контент → предложения обновления ссылок и фактов",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-075/PROMPT.md",
+      "recipe": "prompts/OUT-075/recipe.json",
+      "manifest": "prompts/OUT-075/manifest.json"
+    },
+    {
+      "id": "OUT-076",
+      "title": "Источники данных → дашборд руководителя",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-076/PROMPT.md",
+      "recipe": "prompts/OUT-076/recipe.json",
+      "manifest": "prompts/OUT-076/manifest.json"
+    },
+    {
+      "id": "OUT-077",
+      "title": "Воронка продаж → список потерь и экспериментов",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-077/PROMPT.md",
+      "recipe": "prompts/OUT-077/recipe.json",
+      "manifest": "prompts/OUT-077/manifest.json"
+    },
+    {
+      "id": "OUT-078",
+      "title": "Клиентские проекты → отчёт по трудозатратам",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-078/PROMPT.md",
+      "recipe": "prompts/OUT-078/recipe.json",
+      "manifest": "prompts/OUT-078/manifest.json"
+    },
+    {
+      "id": "OUT-079",
+      "title": "Кампания → план A/B-теста и разбор результата",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-079/PROMPT.md",
+      "recipe": "prompts/OUT-079/recipe.json",
+      "manifest": "prompts/OUT-079/manifest.json"
+    },
+    {
+      "id": "OUT-080",
+      "title": "Операция бизнеса → оценка пригодности для автоматизации",
+      "kind": "outcome",
+      "aliases": [],
+      "prompt": "prompts/OUT-080/PROMPT.md",
+      "recipe": "prompts/OUT-080/recipe.json",
+      "manifest": "prompts/OUT-080/manifest.json"
+    },
+    {
+      "id": "BRIEF-01",
+      "title": "Разобрать входящий запрос и определить услугу",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/BRIEF-01/PROMPT.md",
+      "recipe": "prompts/BRIEF-01/recipe.json",
+      "manifest": "prompts/BRIEF-01/manifest.json"
+    },
+    {
+      "id": "BRIEF-02",
+      "title": "Бриф и список вопросов клиенту",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/BRIEF-02/PROMPT.md",
+      "recipe": "prompts/BRIEF-02/recipe.json",
+      "manifest": "prompts/BRIEF-02/manifest.json"
+    },
+    {
+      "id": "BRIEF-03",
+      "title": "Созвон → решения и задачи",
+      "kind": "operation",
+      "aliases": [
+        "Созвон → решения и задачи",
+        "Итоги созвона"
+      ],
+      "prompt": "prompts/BRIEF-03/PROMPT.md",
+      "recipe": "prompts/BRIEF-03/recipe.json",
+      "manifest": "prompts/BRIEF-03/manifest.json"
+    },
+    {
+      "id": "BRIEF-04",
+      "title": "Декомпозиция проекта и зависимости",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/BRIEF-04/PROMPT.md",
+      "recipe": "prompts/BRIEF-04/recipe.json",
+      "manifest": "prompts/BRIEF-04/manifest.json"
+    },
+    {
+      "id": "BRIEF-05",
+      "title": "Оценка объёма и коммерческое предложение",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/BRIEF-05/PROMPT.md",
+      "recipe": "prompts/BRIEF-05/recipe.json",
+      "manifest": "prompts/BRIEF-05/manifest.json"
+    },
+    {
+      "id": "BRIEF-06",
+      "title": "Изменения требований и влияние на сроки",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/BRIEF-06/PROMPT.md",
+      "recipe": "prompts/BRIEF-06/recipe.json",
+      "manifest": "prompts/BRIEF-06/manifest.json"
+    },
+    {
+      "id": "BRIEF-07",
+      "title": "Еженедельный статус клиенту",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/BRIEF-07/PROMPT.md",
+      "recipe": "prompts/BRIEF-07/recipe.json",
+      "manifest": "prompts/BRIEF-07/manifest.json"
+    },
+    {
+      "id": "BRIEF-08",
+      "title": "Передача проекта и инструкция клиенту",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/BRIEF-08/PROMPT.md",
+      "recipe": "prompts/BRIEF-08/recipe.json",
+      "manifest": "prompts/BRIEF-08/manifest.json"
+    },
+    {
+      "id": "RESEARCH-01",
+      "title": "Дипресерч рынка или темы",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/RESEARCH-01/PROMPT.md",
+      "recipe": "prompts/RESEARCH-01/recipe.json",
+      "manifest": "prompts/RESEARCH-01/manifest.json"
+    },
+    {
+      "id": "RESEARCH-02",
+      "title": "Конкуренты, офферы и посадочные",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/RESEARCH-02/PROMPT.md",
+      "recipe": "prompts/RESEARCH-02/recipe.json",
+      "manifest": "prompts/RESEARCH-02/manifest.json"
+    },
+    {
+      "id": "RESEARCH-03",
+      "title": "Отзывы, комментарии и интервью",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/RESEARCH-03/PROMPT.md",
+      "recipe": "prompts/RESEARCH-03/recipe.json",
+      "manifest": "prompts/RESEARCH-03/manifest.json"
+    },
+    {
+      "id": "RESEARCH-04",
+      "title": "Анализ большого текстового корпуса",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/RESEARCH-04/PROMPT.md",
+      "recipe": "prompts/RESEARCH-04/recipe.json",
+      "manifest": "prompts/RESEARCH-04/manifest.json"
+    },
+    {
+      "id": "RESEARCH-05",
+      "title": "JTBD и сегменты аудитории",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/RESEARCH-05/PROMPT.md",
+      "recipe": "prompts/RESEARCH-05/recipe.json",
+      "manifest": "prompts/RESEARCH-05/manifest.json"
+    },
+    {
+      "id": "RESEARCH-06",
+      "title": "План опроса или пользовательского интервью",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/RESEARCH-06/PROMPT.md",
+      "recipe": "prompts/RESEARCH-06/recipe.json",
+      "manifest": "prompts/RESEARCH-06/manifest.json"
+    },
+    {
+      "id": "RESEARCH-07",
+      "title": "Фактчекинг и поиск контрсвидетельств",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/RESEARCH-07/PROMPT.md",
+      "recipe": "prompts/RESEARCH-07/recipe.json",
+      "manifest": "prompts/RESEARCH-07/manifest.json"
+    },
+    {
+      "id": "RESEARCH-08",
+      "title": "Мониторинг рынка и изменений конкурентов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/RESEARCH-08/PROMPT.md",
+      "recipe": "prompts/RESEARCH-08/recipe.json",
+      "manifest": "prompts/RESEARCH-08/manifest.json"
+    },
+    {
+      "id": "STRATEGY-01",
+      "title": "Позиционирование и УТП",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/STRATEGY-01/PROMPT.md",
+      "recipe": "prompts/STRATEGY-01/recipe.json",
+      "manifest": "prompts/STRATEGY-01/manifest.json"
+    },
+    {
+      "id": "STRATEGY-02",
+      "title": "Оффер и сообщения по сегментам",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/STRATEGY-02/PROMPT.md",
+      "recipe": "prompts/STRATEGY-02/recipe.json",
+      "manifest": "prompts/STRATEGY-02/manifest.json"
+    },
+    {
+      "id": "STRATEGY-03",
+      "title": "Воронка и путь клиента",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/STRATEGY-03/PROMPT.md",
+      "recipe": "prompts/STRATEGY-03/recipe.json",
+      "manifest": "prompts/STRATEGY-03/manifest.json"
+    },
+    {
+      "id": "STRATEGY-04",
+      "title": "Маркетинговый план и выбор каналов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/STRATEGY-04/PROMPT.md",
+      "recipe": "prompts/STRATEGY-04/recipe.json",
+      "manifest": "prompts/STRATEGY-04/manifest.json"
+    },
+    {
+      "id": "STRATEGY-05",
+      "title": "Запуск продукта или услуги",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/STRATEGY-05/PROMPT.md",
+      "recipe": "prompts/STRATEGY-05/recipe.json",
+      "manifest": "prompts/STRATEGY-05/manifest.json"
+    },
+    {
+      "id": "STRATEGY-06",
+      "title": "Исследование цены и пакетов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/STRATEGY-06/PROMPT.md",
+      "recipe": "prompts/STRATEGY-06/recipe.json",
+      "manifest": "prompts/STRATEGY-06/manifest.json"
+    },
+    {
+      "id": "STRATEGY-07",
+      "title": "План экспериментов ICE/RICE",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/STRATEGY-07/PROMPT.md",
+      "recipe": "prompts/STRATEGY-07/recipe.json",
+      "manifest": "prompts/STRATEGY-07/manifest.json"
+    },
+    {
+      "id": "STRATEGY-08",
+      "title": "Стратегическая сессия и проверка предположений",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/STRATEGY-08/PROMPT.md",
+      "recipe": "prompts/STRATEGY-08/recipe.json",
+      "manifest": "prompts/STRATEGY-08/manifest.json"
+    },
+    {
+      "id": "SEO-01",
+      "title": "Сбор семантики и интентов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SEO-01/PROMPT.md",
+      "recipe": "prompts/SEO-01/recipe.json",
+      "manifest": "prompts/SEO-01/manifest.json"
+    },
+    {
+      "id": "SEO-02",
+      "title": "Кластеризация и карта страниц",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SEO-02/PROMPT.md",
+      "recipe": "prompts/SEO-02/recipe.json",
+      "manifest": "prompts/SEO-02/manifest.json"
+    },
+    {
+      "id": "SEO-03",
+      "title": "Технический SEO-аудит",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SEO-03/PROMPT.md",
+      "recipe": "prompts/SEO-03/recipe.json",
+      "manifest": "prompts/SEO-03/manifest.json"
+    },
+    {
+      "id": "SEO-04",
+      "title": "Контент-бриф и внутренняя перелинковка",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SEO-04/PROMPT.md",
+      "recipe": "prompts/SEO-04/recipe.json",
+      "manifest": "prompts/SEO-04/manifest.json"
+    },
+    {
+      "id": "SEO-05",
+      "title": "Title, description и массовые метаданные",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SEO-05/PROMPT.md",
+      "recipe": "prompts/SEO-05/recipe.json",
+      "manifest": "prompts/SEO-05/manifest.json"
+    },
+    {
+      "id": "SEO-06",
+      "title": "Миграция, canonical, redirects, sitemap, schema",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SEO-06/PROMPT.md",
+      "recipe": "prompts/SEO-06/recipe.json",
+      "manifest": "prompts/SEO-06/manifest.json"
+    },
+    {
+      "id": "SEO-07",
+      "title": "Локальное SEO и карточки организаций",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SEO-07/PROMPT.md",
+      "recipe": "prompts/SEO-07/recipe.json",
+      "manifest": "prompts/SEO-07/manifest.json"
+    },
+    {
+      "id": "SEO-08",
+      "title": "Диагностика трафика и AI-видимости",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SEO-08/PROMPT.md",
+      "recipe": "prompts/SEO-08/recipe.json",
+      "manifest": "prompts/SEO-08/manifest.json"
+    },
+    {
+      "id": "CONTENT-01",
+      "title": "Текст лендинга или страницы услуги",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CONTENT-01/PROMPT.md",
+      "recipe": "prompts/CONTENT-01/recipe.json",
+      "manifest": "prompts/CONTENT-01/manifest.json"
+    },
+    {
+      "id": "CONTENT-02",
+      "title": "Статья, руководство или экспертный материал",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CONTENT-02/PROMPT.md",
+      "recipe": "prompts/CONTENT-02/recipe.json",
+      "manifest": "prompts/CONTENT-02/manifest.json"
+    },
+    {
+      "id": "CONTENT-03",
+      "title": "Редактура и голос бренда",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CONTENT-03/PROMPT.md",
+      "recipe": "prompts/CONTENT-03/recipe.json",
+      "manifest": "prompts/CONTENT-03/manifest.json"
+    },
+    {
+      "id": "CONTENT-04",
+      "title": "Контент-план и рубрикатор",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CONTENT-04/PROMPT.md",
+      "recipe": "prompts/CONTENT-04/recipe.json",
+      "manifest": "prompts/CONTENT-04/manifest.json"
+    },
+    {
+      "id": "CONTENT-05",
+      "title": "Кейс, white paper или лид-магнит",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CONTENT-05/PROMPT.md",
+      "recipe": "prompts/CONTENT-05/recipe.json",
+      "manifest": "prompts/CONTENT-05/manifest.json"
+    },
+    {
+      "id": "CONTENT-06",
+      "title": "UX-тексты и сообщения интерфейса",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CONTENT-06/PROMPT.md",
+      "recipe": "prompts/CONTENT-06/recipe.json",
+      "manifest": "prompts/CONTENT-06/manifest.json"
+    },
+    {
+      "id": "CONTENT-07",
+      "title": "Локализация и адаптация под рынок",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CONTENT-07/PROMPT.md",
+      "recipe": "prompts/CONTENT-07/recipe.json",
+      "manifest": "prompts/CONTENT-07/manifest.json"
+    },
+    {
+      "id": "CONTENT-08",
+      "title": "Обновление старого контента",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CONTENT-08/PROMPT.md",
+      "recipe": "prompts/CONTENT-08/recipe.json",
+      "manifest": "prompts/CONTENT-08/manifest.json"
+    },
+    {
+      "id": "ADS-01",
+      "title": "Аудит рекламного кабинета",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ADS-01/PROMPT.md",
+      "recipe": "prompts/ADS-01/recipe.json",
+      "manifest": "prompts/ADS-01/manifest.json"
+    },
+    {
+      "id": "ADS-02",
+      "title": "Поисковые запросы и минус-слова",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ADS-02/PROMPT.md",
+      "recipe": "prompts/ADS-02/recipe.json",
+      "manifest": "prompts/ADS-02/manifest.json"
+    },
+    {
+      "id": "ADS-03",
+      "title": "Структура кампаний и групп",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ADS-03/PROMPT.md",
+      "recipe": "prompts/ADS-03/recipe.json",
+      "manifest": "prompts/ADS-03/manifest.json"
+    },
+    {
+      "id": "ADS-04",
+      "title": "Объявления и матрица креативов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ADS-04/PROMPT.md",
+      "recipe": "prompts/ADS-04/recipe.json",
+      "manifest": "prompts/ADS-04/manifest.json"
+    },
+    {
+      "id": "ADS-05",
+      "title": "Бюджет, pacing и аномалии",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ADS-05/PROMPT.md",
+      "recipe": "prompts/ADS-05/recipe.json",
+      "manifest": "prompts/ADS-05/manifest.json"
+    },
+    {
+      "id": "ADS-06",
+      "title": "Товарный фид и рекламный каталог",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ADS-06/PROMPT.md",
+      "recipe": "prompts/ADS-06/recipe.json",
+      "manifest": "prompts/ADS-06/manifest.json"
+    },
+    {
+      "id": "ADS-07",
+      "title": "Подготовка и запуск кампании",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ADS-07/PROMPT.md",
+      "recipe": "prompts/ADS-07/recipe.json",
+      "manifest": "prompts/ADS-07/manifest.json"
+    },
+    {
+      "id": "ADS-08",
+      "title": "Разбор креативов и план следующего теста",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ADS-08/PROMPT.md",
+      "recipe": "prompts/ADS-08/recipe.json",
+      "manifest": "prompts/ADS-08/manifest.json"
+    },
+    {
+      "id": "DESIGN-01",
+      "title": "Дизайн-бриф и направление",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/DESIGN-01/PROMPT.md",
+      "recipe": "prompts/DESIGN-01/recipe.json",
+      "manifest": "prompts/DESIGN-01/manifest.json"
+    },
+    {
+      "id": "DESIGN-02",
+      "title": "Информационная архитектура и wireframe",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/DESIGN-02/PROMPT.md",
+      "recipe": "prompts/DESIGN-02/recipe.json",
+      "manifest": "prompts/DESIGN-02/manifest.json"
+    },
+    {
+      "id": "DESIGN-03",
+      "title": "UI-макет и дизайн-система",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/DESIGN-03/PROMPT.md",
+      "recipe": "prompts/DESIGN-03/recipe.json",
+      "manifest": "prompts/DESIGN-03/manifest.json"
+    },
+    {
+      "id": "DESIGN-04",
+      "title": "Баннеры и адаптация размеров",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/DESIGN-04/PROMPT.md",
+      "recipe": "prompts/DESIGN-04/recipe.json",
+      "manifest": "prompts/DESIGN-04/manifest.json"
+    },
+    {
+      "id": "DESIGN-05",
+      "title": "Генерация и редактирование изображений",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/DESIGN-05/PROMPT.md",
+      "recipe": "prompts/DESIGN-05/recipe.json",
+      "manifest": "prompts/DESIGN-05/manifest.json"
+    },
+    {
+      "id": "DESIGN-06",
+      "title": "Презентация и коммерческий дизайн",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/DESIGN-06/PROMPT.md",
+      "recipe": "prompts/DESIGN-06/recipe.json",
+      "manifest": "prompts/DESIGN-06/manifest.json"
+    },
+    {
+      "id": "DESIGN-07",
+      "title": "Визуальный аудит и доступность",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/DESIGN-07/PROMPT.md",
+      "recipe": "prompts/DESIGN-07/recipe.json",
+      "manifest": "prompts/DESIGN-07/manifest.json"
+    },
+    {
+      "id": "DESIGN-08",
+      "title": "Передача в разработку или печать",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/DESIGN-08/PROMPT.md",
+      "recipe": "prompts/DESIGN-08/recipe.json",
+      "manifest": "prompts/DESIGN-08/manifest.json"
+    },
+    {
+      "id": "WEB-01",
+      "title": "Лендинг по готовому брифу",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/WEB-01/PROMPT.md",
+      "recipe": "prompts/WEB-01/recipe.json",
+      "manifest": "prompts/WEB-01/manifest.json"
+    },
+    {
+      "id": "WEB-02",
+      "title": "Корпоративный сайт и шаблоны страниц",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/WEB-02/PROMPT.md",
+      "recipe": "prompts/WEB-02/recipe.json",
+      "manifest": "prompts/WEB-02/manifest.json"
+    },
+    {
+      "id": "WEB-03",
+      "title": "CMS, WordPress и контентные модели",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/WEB-03/PROMPT.md",
+      "recipe": "prompts/WEB-03/recipe.json",
+      "manifest": "prompts/WEB-03/manifest.json"
+    },
+    {
+      "id": "WEB-04",
+      "title": "Формы, CRM, оплата и бронирование",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/WEB-04/PROMPT.md",
+      "recipe": "prompts/WEB-04/recipe.json",
+      "manifest": "prompts/WEB-04/manifest.json"
+    },
+    {
+      "id": "WEB-05",
+      "title": "Магазин, фильтры, поиск, корзина",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/WEB-05/PROMPT.md",
+      "recipe": "prompts/WEB-05/recipe.json",
+      "manifest": "prompts/WEB-05/manifest.json"
+    },
+    {
+      "id": "WEB-06",
+      "title": "Производительность и Core Web Vitals",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/WEB-06/PROMPT.md",
+      "recipe": "prompts/WEB-06/recipe.json",
+      "manifest": "prompts/WEB-06/manifest.json"
+    },
+    {
+      "id": "WEB-07",
+      "title": "Мультиязычность и перенос сайта",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/WEB-07/PROMPT.md",
+      "recipe": "prompts/WEB-07/recipe.json",
+      "manifest": "prompts/WEB-07/manifest.json"
+    },
+    {
+      "id": "WEB-08",
+      "title": "Публикация и поддержка сайта",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/WEB-08/PROMPT.md",
+      "recipe": "prompts/WEB-08/recipe.json",
+      "manifest": "prompts/WEB-08/manifest.json"
+    },
+    {
+      "id": "SOFTWARE-01",
+      "title": "Скрипт обработки файлов или отчётов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOFTWARE-01/PROMPT.md",
+      "recipe": "prompts/SOFTWARE-01/recipe.json",
+      "manifest": "prompts/SOFTWARE-01/manifest.json"
+    },
+    {
+      "id": "SOFTWARE-02",
+      "title": "API-интеграция и webhook",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOFTWARE-02/PROMPT.md",
+      "recipe": "prompts/SOFTWARE-02/recipe.json",
+      "manifest": "prompts/SOFTWARE-02/manifest.json"
+    },
+    {
+      "id": "SOFTWARE-03",
+      "title": "Telegram-бот или внутренний помощник",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOFTWARE-03/PROMPT.md",
+      "recipe": "prompts/SOFTWARE-03/recipe.json",
+      "manifest": "prompts/SOFTWARE-03/manifest.json"
+    },
+    {
+      "id": "SOFTWARE-04",
+      "title": "Багфикс и регрессия",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOFTWARE-04/PROMPT.md",
+      "recipe": "prompts/SOFTWARE-04/recipe.json",
+      "manifest": "prompts/SOFTWARE-04/manifest.json"
+    },
+    {
+      "id": "SOFTWARE-05",
+      "title": "Архитектура и сложный рефакторинг",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOFTWARE-05/PROMPT.md",
+      "recipe": "prompts/SOFTWARE-05/recipe.json",
+      "manifest": "prompts/SOFTWARE-05/manifest.json"
+    },
+    {
+      "id": "SOFTWARE-06",
+      "title": "Сложная ошибка, гонки, потеря данных",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOFTWARE-06/PROMPT.md",
+      "recipe": "prompts/SOFTWARE-06/recipe.json",
+      "manifest": "prompts/SOFTWARE-06/manifest.json"
+    },
+    {
+      "id": "SOFTWARE-07",
+      "title": "Парсер и загрузчик данных",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOFTWARE-07/PROMPT.md",
+      "recipe": "prompts/SOFTWARE-07/recipe.json",
+      "manifest": "prompts/SOFTWARE-07/manifest.json"
+    },
+    {
+      "id": "SOFTWARE-08",
+      "title": "Внутренний инструмент или AI-помощник",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOFTWARE-08/PROMPT.md",
+      "recipe": "prompts/SOFTWARE-08/recipe.json",
+      "manifest": "prompts/SOFTWARE-08/manifest.json"
+    },
+    {
+      "id": "ANALYTICS-01",
+      "title": "План событий и измерения конверсий",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ANALYTICS-01/PROMPT.md",
+      "recipe": "prompts/ANALYTICS-01/recipe.json",
+      "manifest": "prompts/ANALYTICS-01/manifest.json"
+    },
+    {
+      "id": "ANALYTICS-02",
+      "title": "Дашборд и отчёт клиенту",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ANALYTICS-02/PROMPT.md",
+      "recipe": "prompts/ANALYTICS-02/recipe.json",
+      "manifest": "prompts/ANALYTICS-02/manifest.json"
+    },
+    {
+      "id": "ANALYTICS-03",
+      "title": "Анализ воронки и качества лидов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ANALYTICS-03/PROMPT.md",
+      "recipe": "prompts/ANALYTICS-03/recipe.json",
+      "manifest": "prompts/ANALYTICS-03/manifest.json"
+    },
+    {
+      "id": "ANALYTICS-04",
+      "title": "Аудит посадочной и гипотезы CRO",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ANALYTICS-04/PROMPT.md",
+      "recipe": "prompts/ANALYTICS-04/recipe.json",
+      "manifest": "prompts/ANALYTICS-04/manifest.json"
+    },
+    {
+      "id": "ANALYTICS-05",
+      "title": "A/B-тест и интерпретация результата",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ANALYTICS-05/PROMPT.md",
+      "recipe": "prompts/ANALYTICS-05/recipe.json",
+      "manifest": "prompts/ANALYTICS-05/manifest.json"
+    },
+    {
+      "id": "ANALYTICS-06",
+      "title": "Атрибуция, экономика и бюджетные сценарии",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ANALYTICS-06/PROMPT.md",
+      "recipe": "prompts/ANALYTICS-06/recipe.json",
+      "manifest": "prompts/ANALYTICS-06/manifest.json"
+    },
+    {
+      "id": "ANALYTICS-07",
+      "title": "Аномалии, просадки и диагностика трекинга",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ANALYTICS-07/PROMPT.md",
+      "recipe": "prompts/ANALYTICS-07/recipe.json",
+      "manifest": "prompts/ANALYTICS-07/manifest.json"
+    },
+    {
+      "id": "ANALYTICS-08",
+      "title": "Когорты, удержание и LTV",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/ANALYTICS-08/PROMPT.md",
+      "recipe": "prompts/ANALYTICS-08/recipe.json",
+      "manifest": "prompts/ANALYTICS-08/manifest.json"
+    },
+    {
+      "id": "SOCIAL-01",
+      "title": "Социальное слушание и обсуждения",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOCIAL-01/PROMPT.md",
+      "recipe": "prompts/SOCIAL-01/recipe.json",
+      "manifest": "prompts/SOCIAL-01/manifest.json"
+    },
+    {
+      "id": "SOCIAL-02",
+      "title": "Контент-календарь соцсетей",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOCIAL-02/PROMPT.md",
+      "recipe": "prompts/SOCIAL-02/recipe.json",
+      "manifest": "prompts/SOCIAL-02/manifest.json"
+    },
+    {
+      "id": "SOCIAL-03",
+      "title": "Посты, карусели и адаптация каналов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOCIAL-03/PROMPT.md",
+      "recipe": "prompts/SOCIAL-03/recipe.json",
+      "manifest": "prompts/SOCIAL-03/manifest.json"
+    },
+    {
+      "id": "SOCIAL-04",
+      "title": "Переработка статьи/видео в несколько форматов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOCIAL-04/PROMPT.md",
+      "recipe": "prompts/SOCIAL-04/recipe.json",
+      "manifest": "prompts/SOCIAL-04/manifest.json"
+    },
+    {
+      "id": "SOCIAL-05",
+      "title": "Ответы на комментарии и модерация",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOCIAL-05/PROMPT.md",
+      "recipe": "prompts/SOCIAL-05/recipe.json",
+      "manifest": "prompts/SOCIAL-05/manifest.json"
+    },
+    {
+      "id": "SOCIAL-06",
+      "title": "Планирование и публикация",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOCIAL-06/PROMPT.md",
+      "recipe": "prompts/SOCIAL-06/recipe.json",
+      "manifest": "prompts/SOCIAL-06/manifest.json"
+    },
+    {
+      "id": "SOCIAL-07",
+      "title": "Инфлюенсеры и партнёрские интеграции",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOCIAL-07/PROMPT.md",
+      "recipe": "prompts/SOCIAL-07/recipe.json",
+      "manifest": "prompts/SOCIAL-07/manifest.json"
+    },
+    {
+      "id": "SOCIAL-08",
+      "title": "Репутационный инцидент и разбор реакции",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/SOCIAL-08/PROMPT.md",
+      "recipe": "prompts/SOCIAL-08/recipe.json",
+      "manifest": "prompts/SOCIAL-08/manifest.json"
+    },
+    {
+      "id": "VIDEO-01",
+      "title": "Транскрибация и разметка спикеров",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/VIDEO-01/PROMPT.md",
+      "recipe": "prompts/VIDEO-01/recipe.json",
+      "manifest": "prompts/VIDEO-01/manifest.json"
+    },
+    {
+      "id": "VIDEO-02",
+      "title": "Отбор фрагментов для Reels/Shorts",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/VIDEO-02/PROMPT.md",
+      "recipe": "prompts/VIDEO-02/recipe.json",
+      "manifest": "prompts/VIDEO-02/manifest.json"
+    },
+    {
+      "id": "VIDEO-03",
+      "title": "Сценарий ролика и раскадровка",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/VIDEO-03/PROMPT.md",
+      "recipe": "prompts/VIDEO-03/recipe.json",
+      "manifest": "prompts/VIDEO-03/manifest.json"
+    },
+    {
+      "id": "VIDEO-04",
+      "title": "Монтаж, кадрирование и субтитры",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/VIDEO-04/PROMPT.md",
+      "recipe": "prompts/VIDEO-04/recipe.json",
+      "manifest": "prompts/VIDEO-04/manifest.json"
+    },
+    {
+      "id": "VIDEO-05",
+      "title": "Обложка, заголовок и описание",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/VIDEO-05/PROMPT.md",
+      "recipe": "prompts/VIDEO-05/recipe.json",
+      "manifest": "prompts/VIDEO-05/manifest.json"
+    },
+    {
+      "id": "VIDEO-06",
+      "title": "Очистка звука и локализация видео",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/VIDEO-06/PROMPT.md",
+      "recipe": "prompts/VIDEO-06/recipe.json",
+      "manifest": "prompts/VIDEO-06/manifest.json"
+    },
+    {
+      "id": "VIDEO-07",
+      "title": "Подкаст → статья, таймкоды, show notes",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/VIDEO-07/PROMPT.md",
+      "recipe": "prompts/VIDEO-07/recipe.json",
+      "manifest": "prompts/VIDEO-07/manifest.json"
+    },
+    {
+      "id": "VIDEO-08",
+      "title": "Видеоаналитика и гипотезы удержания",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/VIDEO-08/PROMPT.md",
+      "recipe": "prompts/VIDEO-08/recipe.json",
+      "manifest": "prompts/VIDEO-08/manifest.json"
+    },
+    {
+      "id": "CRM-01",
+      "title": "Очистка и нормализация CRM",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CRM-01/PROMPT.md",
+      "recipe": "prompts/CRM-01/recipe.json",
+      "manifest": "prompts/CRM-01/manifest.json"
+    },
+    {
+      "id": "CRM-02",
+      "title": "Сегментация и квалификация лидов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CRM-02/PROMPT.md",
+      "recipe": "prompts/CRM-02/recipe.json",
+      "manifest": "prompts/CRM-02/manifest.json"
+    },
+    {
+      "id": "CRM-03",
+      "title": "Цепочки welcome, nurturing, reactivation",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CRM-03/PROMPT.md",
+      "recipe": "prompts/CRM-03/recipe.json",
+      "manifest": "prompts/CRM-03/manifest.json"
+    },
+    {
+      "id": "CRM-04",
+      "title": "Темы писем и варианты для теста",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CRM-04/PROMPT.md",
+      "recipe": "prompts/CRM-04/recipe.json",
+      "manifest": "prompts/CRM-04/manifest.json"
+    },
+    {
+      "id": "CRM-05",
+      "title": "Email-шаблон и динамический контент",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CRM-05/PROMPT.md",
+      "recipe": "prompts/CRM-05/recipe.json",
+      "manifest": "prompts/CRM-05/manifest.json"
+    },
+    {
+      "id": "CRM-06",
+      "title": "Настройка автоматических сценариев",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CRM-06/PROMPT.md",
+      "recipe": "prompts/CRM-06/recipe.json",
+      "manifest": "prompts/CRM-06/manifest.json"
+    },
+    {
+      "id": "CRM-07",
+      "title": "Классификация входящих ответов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CRM-07/PROMPT.md",
+      "recipe": "prompts/CRM-07/recipe.json",
+      "manifest": "prompts/CRM-07/manifest.json"
+    },
+    {
+      "id": "CRM-08",
+      "title": "Доставляемость и результат рассылок",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CRM-08/PROMPT.md",
+      "recipe": "prompts/CRM-08/recipe.json",
+      "manifest": "prompts/CRM-08/manifest.json"
+    },
+    {
+      "id": "COMMERCE-01",
+      "title": "Массовые карточки товаров",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/COMMERCE-01/PROMPT.md",
+      "recipe": "prompts/COMMERCE-01/recipe.json",
+      "manifest": "prompts/COMMERCE-01/manifest.json"
+    },
+    {
+      "id": "COMMERCE-02",
+      "title": "Категории, фильтры и атрибуты",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/COMMERCE-02/PROMPT.md",
+      "recipe": "prompts/COMMERCE-02/recipe.json",
+      "manifest": "prompts/COMMERCE-02/manifest.json"
+    },
+    {
+      "id": "COMMERCE-03",
+      "title": "Фиды и синхронизация цен/остатков",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/COMMERCE-03/PROMPT.md",
+      "recipe": "prompts/COMMERCE-03/recipe.json",
+      "manifest": "prompts/COMMERCE-03/manifest.json"
+    },
+    {
+      "id": "COMMERCE-04",
+      "title": "Анализ отзывов и вопросов по товарам",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/COMMERCE-04/PROMPT.md",
+      "recipe": "prompts/COMMERCE-04/recipe.json",
+      "manifest": "prompts/COMMERCE-04/manifest.json"
+    },
+    {
+      "id": "COMMERCE-05",
+      "title": "Предметные изображения и инфографика",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/COMMERCE-05/PROMPT.md",
+      "recipe": "prompts/COMMERCE-05/recipe.json",
+      "manifest": "prompts/COMMERCE-05/manifest.json"
+    },
+    {
+      "id": "COMMERCE-06",
+      "title": "Сравнения, комплекты и рекомендации",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/COMMERCE-06/PROMPT.md",
+      "recipe": "prompts/COMMERCE-06/recipe.json",
+      "manifest": "prompts/COMMERCE-06/manifest.json"
+    },
+    {
+      "id": "COMMERCE-07",
+      "title": "Мониторинг цен и ассортимента конкурентов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/COMMERCE-07/PROMPT.md",
+      "recipe": "prompts/COMMERCE-07/recipe.json",
+      "manifest": "prompts/COMMERCE-07/manifest.json"
+    },
+    {
+      "id": "COMMERCE-08",
+      "title": "Анализ SKU и коммерческих потерь",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/COMMERCE-08/PROMPT.md",
+      "recipe": "prompts/COMMERCE-08/recipe.json",
+      "manifest": "prompts/COMMERCE-08/manifest.json"
+    },
+    {
+      "id": "OPS-01",
+      "title": "SOP и база знаний агентства",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/OPS-01/PROMPT.md",
+      "recipe": "prompts/OPS-01/recipe.json",
+      "manifest": "prompts/OPS-01/manifest.json"
+    },
+    {
+      "id": "OPS-02",
+      "title": "Письма/заявки → задачи и маршруты",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/OPS-02/PROMPT.md",
+      "recipe": "prompts/OPS-02/recipe.json",
+      "manifest": "prompts/OPS-02/manifest.json"
+    },
+    {
+      "id": "OPS-03",
+      "title": "Регулярный сбор и сборка отчётов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/OPS-03/PROMPT.md",
+      "recipe": "prompts/OPS-03/recipe.json",
+      "manifest": "prompts/OPS-03/manifest.json"
+    },
+    {
+      "id": "OPS-04",
+      "title": "Проектирование агентного workflow",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/OPS-04/PROMPT.md",
+      "recipe": "prompts/OPS-04/recipe.json",
+      "manifest": "prompts/OPS-04/manifest.json"
+    },
+    {
+      "id": "OPS-05",
+      "title": "База знаний с поиском/RAG",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/OPS-05/PROMPT.md",
+      "recipe": "prompts/OPS-05/recipe.json",
+      "manifest": "prompts/OPS-05/manifest.json"
+    },
+    {
+      "id": "OPS-06",
+      "title": "Перенос данных между сервисами",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/OPS-06/PROMPT.md",
+      "recipe": "prompts/OPS-06/recipe.json",
+      "manifest": "prompts/OPS-06/manifest.json"
+    },
+    {
+      "id": "OPS-07",
+      "title": "Загрузка команды и оценка рентабельности",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/OPS-07/PROMPT.md",
+      "recipe": "prompts/OPS-07/recipe.json",
+      "manifest": "prompts/OPS-07/manifest.json"
+    },
+    {
+      "id": "OPS-08",
+      "title": "Обучение, шаблоны и оценка агентов",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/OPS-08/PROMPT.md",
+      "recipe": "prompts/OPS-08/recipe.json",
+      "manifest": "prompts/OPS-08/manifest.json"
+    },
+    {
+      "id": "CARE-01",
+      "title": "Приёмка сайта, контента или кампании",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CARE-01/PROMPT.md",
+      "recipe": "prompts/CARE-01/recipe.json",
+      "manifest": "prompts/CARE-01/manifest.json"
+    },
+    {
+      "id": "CARE-02",
+      "title": "Тест-план и регрессионные сценарии",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CARE-02/PROMPT.md",
+      "recipe": "prompts/CARE-02/recipe.json",
+      "manifest": "prompts/CARE-02/manifest.json"
+    },
+    {
+      "id": "CARE-03",
+      "title": "Мониторинг доступности и ошибок",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CARE-03/PROMPT.md",
+      "recipe": "prompts/CARE-03/recipe.json",
+      "manifest": "prompts/CARE-03/manifest.json"
+    },
+    {
+      "id": "CARE-04",
+      "title": "Инцидент и восстановление",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CARE-04/PROMPT.md",
+      "recipe": "prompts/CARE-04/recipe.json",
+      "manifest": "prompts/CARE-04/manifest.json"
+    },
+    {
+      "id": "CARE-05",
+      "title": "Обновления зависимостей и обслуживание",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CARE-05/PROMPT.md",
+      "recipe": "prompts/CARE-05/recipe.json",
+      "manifest": "prompts/CARE-05/manifest.json"
+    },
+    {
+      "id": "CARE-06",
+      "title": "Проверка доступа и защиты приложения",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CARE-06/PROMPT.md",
+      "recipe": "prompts/CARE-06/recipe.json",
+      "manifest": "prompts/CARE-06/manifest.json"
+    },
+    {
+      "id": "CARE-07",
+      "title": "Неизвестная или смешанная услуга",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CARE-07/PROMPT.md",
+      "recipe": "prompts/CARE-07/recipe.json",
+      "manifest": "prompts/CARE-07/manifest.json"
+    },
+    {
+      "id": "CARE-08",
+      "title": "Специализированная экспертная или физическая работа",
+      "kind": "operation",
+      "aliases": [],
+      "prompt": "prompts/CARE-08/PROMPT.md",
+      "recipe": "prompts/CARE-08/recipe.json",
+      "manifest": "prompts/CARE-08/manifest.json"
+    }
+  ]
+}

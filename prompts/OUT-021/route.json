@@ -1,0 +1,507 @@
+{
+  "id": "out-021",
+  "title": "Статья → текст, визуальный план и публикация",
+  "department": "CONTENT",
+  "group": "Контент и редактура",
+  "description": "Готовая статья под ключ. Предложенный нами сценарий; внешнее подтверждение этой цепочки не заявляется",
+  "nodes": [
+    {
+      "id": "a-research",
+      "title": "Задача читателя, SERP и конкуренты",
+      "kind": "work",
+      "role": "writer",
+      "model_profile": "RESEARCH",
+      "reads": [
+        "content/articles/<id>/BRIEF.md",
+        "marketing/seo/research/intents.jsonl",
+        "research/audience/PAINS.md",
+        "brand/VOICE.md",
+        "Релевантная SERP по подтверждённому поисковому инструменту"
+      ],
+      "writes": [
+        "content/articles/<id>/research/evidence.json",
+        "content/articles/<id>/research/editorial-findings.md"
+      ],
+      "acceptance": [
+        "Интент, пробелы объяснения и доказательства зафиксированы; SERP/конкуренты — наблюдения, не норма числа картинок; при отсутствии доступа указаны ограничения"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "a-outline",
+      "title": "Структура и задачи визуального объяснения",
+      "kind": "work",
+      "role": "writer",
+      "model_profile": "PLAN",
+      "reads": [
+        "content/articles/<id>/research/editorial-findings.md",
+        "design/system/DESIGN.md"
+      ],
+      "writes": [
+        "content/articles/<id>/OUTLINE.md"
+      ],
+      "acceptance": [
+        "Для разделов определены вопросы читателя и возможная польза схемы, фото, скриншота или таблицы; декоративные повторы не обязательны"
+      ],
+      "depends_on": [
+        "a-research"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "a-draft",
+      "title": "Текст, визуальный план и краткие ТЗ",
+      "kind": "work",
+      "role": "writer",
+      "model_profile": "TEXT",
+      "reads": [
+        "content/articles/<id>/OUTLINE.md",
+        "content/articles/<id>/research/evidence.json",
+        "brand/VOICE.md",
+        "design/system/DESIGN.md"
+      ],
+      "writes": [
+        "content/articles/<id>/drafts/<revision>/article.md",
+        "content/articles/<id>/visual-plan.json",
+        "content/articles/<id>/visual-briefs.md"
+      ],
+      "acceptance": [
+        "Копирайтер предлагает обоснованное количество от 0 до N; каждый slot имеет цель, anchor, содержание, desktop/mobile размещение, подписи/alt и краткое ТЗ; ноль сопровождается причиной"
+      ],
+      "depends_on": [
+        "a-outline"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "a-plan-review",
+      "title": "Редакторское решение: текст и визуальный план",
+      "kind": "quality",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "reads": [
+        "content/articles/<id>/drafts/<revision>/article.md",
+        "content/articles/<id>/visual-plan.json",
+        "content/articles/<id>/visual-briefs.md"
+      ],
+      "writes": [
+        "content/articles/<id>/checks/editorial-plan.json"
+      ],
+      "acceptance": [
+        "Принимающий записан: редактор либо копирайтер в явно выбранном self-review; для высокого риска независимый review; проверены необходимость/число/места визуалов, факты и объём. Человек участвует по полномочиям брифа"
+      ],
+      "depends_on": [
+        "a-draft"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started",
+      "on_rework": "a-draft"
+    },
+    {
+      "id": "a-brief",
+      "title": "Передача принятых слотов дизайнеру",
+      "kind": "work",
+      "role": "writer",
+      "model_profile": "FORMAT",
+      "reads": [
+        "content/articles/<id>/checks/editorial-plan.json",
+        "content/articles/<id>/visual-briefs.md",
+        "content/articles/<id>/visual-plan.json"
+      ],
+      "writes": [
+        "design/requests/<request-id>/BRIEF.md",
+        "content/articles/<id>/visual-plan.json"
+      ],
+      "acceptance": [
+        "Для каждого принятого слота создана ссылка request_id на каноническое ТЗ и article revision/hash; при 0 слотов запросы не создаются, записано skipped с причиной"
+      ],
+      "depends_on": [
+        "a-plan-review"
+      ],
+      "skills": [
+        {
+          "name": "copywriter",
+          "when": "Сайт/оффер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-text",
+          "when": "Русский текст",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Вычитка",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started",
+      "applies_when": "Только если в принятом visual-plan есть слоты. При slots=[] сохранить skipped/not_applicable с ссылкой на решение и перейти к вёрстке; не создавать дизайн-задачу и не запускать дизайнера."
+    },
+    {
+      "id": "a-ready",
+      "title": "Проверка реализуемости ТЗ",
+      "kind": "quality",
+      "role": "designer",
+      "model_profile": "CHECK",
+      "reads": [
+        "design/requests/<request-id>/BRIEF.md",
+        "design/system/DESIGN.md"
+      ],
+      "writes": [
+        "work/tasks/<design-task-id>/checks/input.json"
+      ],
+      "acceptance": [
+        "Тезисы, исходники, права, расположение и размеры понятны; дизайнер уточняет технику, не меняет смысл/число молча; при 0 слотов skipped"
+      ],
+      "depends_on": [
+        "a-brief"
+      ],
+      "skills": [
+        {
+          "name": "ui-review",
+          "when": "Интерфейс и конкуренты",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "page-prototype",
+          "when": "Wireframe",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "imagegen",
+          "when": "Растровое изображение",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "canva:canva-edit-design",
+          "when": "Существующий макет Canva",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started",
+      "on_rework": "a-draft",
+      "applies_when": "Только если в принятом visual-plan есть слоты. При slots=[] сохранить skipped/not_applicable с ссылкой на решение и перейти к вёрстке; не создавать дизайн-задачу и не запускать дизайнера."
+    },
+    {
+      "id": "a-art",
+      "title": "Создание или подбор нужных визуалов",
+      "kind": "work",
+      "role": "designer",
+      "model_profile": "VISUAL",
+      "reads": [
+        "design/requests/<request-id>/BRIEF.md",
+        "brand/assets/",
+        "design/system/DESIGN.md"
+      ],
+      "writes": [
+        "design/assets/<asset-id>/<version>/asset.json",
+        "design/assets/<asset-id>/<version>/export/"
+      ],
+      "acceptance": [
+        "Все принятые слоты покрыты; asset связан с article/slot/request; реальные скриншоты и данные не подменены генерацией; при 0 слотов skipped"
+      ],
+      "depends_on": [
+        "a-ready"
+      ],
+      "skills": [
+        {
+          "name": "ui-review",
+          "when": "Интерфейс и конкуренты",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "page-prototype",
+          "when": "Wireframe",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "imagegen",
+          "when": "Растровое изображение",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "canva:canva-edit-design",
+          "when": "Существующий макет Canva",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started",
+      "applies_when": "Только если в принятом visual-plan есть слоты. При slots=[] сохранить skipped/not_applicable с ссылкой на решение и перейти к вёрстке; не создавать дизайн-задачу и не запускать дизайнера."
+    },
+    {
+      "id": "a-review",
+      "title": "Смысловая и визуальная проверка ассетов",
+      "kind": "quality",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "reads": [
+        "content/articles/<id>/drafts/<revision>/article.md",
+        "content/articles/<id>/visual-plan.json",
+        "design/assets/<asset-id>/<version>/asset.json"
+      ],
+      "writes": [
+        "content/articles/<id>/checks/assets.json"
+      ],
+      "acceptance": [
+        "Копирайтер проверил смысл, проверяющий — читаемость и соответствие ТЗ; дефект возвращается конкретному слоту; при 0 слотов зафиксировано not_applicable"
+      ],
+      "depends_on": [
+        "a-art"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started",
+      "on_rework": "a-art",
+      "applies_when": "Только если в принятом visual-plan есть слоты. При slots=[] сохранить skipped/not_applicable с ссылкой на решение и перейти к вёрстке; не создавать дизайн-задачу и не запускать дизайнера."
+    },
+    {
+      "id": "a-layout",
+      "title": "Вёрстка статьи с визуалами",
+      "kind": "work",
+      "role": "developer",
+      "model_profile": "CODE",
+      "reads": [
+        "content/articles/<id>/drafts/<revision>/article.md",
+        "content/articles/<id>/checks/editorial-plan.json",
+        "content/articles/<id>/checks/assets.json",
+        "content/articles/<id>/visual-plan.json"
+      ],
+      "writes": [
+        "content/articles/<id>/preview.json"
+      ],
+      "acceptance": [
+        "Реализованы anchors, desktop/mobile alignment, wrap, подписи, alt и размеры; при 0 слотов собран текстовый вариант; нет placeholders от пропущенных этапов"
+      ],
+      "depends_on": [
+        "a-plan-review",
+        "a-review"
+      ],
+      "skills": [
+        {
+          "name": "browser-automation",
+          "when": "Браузерная проверка UI",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "a-preview",
+      "title": "Ревью собранной статьи",
+      "kind": "quality",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "reads": [
+        "content/articles/<id>/preview.json",
+        "content/articles/<id>/visual-plan.json"
+      ],
+      "writes": [
+        "content/articles/<id>/checks/preview.json",
+        "content/articles/<id>/release.json"
+      ],
+      "acceptance": [
+        "В браузере проверены desktop/mobile, порядок чтения, обтекание, подписи, факты и действие читателя; приняты точные версии текста/плана/ассетов"
+      ],
+      "depends_on": [
+        "a-layout"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started",
+      "on_rework": "a-layout"
+    },
+    {
+      "id": "a-publish",
+      "title": "Принятый пакет и публикация",
+      "kind": "work",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "reads": [
+        "content/articles/<id>/release.json"
+      ],
+      "writes": [
+        "content/articles/<id>/publication.json"
+      ],
+      "acceptance": [
+        "По имеющемуся полномочию опубликовано и проверено; иначе передан готовый пакет. Изменение тезиса запускает impact-review затронутых слотов"
+      ],
+      "depends_on": [
+        "a-preview"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-021",
+  "deliverables": [
+    "content/articles/<id>/release.json"
+  ],
+  "source_ids": [],
+  "value": "Готовая статья под ключ",
+  "evidence_scope": "Предложенный нами сценарий; внешнее подтверждение этой цепочки не заявляется"
+}

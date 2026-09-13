@@ -1,0 +1,195 @@
+{
+  "id": "out-062",
+  "title": "Разрозненные сервисы → синхронизация данных",
+  "department": "SOFTWARE",
+  "group": "Программы и интеграции",
+  "description": "Интеграция плюс сопровождение. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-062-1",
+      "title": "Сопоставить поля",
+      "role": "developer",
+      "model_profile": "CODE",
+      "kind": "work",
+      "reads": [
+        "Схемы API, доступы и source of truth",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-062-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "browser-automation",
+          "when": "Браузерная проверка UI",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-062-2",
+      "title": "реализовать передачу",
+      "role": "developer",
+      "model_profile": "CODE",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-062-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-062-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-062-1"
+      ],
+      "skills": [
+        {
+          "name": "browser-automation",
+          "when": "Браузерная проверка UI",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-062-3",
+      "title": "проверить дубли, ошибки и retry",
+      "role": "developer",
+      "model_profile": "CODE",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-062-2.md"
+      ],
+      "writes": [
+        "development/integrations/<id>/RUNBOOK.md"
+      ],
+      "acceptance": [
+        "Секреты вне файлов, синхронизация не затирает владельца данных"
+      ],
+      "depends_on": [
+        "out-062-2"
+      ],
+      "skills": [
+        {
+          "name": "browser-automation",
+          "when": "Браузерная проверка UI",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-062-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "development/integrations/<id>/RUNBOOK.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Секреты вне файлов, синхронизация не затирает владельца данных",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-062-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-062-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-062-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "development/integrations/<id>/RUNBOOK.md",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-062-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-062",
+  "deliverables": [
+    "development/integrations/<id>/RUNBOOK.md"
+  ],
+  "source_ids": [
+    "R4"
+  ],
+  "value": "Интеграция плюс сопровождение",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

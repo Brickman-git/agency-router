@@ -1,0 +1,193 @@
+{
+  "id": "out-032",
+  "title": "Сайт → UX-аудит с исправлениями",
+  "department": "WEB",
+  "group": "Сайты и дизайн",
+  "description": "UX-аудит и улучшения. Предложенный нами сценарий; внешнее подтверждение этой цепочки не заявляется",
+  "nodes": [
+    {
+      "id": "out-032-1",
+      "title": "Пройти сценарии",
+      "role": "developer",
+      "model_profile": "CODE",
+      "kind": "work",
+      "reads": [
+        "Действующий интерфейс и ключевые сценарии",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-032-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "browser-automation",
+          "when": "Браузерная проверка UI",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-032-2",
+      "title": "зафиксировать проблемы",
+      "role": "developer",
+      "model_profile": "CODE",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-032-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-032-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-032-1"
+      ],
+      "skills": [
+        {
+          "name": "browser-automation",
+          "when": "Браузерная проверка UI",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-032-3",
+      "title": "исправить приоритеты и перепроверить",
+      "role": "developer",
+      "model_profile": "CODE",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-032-2.md"
+      ],
+      "writes": [
+        "design/audits/<id>/issues.md + preview/"
+      ],
+      "acceptance": [
+        "Каждая проблема имеет экран, сценарий и наблюдаемое основание"
+      ],
+      "depends_on": [
+        "out-032-2"
+      ],
+      "skills": [
+        {
+          "name": "browser-automation",
+          "when": "Браузерная проверка UI",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-032-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "design/audits/<id>/issues.md + preview/"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Каждая проблема имеет экран, сценарий и наблюдаемое основание",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-032-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-032-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-032-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "design/audits/<id>/issues.md + preview/",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-032-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-032",
+  "deliverables": [
+    "design/audits/<id>/issues.md + preview/"
+  ],
+  "source_ids": [],
+  "value": "UX-аудит и улучшения",
+  "evidence_scope": "Предложенный нами сценарий; внешнее подтверждение этой цепочки не заявляется"
+}

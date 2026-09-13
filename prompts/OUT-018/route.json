@@ -1,0 +1,255 @@
+{
+  "id": "out-018",
+  "title": "Старый контент → пакет обновлений",
+  "department": "SEO",
+  "group": "SEO и локальный поиск",
+  "description": "Контентный ретейнер. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-018-1",
+      "title": "Найти устаревшее",
+      "role": "seo",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "Принятые статьи, источники и данные поиска",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-018-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "cocoon-pilot",
+          "when": "Семантический кокон",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "topical-graph-architect",
+          "when": "Архитектура интентов/страниц",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "gist-content-logic",
+          "when": "Контент-бриф",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Данные GSC",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-webmaster",
+          "when": "Данные Вебмастера",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-018-2",
+      "title": "проверить факты и интент",
+      "role": "seo",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-018-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-018-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-018-1"
+      ],
+      "skills": [
+        {
+          "name": "cocoon-pilot",
+          "when": "Семантический кокон",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "topical-graph-architect",
+          "when": "Архитектура интентов/страниц",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "gist-content-logic",
+          "when": "Контент-бриф",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Данные GSC",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-webmaster",
+          "when": "Данные Вебмастера",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-018-3",
+      "title": "обновить текст, визуальный план и ссылки",
+      "role": "seo",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-018-2.md"
+      ],
+      "writes": [
+        "content/refresh/<id>/release.json"
+      ],
+      "acceptance": [
+        "Сравнение версий и редакторское ревью перед публикацией"
+      ],
+      "depends_on": [
+        "out-018-2"
+      ],
+      "skills": [
+        {
+          "name": "cocoon-pilot",
+          "when": "Семантический кокон",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "topical-graph-architect",
+          "when": "Архитектура интентов/страниц",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "gist-content-logic",
+          "when": "Контент-бриф",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Данные GSC",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-webmaster",
+          "when": "Данные Вебмастера",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-018-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "content/refresh/<id>/release.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Сравнение версий и редакторское ревью перед публикацией",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-018-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-018-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-018-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "content/refresh/<id>/release.json",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-018-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-018",
+  "deliverables": [
+    "content/refresh/<id>/release.json"
+  ],
+  "source_ids": [
+    "O7"
+  ],
+  "value": "Контентный ретейнер",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

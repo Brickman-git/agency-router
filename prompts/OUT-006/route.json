@@ -1,0 +1,225 @@
+{
+  "id": "out-006",
+  "title": "Интервью клиентов → исследование аудитории",
+  "department": "RESEARCH",
+  "group": "Исследования и данные",
+  "description": "Исследование под заказ. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-006-1",
+      "title": "Разметить высказывания",
+      "role": "research",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "Корпус интервью и исследовательский вопрос",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-006-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "text-insights",
+          "when": "Переданный корпус",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "social-insights",
+          "when": "Сбор соцкорпуса",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "reddit-mapper",
+          "when": "Форумы и Reddit",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-006-2",
+      "title": "выделить сегменты и ситуации",
+      "role": "research",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-006-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-006-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-006-1"
+      ],
+      "skills": [
+        {
+          "name": "text-insights",
+          "when": "Переданный корпус",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "social-insights",
+          "when": "Сбор соцкорпуса",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "reddit-mapper",
+          "when": "Форумы и Reddit",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-006-3",
+      "title": "связать выводы с цитатами",
+      "role": "research",
+      "model_profile": "RESEARCH",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-006-2.md"
+      ],
+      "writes": [
+        "research/audience/AUDIENCE.md + evidence.jsonl"
+      ],
+      "acceptance": [
+        "Исследователь проверяет выборку и противоречия"
+      ],
+      "depends_on": [
+        "out-006-2"
+      ],
+      "skills": [
+        {
+          "name": "text-insights",
+          "when": "Переданный корпус",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "social-insights",
+          "when": "Сбор соцкорпуса",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "reddit-mapper",
+          "when": "Форумы и Reddit",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-006-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "research/audience/AUDIENCE.md + evidence.jsonl"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Исследователь проверяет выборку и противоречия",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-006-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-006-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-006-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "research/audience/AUDIENCE.md + evidence.jsonl",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-006-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-006",
+  "deliverables": [
+    "research/audience/AUDIENCE.md + evidence.jsonl"
+  ],
+  "source_ids": [
+    "O4"
+  ],
+  "value": "Исследование под заказ",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

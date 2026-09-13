@@ -1,0 +1,225 @@
+{
+  "id": "out-078",
+  "title": "Клиентские проекты → отчёт по трудозатратам",
+  "department": "ANALYTICS",
+  "group": "Аналитика и экономика",
+  "description": "Управленческая отчётность. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-078-1",
+      "title": "Сверить учёт",
+      "role": "analyst",
+      "model_profile": "MEASURE",
+      "kind": "work",
+      "reads": [
+        "Фактические часы, счета и правила распределения",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-078-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "google-analytics",
+          "when": "GA4",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-metrica",
+          "when": "Метрика",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Google organic search",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-078-2",
+      "title": "рассчитать показатели по формулам",
+      "role": "analyst",
+      "model_profile": "MEASURE",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-078-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-078-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-078-1"
+      ],
+      "skills": [
+        {
+          "name": "google-analytics",
+          "when": "GA4",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-metrica",
+          "when": "Метрика",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Google organic search",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-078-3",
+      "title": "показать отклонения и неизвестное",
+      "role": "analyst",
+      "model_profile": "MEASURE",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-078-2.md"
+      ],
+      "writes": [
+        "operations/finance/projects/<period>/report.xlsx"
+      ],
+      "acceptance": [
+        "Неполный учёт обозначен; финансовые решения принимает владелец"
+      ],
+      "depends_on": [
+        "out-078-2"
+      ],
+      "skills": [
+        {
+          "name": "google-analytics",
+          "when": "GA4",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-metrica",
+          "when": "Метрика",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Google organic search",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-078-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "operations/finance/projects/<period>/report.xlsx"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Неполный учёт обозначен; финансовые решения принимает владелец",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-078-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-078-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-078-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "operations/finance/projects/<period>/report.xlsx",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-078-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-078",
+  "deliverables": [
+    "operations/finance/projects/<period>/report.xlsx"
+  ],
+  "source_ids": [
+    "N2"
+  ],
+  "value": "Управленческая отчётность",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}

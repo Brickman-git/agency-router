@@ -1,0 +1,225 @@
+{
+  "id": "out-080",
+  "title": "Операция бизнеса → оценка пригодности для автоматизации",
+  "department": "ANALYTICS",
+  "group": "Аналитика и экономика",
+  "description": "Аудит автоматизации как входная услуга. Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация",
+  "nodes": [
+    {
+      "id": "out-080-1",
+      "title": "Разобрать ручные шаги",
+      "role": "analyst",
+      "model_profile": "MEASURE",
+      "kind": "work",
+      "reads": [
+        "Описание процесса, примеры ошибок и фактические затраты",
+        "PROJECT.md / project.json: принятые знания и реальные привязки"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-080-1.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [],
+      "skills": [
+        {
+          "name": "google-analytics",
+          "when": "GA4",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-metrica",
+          "when": "Метрика",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Google organic search",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-080-2",
+      "title": "отделить правила от суждений",
+      "role": "analyst",
+      "model_profile": "MEASURE",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-080-1.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/analysis/out-080-2.md"
+      ],
+      "acceptance": [
+        "Промежуточный результат имеет источники, ограничения и следующий шаг"
+      ],
+      "depends_on": [
+        "out-080-1"
+      ],
+      "skills": [
+        {
+          "name": "google-analytics",
+          "when": "GA4",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-metrica",
+          "when": "Метрика",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Google organic search",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-080-3",
+      "title": "предложить пилоты с критериями качества",
+      "role": "analyst",
+      "model_profile": "MEASURE",
+      "kind": "work",
+      "reads": [
+        "work/tasks/<task-id>/analysis/out-080-2.md"
+      ],
+      "writes": [
+        "operations/automation-audit/<id>/priorities.md"
+      ],
+      "acceptance": [
+        "Экономия — расчёт с допущениями, пока не измерена в пилоте"
+      ],
+      "depends_on": [
+        "out-080-2"
+      ],
+      "skills": [
+        {
+          "name": "google-analytics",
+          "when": "GA4",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "yandex-metrica",
+          "when": "Метрика",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "google-search-console",
+          "when": "Google organic search",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-080-check",
+      "title": "Проверить и принять конкретный результат",
+      "role": "editor",
+      "model_profile": "CHECK",
+      "kind": "quality",
+      "reads": [
+        "operations/automation-audit/<id>/priorities.md"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "acceptance": [
+        "Экономия — расчёт с допущениями, пока не измерена в пилоте",
+        "Результат существует, проверен и связан с исходниками и принятой версией."
+      ],
+      "depends_on": [
+        "out-080-3"
+      ],
+      "skills": [
+        {
+          "name": "gist-content-logic",
+          "when": "Полезность материала и визуального плана",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ru-check",
+          "when": "Редакторская проверка русского текста",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "ui-review",
+          "when": "Проверка собранной страницы",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "on_rework": "out-080-3",
+      "status": "template_not_started"
+    },
+    {
+      "id": "out-080-handoff",
+      "title": "Передать пакет; внешнее действие по полномочию",
+      "role": "operator",
+      "model_profile": "OPERATE",
+      "kind": "work",
+      "reads": [
+        "operations/automation-audit/<id>/priorities.md",
+        "work/tasks/<task-id>/checks/acceptance.json"
+      ],
+      "writes": [
+        "work/tasks/<task-id>/handoff.md"
+      ],
+      "acceptance": [
+        "Переданы файлы, версии, проверки и ограничения. Отправка, публикация, покупка или изменение сервиса требуют явного полномочия на соответствующее действие."
+      ],
+      "depends_on": [
+        "out-080-check"
+      ],
+      "skills": [
+        {
+          "name": "tasks",
+          "when": "BB Tasks",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "browser-automation",
+          "when": "Работа через браузер",
+          "status": "candidate_verify_at_run"
+        },
+        {
+          "name": "agency-artifacts",
+          "when": "Создание рабочего MD/JSON документа; raw/закрытые схемы через sidecar",
+          "status": "candidate_verify_at_run"
+        }
+      ],
+      "status": "template_not_started"
+    }
+  ],
+  "outcome_id": "OUT-080",
+  "deliverables": [
+    "operations/automation-audit/<id>/priorities.md"
+  ],
+  "source_ids": [
+    "R4"
+  ],
+  "value": "Аудит автоматизации как входная услуга",
+  "evidence_scope": "Иллюстрация связанного подхода; конкретный маршрут — наша проектная адаптация"
+}
