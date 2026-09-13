@@ -8,7 +8,7 @@ const template=p=>fs.readFileSync(path.join(root,p),'utf8');
 const index=[];
 for(const r of recipes){
  const prefix='prompts/'+r.id+'/';
- write(prefix+'PROMPT.md',`---\nschema_version: agency-artifact/1.0\nartifact_id: template_${r.id.toLowerCase()}\nartifact_type: instruction\ntitle: ${JSON.stringify(r.title)}\nscope: template\nproject_id: null\ndepartment: ${r.department}\ntask_ref: null\nowner: {kind: role, id: null}\nstatus: draft\nversion: 1\ncreated_at: "2026-09-14T00:00:00+02:00"\nupdated_at: "2026-09-14T00:00:00+02:00"\naccess: public\nreview: null\n---\n\n# ${r.title}\n\nСкопируйте текст ниже в чат и заполните блок «Мои данные».\n\n\`\`\`text\n${prompt(r)}\`\`\`\n`);
+ write(prefix+'PROMPT.md',`---\nschema_version: agency-artifact/1.0\nartifact_id: art_template_${r.id.toLowerCase()}\nartifact_type: task\ntitle: ${JSON.stringify(r.title)}\nscope: template\nproject_id: null\ndepartment: ${r.department.toLowerCase()}\ntask_ref: null\nowner: {kind: role, id: null}\nstatus: draft\nversion: 1\ncreated_at: "2026-09-14T00:00:00+02:00"\nupdated_at: "2026-09-14T00:00:00+02:00"\naccess: public\nreview: null\n---\n\n# ${r.title}\n\nСкопируйте текст ниже в чат и заполните блок «Мои данные».\n\n\`\`\`text\n${prompt(r)}\`\`\`\n`);
  write(prefix+'recipe.json',json(r));
  const copy=[{from:prefix+'PROMPT.md',to:'PROMPT.md'},{from:prefix+'recipe.json',to:'recipe.json'},
   {from:'skills/model-task-prompts',to:'_kit/skills/model-task-prompts'},

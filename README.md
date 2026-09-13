@@ -122,6 +122,7 @@ node skills/model-task-prompts/scripts/test-project.cjs
 python3 -m venv .venv
 .venv/bin/pip install -r skills/agency-artifacts/requirements.txt
 .venv/bin/python skills/agency-artifacts/scripts/test_artifact.py
+.venv/bin/python scripts/test-metadata.py
 ```
 
 Редактируйте `catalog/`, `scripts/recipes.mjs` и `site-src/`, затем пересобирайте. `prompts/` и три HTML — результаты сборки. Специальные правила старта добавляются в рецепты, а не только в текст сайта. Проверки покрывают структуру и копирование; они не означают, что все 208 бизнес-задач выполнены на клиентах.

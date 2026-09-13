@@ -1,7 +1,7 @@
 ---
 schema_version: agency-artifact/1.0
-artifact_id: template_project_passport
-artifact_type: project-passport
+artifact_id: art_template_project_passport
+artifact_type: index
 title: Паспорт проекта
 scope: template
 project_id: null
