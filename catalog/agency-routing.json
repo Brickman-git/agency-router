@@ -41,7 +41,7 @@
     ]
   },
   "balance_policy": "quality_and_tools_first; compare relative subscription headroom when known; otherwise rotate equally suitable new tasks; no paid API fallback by default",
-  "prompt_skill": "model-task-prompts@0.3.0",
+  "prompt_skill": "model-task-prompts@0.4.0",
   "cost_status": "hypotheses; subscription quotas not measured",
   "profiles": {
     "PLAN": {

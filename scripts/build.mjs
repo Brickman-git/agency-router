@@ -20,7 +20,7 @@ for(const r of recipes){
  write(prefix+'manifest.json',json(manifest));
  index.push({id:r.id,title:r.title,kind:r.kind,aliases:r.aliases,prompt:r.prompt_ref,recipe:r.recipe_ref,manifest:prefix+'manifest.json'});
 }
-write('prompts/index.json',json({schema_version:'agency-prompt-index/1.0',version:'0.7.0',items:index}));
+write('prompts/index.json',json({schema_version:'agency-prompt-index/1.0',version:'0.8.0',items:index}));
 const enriched={...model,outcomes:model.outcomes.map(o=>({...o,start_ref:'start.html?id='+o.id}))};
 const blueprint=template('site-src/index.template.html').replace('BLUEPRINT_DATA',inline(enriched));
 write('index.html',blueprint);
