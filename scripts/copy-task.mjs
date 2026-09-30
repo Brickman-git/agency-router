@@ -38,7 +38,7 @@ try{
   const now=new Date().toISOString();
   const meta={schema_version:'agency-artifact/1.0',artifact_id:'art_'+randomUUID(),artifact_type:'brief',title:'Моя задача',scope:'project',project_id:null,department:r.department.toLowerCase(),task_ref:{system:'external',id:'work/tasks/'+taskId+'/'},owner:{kind:'role',id:null},status:'draft',version:1,created_at:now,updated_at:now,access:'internal',review:null};
   fs.writeFileSync(path.join(target,'request.md'),'---\n'+Object.entries(meta).map(([k,v])=>k+': '+JSON.stringify(v)).join('\n')+'\n---\n\n# Моя задача\n\n'+r.request_fields.map(s=>'- '+s).join('\n')+'\n',{flag:'wx'});
-  fs.writeFileSync(path.join(target,'package.json'),JSON.stringify({schema_version:'agency-task-package/1.0',recipe_id:r.id,status:'draft',project_root:projectRoot,task_id:taskId,request_ref:'request.md',prompt_ref:'PROMPT.md',route_ref:r.journey_id?'route.json':null,source_repository:'https://github.com/VKirill/agency-router',bundle_version:'0.8.0',model:null,permissions:[]},null,2)+'\n',{flag:'wx'});
+  fs.writeFileSync(path.join(target,'package.json'),JSON.stringify({schema_version:'agency-task-package/1.0',recipe_id:r.id,status:'draft',project_root:projectRoot,task_id:taskId,request_ref:'request.md',prompt_ref:'PROMPT.md',route_ref:r.journey_id?'route.json':null,source_repository:'https://github.com/Brickman-git/agency-router',bundle_version:'0.8.0',model:null,permissions:[]},null,2)+'\n',{flag:'wx'});
   console.log('Скопировано: '+target+'\nЗаполните request.md; агент читает PROMPT.md и _kit/README.md. Ничего не запущено.');
  }else throw new Error('Команды: list | find "название" | copy ID EXISTING_PROJECT TASK_ID');
 }catch(e){console.error(e.message);process.exitCode=1;}

@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {root,model,routing,recipes,prompt} from './recipes.mjs';
+import {labGuide} from './lab-guidance.mjs';
 const write=(p,s)=>{fs.mkdirSync(path.dirname(path.join(root,p)),{recursive:true});fs.writeFileSync(path.join(root,p),s);};
 const json=o=>JSON.stringify(o,null,2)+'\n';
 const inline=o=>JSON.stringify(o).replace(/</g,'\\u003c');
@@ -27,4 +28,5 @@ write('index.html',blueprint);
 const map=template('site-src/models.template.html').replace('PROMPT_KIT',template('skills/model-task-prompts/scripts/prompt-kit.js')).replace('PAYLOAD',inline(routing)).replace('BLUEPRINT_JSON',inline(blueprint));
 write('models.html',map);
 write('start.html',template('site-src/start.template.html').replace('RECIPES_DATA',inline(recipes.map(r=>({...r,prompt:prompt(r)})))));
-console.log(`${recipes.length} поручений; 80 результатов; 3 страницы собраны.`);
+write('lab.html',template('site-src/lab.template.html').replace('RECIPES_DATA',inline(recipes.map(r=>({id:r.id,title:r.title,kind:r.kind,aliases:r.aliases,output:r.output,minimum_input:r.minimum_input,inputs:r.inputs,acceptance:r.acceptance,guide:labGuide(r),prompt:prompt(r)})))).replace('LAB_SCRIPT',template('site-src/lab-script.js')));
+console.log(`${recipes.length} поручений; 80 результатов; 4 страницы собраны.`);

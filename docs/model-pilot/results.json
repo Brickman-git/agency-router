@@ -1,0 +1,746 @@
+{
+  "kind": "synthetic_model_pilot",
+  "version": 1,
+  "date": "2026-09-30",
+  "limitations": [
+    "Three synthetic cases; one run per configuration and case.",
+    "No comparison to retired models or other providers.",
+    "Concurrent runs affect latency; no statistical speed conclusion.",
+    "Requested tier is default; effective tier is not observable in CLI events.",
+    "Token usage is not a measure of subscription consumption."
+  ],
+  "results": [
+    {
+      "id": "BRIEF-03",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "service_tier_requested": "default",
+      "service_tier_effective": "not_observed",
+      "input_hash": "52a4dfd357357efd3b77243becc42dc5e64825fda09032208486ed4faf196532",
+      "started_at": "2026-09-30T16:32:32.407Z",
+      "finished_at": "2026-09-30T16:32:57.941Z",
+      "seconds": 25.53,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 19272,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 352,
+        "reasoning_output_tokens": 116
+      },
+      "checks": [
+        {
+          "name": "final_budget",
+          "passed": true
+        },
+        {
+          "name": "action_coverage",
+          "passed": true
+        },
+        {
+          "name": "text_owner",
+          "passed": true
+        },
+        {
+          "name": "text_deadline",
+          "passed": true
+        },
+        {
+          "name": "text_dependencies",
+          "passed": true
+        },
+        {
+          "name": "text_source",
+          "passed": true
+        },
+        {
+          "name": "design_owner",
+          "passed": true
+        },
+        {
+          "name": "design_deadline",
+          "passed": true
+        },
+        {
+          "name": "design_dependencies",
+          "passed": true
+        },
+        {
+          "name": "design_source",
+          "passed": true
+        },
+        {
+          "name": "approval_owner",
+          "passed": true
+        },
+        {
+          "name": "approval_deadline",
+          "passed": true
+        },
+        {
+          "name": "approval_dependencies",
+          "passed": true
+        },
+        {
+          "name": "approval_source",
+          "passed": true
+        },
+        {
+          "name": "launch_owner",
+          "passed": true
+        },
+        {
+          "name": "launch_deadline",
+          "passed": true
+        },
+        {
+          "name": "launch_dependencies",
+          "passed": true
+        },
+        {
+          "name": "launch_source",
+          "passed": true
+        }
+      ],
+      "passed": 18,
+      "total": 18,
+      "acceptance_pass": true,
+      "output": {
+        "budget_rub": 80000,
+        "actions": [
+          {
+            "id": "text",
+            "owner": "Анна",
+            "due": "2026-09-30",
+            "dependencies": [],
+            "source_ids": [
+              "u03",
+              "u06"
+            ]
+          },
+          {
+            "id": "design",
+            "owner": "Павел",
+            "due": "2026-10-02",
+            "dependencies": [],
+            "source_ids": [
+              "u02",
+              "u05"
+            ]
+          },
+          {
+            "id": "approval",
+            "owner": "Клиент",
+            "due": "2026-10-03",
+            "dependencies": [
+              "text",
+              "design"
+            ],
+            "source_ids": [
+              "u07"
+            ]
+          },
+          {
+            "id": "launch",
+            "owner": "Иван",
+            "due": "2026-10-05",
+            "dependencies": [
+              "approval"
+            ],
+            "source_ids": [
+              "u04",
+              "u07",
+              "u08"
+            ]
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "BRIEF-03",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "service_tier_requested": "default",
+      "service_tier_effective": "not_observed",
+      "input_hash": "52a4dfd357357efd3b77243becc42dc5e64825fda09032208486ed4faf196532",
+      "started_at": "2026-09-30T16:32:32.410Z",
+      "finished_at": "2026-09-30T16:33:07.562Z",
+      "seconds": 35.15,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 19274,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 546,
+        "reasoning_output_tokens": 396
+      },
+      "checks": [
+        {
+          "name": "final_budget",
+          "passed": true
+        },
+        {
+          "name": "action_coverage",
+          "passed": true
+        },
+        {
+          "name": "text_owner",
+          "passed": true
+        },
+        {
+          "name": "text_deadline",
+          "passed": true
+        },
+        {
+          "name": "text_dependencies",
+          "passed": true
+        },
+        {
+          "name": "text_source",
+          "passed": true
+        },
+        {
+          "name": "design_owner",
+          "passed": true
+        },
+        {
+          "name": "design_deadline",
+          "passed": true
+        },
+        {
+          "name": "design_dependencies",
+          "passed": true
+        },
+        {
+          "name": "design_source",
+          "passed": true
+        },
+        {
+          "name": "approval_owner",
+          "passed": true
+        },
+        {
+          "name": "approval_deadline",
+          "passed": true
+        },
+        {
+          "name": "approval_dependencies",
+          "passed": true
+        },
+        {
+          "name": "approval_source",
+          "passed": true
+        },
+        {
+          "name": "launch_owner",
+          "passed": true
+        },
+        {
+          "name": "launch_deadline",
+          "passed": true
+        },
+        {
+          "name": "launch_dependencies",
+          "passed": true
+        },
+        {
+          "name": "launch_source",
+          "passed": true
+        }
+      ],
+      "passed": 18,
+      "total": 18,
+      "acceptance_pass": true,
+      "output": {
+        "budget_rub": 80000,
+        "actions": [
+          {
+            "id": "text",
+            "owner": "Анна",
+            "due": "2026-09-30",
+            "dependencies": [],
+            "source_ids": [
+              "u06"
+            ]
+          },
+          {
+            "id": "design",
+            "owner": "Павел",
+            "due": "2026-10-02",
+            "dependencies": [],
+            "source_ids": [
+              "u05"
+            ]
+          },
+          {
+            "id": "approval",
+            "owner": "Клиент",
+            "due": "2026-10-03",
+            "dependencies": [
+              "text",
+              "design"
+            ],
+            "source_ids": [
+              "u07"
+            ]
+          },
+          {
+            "id": "launch",
+            "owner": "Иван",
+            "due": "2026-10-05",
+            "dependencies": [
+              "approval"
+            ],
+            "source_ids": [
+              "u04",
+              "u07",
+              "u08"
+            ]
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "ANALYTICS-02",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "service_tier_requested": "default",
+      "service_tier_effective": "not_observed",
+      "input_hash": "593f1403caf39223cd1c55e8629729c14136317931843b006b13cbd2dcc8d885",
+      "started_at": "2026-09-30T16:33:07.563Z",
+      "finished_at": "2026-09-30T16:33:31.306Z",
+      "seconds": 23.74,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 19365,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 324,
+        "reasoning_output_tokens": 197
+      },
+      "checks": [
+        {
+          "name": "complete_weeks_only",
+          "passed": true
+        },
+        {
+          "name": "week1_spend_rub",
+          "passed": true
+        },
+        {
+          "name": "week1_leads",
+          "passed": true
+        },
+        {
+          "name": "week1_clicks",
+          "passed": true
+        },
+        {
+          "name": "week1_cpl_rub",
+          "passed": true
+        },
+        {
+          "name": "week1_conversion_pct",
+          "passed": true
+        },
+        {
+          "name": "week2_spend_rub",
+          "passed": true
+        },
+        {
+          "name": "week2_leads",
+          "passed": true
+        },
+        {
+          "name": "week2_clicks",
+          "passed": true
+        },
+        {
+          "name": "week2_cpl_rub",
+          "passed": true
+        },
+        {
+          "name": "week2_conversion_pct",
+          "passed": true
+        },
+        {
+          "name": "combined_weighted_cpl",
+          "passed": true
+        },
+        {
+          "name": "relative_cpl_change",
+          "passed": true
+        },
+        {
+          "name": "incomplete_week_not_comparable",
+          "passed": true
+        },
+        {
+          "name": "no_false_causality",
+          "passed": true
+        }
+      ],
+      "passed": 15,
+      "total": 15,
+      "acceptance_pass": true,
+      "output": {
+        "weeks": [
+          {
+            "week": 1,
+            "spend_rub": 18000,
+            "leads": 50,
+            "clicks": 250,
+            "cpl_rub": 360,
+            "conversion_pct": 20
+          },
+          {
+            "week": 2,
+            "spend_rub": 19200,
+            "leads": 40,
+            "clicks": 200,
+            "cpl_rub": 480,
+            "conversion_pct": 20
+          }
+        ],
+        "combined_cpl_rub": 413.3333333333333,
+        "cpl_change_pct": 33.33333333333333,
+        "can_compare_week3": false,
+        "causality": "not_established"
+      },
+      "error": null
+    },
+    {
+      "id": "ANALYTICS-02",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "service_tier_requested": "default",
+      "service_tier_effective": "not_observed",
+      "input_hash": "593f1403caf39223cd1c55e8629729c14136317931843b006b13cbd2dcc8d885",
+      "started_at": "2026-09-30T16:33:07.565Z",
+      "finished_at": "2026-09-30T16:33:36.286Z",
+      "seconds": 28.72,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 19367,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 428,
+        "reasoning_output_tokens": 250
+      },
+      "checks": [
+        {
+          "name": "complete_weeks_only",
+          "passed": true
+        },
+        {
+          "name": "week1_spend_rub",
+          "passed": true
+        },
+        {
+          "name": "week1_leads",
+          "passed": true
+        },
+        {
+          "name": "week1_clicks",
+          "passed": true
+        },
+        {
+          "name": "week1_cpl_rub",
+          "passed": true
+        },
+        {
+          "name": "week1_conversion_pct",
+          "passed": true
+        },
+        {
+          "name": "week2_spend_rub",
+          "passed": true
+        },
+        {
+          "name": "week2_leads",
+          "passed": true
+        },
+        {
+          "name": "week2_clicks",
+          "passed": true
+        },
+        {
+          "name": "week2_cpl_rub",
+          "passed": true
+        },
+        {
+          "name": "week2_conversion_pct",
+          "passed": true
+        },
+        {
+          "name": "combined_weighted_cpl",
+          "passed": true
+        },
+        {
+          "name": "relative_cpl_change",
+          "passed": true
+        },
+        {
+          "name": "incomplete_week_not_comparable",
+          "passed": true
+        },
+        {
+          "name": "no_false_causality",
+          "passed": true
+        }
+      ],
+      "passed": 15,
+      "total": 15,
+      "acceptance_pass": true,
+      "output": {
+        "weeks": [
+          {
+            "week": 1,
+            "spend_rub": 18000,
+            "leads": 50,
+            "clicks": 250,
+            "cpl_rub": 360,
+            "conversion_pct": 20
+          },
+          {
+            "week": 2,
+            "spend_rub": 19200,
+            "leads": 40,
+            "clicks": 200,
+            "cpl_rub": 480,
+            "conversion_pct": 20
+          }
+        ],
+        "combined_cpl_rub": 413.33,
+        "cpl_change_pct": 33.33,
+        "can_compare_week3": false,
+        "causality": "not_established"
+      },
+      "error": null
+    },
+    {
+      "id": "CRM-07",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "service_tier_requested": "default",
+      "service_tier_effective": "not_observed",
+      "input_hash": "1ca2200aacf7c6cb54b3b46131c6915582fa6c8be5b566f5fbfce459f3e6cab1",
+      "started_at": "2026-09-30T16:33:36.287Z",
+      "finished_at": "2026-09-30T16:33:51.579Z",
+      "seconds": 15.29,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 19219,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 150,
+        "reasoning_output_tokens": 39
+      },
+      "checks": [
+        {
+          "name": "reply_coverage",
+          "passed": true
+        },
+        {
+          "name": "r1_label",
+          "passed": true
+        },
+        {
+          "name": "r1_contact",
+          "passed": true
+        },
+        {
+          "name": "r2_label",
+          "passed": true
+        },
+        {
+          "name": "r2_contact",
+          "passed": true
+        },
+        {
+          "name": "r3_label",
+          "passed": true
+        },
+        {
+          "name": "r3_contact",
+          "passed": true
+        },
+        {
+          "name": "r4_label",
+          "passed": true
+        },
+        {
+          "name": "r4_contact",
+          "passed": true
+        },
+        {
+          "name": "r5_label",
+          "passed": true
+        },
+        {
+          "name": "r5_contact",
+          "passed": true
+        },
+        {
+          "name": "r6_label",
+          "passed": true
+        },
+        {
+          "name": "r6_contact",
+          "passed": true
+        }
+      ],
+      "passed": 13,
+      "total": 13,
+      "acceptance_pass": true,
+      "output": {
+        "rows": [
+          {
+            "id": "r1",
+            "label": "interest",
+            "do_not_contact": false
+          },
+          {
+            "id": "r2",
+            "label": "refusal",
+            "do_not_contact": false
+          },
+          {
+            "id": "r3",
+            "label": "auto_reply",
+            "do_not_contact": false
+          },
+          {
+            "id": "r4",
+            "label": "conditional_interest",
+            "do_not_contact": false
+          },
+          {
+            "id": "r5",
+            "label": "unknown",
+            "do_not_contact": false
+          },
+          {
+            "id": "r6",
+            "label": "refusal",
+            "do_not_contact": true
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "id": "CRM-07",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "service_tier_requested": "default",
+      "service_tier_effective": "not_observed",
+      "input_hash": "1ca2200aacf7c6cb54b3b46131c6915582fa6c8be5b566f5fbfce459f3e6cab1",
+      "started_at": "2026-09-30T16:33:36.290Z",
+      "finished_at": "2026-09-30T16:33:52.198Z",
+      "seconds": 15.91,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 19221,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 169,
+        "reasoning_output_tokens": 58
+      },
+      "checks": [
+        {
+          "name": "reply_coverage",
+          "passed": true
+        },
+        {
+          "name": "r1_label",
+          "passed": true
+        },
+        {
+          "name": "r1_contact",
+          "passed": true
+        },
+        {
+          "name": "r2_label",
+          "passed": true
+        },
+        {
+          "name": "r2_contact",
+          "passed": true
+        },
+        {
+          "name": "r3_label",
+          "passed": true
+        },
+        {
+          "name": "r3_contact",
+          "passed": true
+        },
+        {
+          "name": "r4_label",
+          "passed": true
+        },
+        {
+          "name": "r4_contact",
+          "passed": true
+        },
+        {
+          "name": "r5_label",
+          "passed": true
+        },
+        {
+          "name": "r5_contact",
+          "passed": true
+        },
+        {
+          "name": "r6_label",
+          "passed": true
+        },
+        {
+          "name": "r6_contact",
+          "passed": true
+        }
+      ],
+      "passed": 13,
+      "total": 13,
+      "acceptance_pass": true,
+      "output": {
+        "rows": [
+          {
+            "id": "r1",
+            "label": "interest",
+            "do_not_contact": false
+          },
+          {
+            "id": "r2",
+            "label": "refusal",
+            "do_not_contact": false
+          },
+          {
+            "id": "r3",
+            "label": "auto_reply",
+            "do_not_contact": false
+          },
+          {
+            "id": "r4",
+            "label": "conditional_interest",
+            "do_not_contact": false
+          },
+          {
+            "id": "r5",
+            "label": "unknown",
+            "do_not_contact": false
+          },
+          {
+            "id": "r6",
+            "label": "refusal",
+            "do_not_contact": true
+          }
+        ]
+      },
+      "error": null
+    }
+  ]
+}

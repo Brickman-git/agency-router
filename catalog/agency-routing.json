@@ -1,31 +1,11 @@
 {
-  "version": "0.6",
-  "date": "2026-09-14",
+  "version": "0.7",
+  "date": "2026-09-30",
   "status": "documentation_only",
-  "local_inference_runs": 13,
+  "local_inference_runs": 19,
   "local_routing_benchmark_runs": 0,
   "prompt_skill_evaluation_runs": 13,
   "semantics": "Ordered route codes are stages, not an instruction to spawn a new agent for every stage. Collapse compatible stages; re-check actual capabilities and permissions.",
-  "luna_policy": {
-    "allowed_efforts": [
-      "high",
-      "max"
-    ],
-    "required_serviceTier": "fast",
-    "start": {
-      "provider": "codex",
-      "model": "gpt-5.6-luna",
-      "effort": "high",
-      "serviceTier": "fast"
-    },
-    "escalate": {
-      "provider": "codex",
-      "model": "gpt-5.6-luna",
-      "effort": "max",
-      "serviceTier": "fast"
-    },
-    "on_fast_unavailable": "choose_other_eligible_model"
-  },
   "unknown_task": {
     "route": [
       "PLAN"
@@ -41,15 +21,15 @@
     ]
   },
   "balance_policy": "quality_and_tools_first; compare relative subscription headroom when known; otherwise rotate equally suitable new tasks; no paid API fallback by default",
-  "prompt_skill": "model-task-prompts@0.4.0",
+  "prompt_skill": "model-task-prompts@0.4.1",
   "cost_status": "hypotheses; subscription quotas not measured",
   "profiles": {
     "PLAN": {
       "title": "Стратегия и проектирование",
       "primary": {
         "provider": "codex",
-        "model": "gpt-5.6-sol",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "fallback": {
@@ -60,29 +40,29 @@
       },
       "review": {
         "provider": "codex",
-        "model": "gpt-6-astra",
-        "effort": "low",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "required_capabilities": [
         "documents"
       ],
       "acceptance": "Требования → решения → ограничения → критерии; допущения отделены от фактов.",
-      "escalation": "Неопределённость: сначала получить недостающие ограничения; трудное противоречие → Astra High.",
+      "escalation": "Неопределённость: сначала получить недостающие ограничения; трудное противоречие → GPT-6.1 Sol XHigh.",
       "evidence_status": "routing_hypothesis_not_locally_benchmarked"
     },
     "RESEARCH": {
       "title": "Поиск и доказательное исследование",
       "primary": {
         "provider": "codex",
-        "model": "gpt-5.6-terra",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "fallback": {
         "provider": "codex",
-        "model": "gpt-5.6-sol",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "review": {
@@ -96,16 +76,16 @@
         "source_read"
       ],
       "acceptance": "Реестр утверждений, даты, первоисточники, контрсвидетельства и непрочитанные источники.",
-      "escalation": "Дипресерч → Sol Medium; трудное противоречие → Astra Low, затем Medium/High по провалу приёмки. Нет поиска → сменить инструмент/агента.",
+      "escalation": "Дипресерч и зависимый синтез → GPT-6.1 Sol High; трудное противоречие → XHigh после конкретного провала приёмки. Нет поиска → сменить инструмент/агента.",
       "evidence_status": "routing_hypothesis_not_locally_benchmarked"
     },
     "DATA": {
       "title": "Извлечение и классификация",
       "primary": {
         "provider": "codex",
-        "model": "gpt-5.6-luna",
+        "model": "gpt-6.1-sol",
         "effort": "high",
-        "serviceTier": "fast"
+        "serviceTier": "default"
       },
       "fallback": {
         "provider": "acp-antigravity",
@@ -115,8 +95,8 @@
       },
       "review": {
         "provider": "codex",
-        "model": "gpt-5.6-terra",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "required_capabilities": [
@@ -137,8 +117,8 @@
       },
       "fallback": {
         "provider": "codex",
-        "model": "gpt-5.6-terra",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "review": {
@@ -170,8 +150,8 @@
       },
       "review": {
         "provider": "codex",
-        "model": "gpt-5.6-terra",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "required_capabilities": [
@@ -191,8 +171,8 @@
       },
       "fallback": {
         "provider": "codex",
-        "model": "gpt-5.6-terra",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "review": {
@@ -207,21 +187,21 @@
         "test_run"
       ],
       "acceptance": "Воспроизводимый сценарий, нужные тесты, diff и отсутствие поломок за пределами задачи.",
-      "escalation": "Две неудачи одной причины → Sol Medium, затем Astra Low/High по сложности; архитектура и рефакторинг → PLAN.",
+      "escalation": "Две неудачи одной причины → сменить метод и использовать GPT-6.1 Sol High; трудный дефект → XHigh; архитектура и рефакторинг → PLAN.",
       "evidence_status": "routing_hypothesis_not_locally_benchmarked"
     },
     "MEASURE": {
       "title": "Расчёты и диагностика",
       "primary": {
         "provider": "codex",
-        "model": "gpt-5.6-sol",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "fallback": {
         "provider": "codex",
-        "model": "gpt-5.6-terra",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "review": {
@@ -248,8 +228,8 @@
       },
       "fallback": {
         "provider": "codex",
-        "model": "gpt-5.6-terra",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "review": {
@@ -269,9 +249,9 @@
       "title": "Форматирование и упаковка",
       "primary": {
         "provider": "codex",
-        "model": "gpt-5.6-luna",
+        "model": "gpt-6.1-sol",
         "effort": "high",
-        "serviceTier": "fast"
+        "serviceTier": "default"
       },
       "fallback": {
         "provider": "acp-antigravity",
@@ -281,8 +261,8 @@
       },
       "review": {
         "provider": "codex",
-        "model": "gpt-5.6-terra",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "required_capabilities": [
@@ -290,7 +270,7 @@
         "file_write"
       ],
       "acceptance": "Сохранены значения и смысл, корректен формат, открывается экспорт, нет потери строк.",
-      "escalation": "Luna Max Fast; если Fast недоступен → Gemini Medium с теми же инструментами.",
+      "escalation": "Ошибки смысла или сложная упаковка → GPT-6.1 Sol XHigh; отсутствие нужного инструмента → другой исполнитель с теми же критериями.",
       "evidence_status": "routing_hypothesis_not_locally_benchmarked"
     },
     "CHECK": {
@@ -303,35 +283,35 @@
       },
       "fallback": {
         "provider": "codex",
-        "model": "gpt-5.6-luna",
+        "model": "gpt-6.1-sol",
         "effort": "high",
-        "serviceTier": "fast"
+        "serviceTier": "default"
       },
       "review": {
         "provider": "codex",
-        "model": "gpt-5.6-terra",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "required_capabilities": [
         "artifact_read"
       ],
       "acceptance": "Дефект → доказательство → влияние → исправление; учитывать ложные тревоги.",
-      "escalation": "Код → Opus Medium; сложные противоречия/метрики → Astra High; автор себя независимо не проверяет.",
+      "escalation": "Код → Opus Medium; сложные противоречия/метрики → GPT-6.1 Sol XHigh; автор себя независимо не проверяет.",
       "evidence_status": "routing_hypothesis_not_locally_benchmarked"
     },
     "OPERATE": {
       "title": "Действия в рабочих системах",
       "primary": {
         "provider": "codex",
-        "model": "gpt-5.6-terra",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "fallback": {
         "provider": "codex",
-        "model": "gpt-5.6-sol",
-        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
         "serviceTier": "default"
       },
       "review": {
@@ -652,8 +632,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -816,8 +796,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -981,8 +961,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -1145,8 +1125,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -1311,8 +1291,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -1476,8 +1456,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -1641,8 +1621,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -1807,8 +1787,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -1934,14 +1914,14 @@
       "model_overrides": {
         "RESEARCH": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "TEXT": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         }
       },
@@ -1988,8 +1968,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -2155,8 +2135,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -2321,8 +2301,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -2447,14 +2427,14 @@
       "model_overrides": {
         "RESEARCH": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "TEXT": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         }
       },
@@ -2501,8 +2481,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -2667,8 +2647,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -2833,8 +2813,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -2999,8 +2979,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -3166,8 +3146,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -3330,8 +3310,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -3504,8 +3484,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -3677,8 +3657,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -3851,8 +3831,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -4025,8 +4005,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -4200,8 +4180,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -4374,8 +4354,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -4548,8 +4528,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -4730,8 +4710,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -4932,8 +4912,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -5135,8 +5115,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -5338,8 +5318,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -5541,8 +5521,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -5744,8 +5724,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -5947,8 +5927,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -6150,8 +6130,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -6346,8 +6326,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "handoff_contract": {
@@ -6569,8 +6549,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "handoff_contract": {
@@ -6790,8 +6770,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -6987,8 +6967,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -7184,8 +7164,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "handoff_contract": {
@@ -7405,8 +7385,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -7602,8 +7582,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -7799,8 +7779,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "handoff_contract": {
@@ -8021,8 +8001,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -8247,8 +8227,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -8473,8 +8453,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -8700,8 +8680,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -8926,8 +8906,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -9153,8 +9133,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -9380,8 +9360,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -9607,8 +9587,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -9832,8 +9812,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -10035,8 +10015,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -10221,8 +10201,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -10407,8 +10387,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -10603,8 +10583,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -10800,8 +10780,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -10985,8 +10965,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -11171,8 +11151,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -11367,8 +11347,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -11523,8 +11503,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -11679,8 +11659,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -11835,8 +11815,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -11991,8 +11971,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -12147,8 +12127,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -12303,8 +12283,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -12458,8 +12438,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -12614,8 +12594,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -12761,8 +12741,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -12908,8 +12888,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -13054,8 +13034,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -13201,8 +13181,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -13348,8 +13328,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -13495,8 +13475,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -13642,8 +13622,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -13794,8 +13774,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -13966,8 +13946,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -14137,8 +14117,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -14309,8 +14289,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -14481,8 +14461,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -14652,8 +14632,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -14824,8 +14804,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -14995,8 +14975,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -15162,8 +15142,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -15339,8 +15319,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -15516,8 +15496,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -15693,8 +15673,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -15869,8 +15849,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -16045,8 +16025,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -16222,8 +16202,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -16399,8 +16379,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -16575,8 +16555,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -16731,8 +16711,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -16887,8 +16867,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -17043,8 +17023,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -17200,8 +17180,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -17356,8 +17336,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -17512,8 +17492,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -17668,8 +17648,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -17830,8 +17810,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -18022,8 +18002,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -18214,8 +18194,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -18406,8 +18386,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -18598,8 +18578,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -18791,8 +18771,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -18982,8 +18962,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -19174,8 +19154,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -19365,8 +19345,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -19525,8 +19505,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -19685,8 +19665,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -19845,8 +19825,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -20006,8 +19986,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -20167,8 +20147,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -20328,8 +20308,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -20488,8 +20468,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -20650,8 +20630,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -20801,8 +20781,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -20953,8 +20933,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -21105,8 +21085,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -21257,8 +21237,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -21409,8 +21389,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -21560,8 +21540,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -21712,8 +21692,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -21863,8 +21843,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -22025,8 +22005,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -22187,8 +22167,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -22350,8 +22330,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -22512,8 +22492,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -22674,8 +22654,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -22834,8 +22814,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -22995,8 +22975,8 @@
         ],
         "model": {
           "provider": "codex",
-          "model": "gpt-5.6-sol",
-          "effort": "medium",
+          "model": "gpt-6.1-sol",
+          "effort": "high",
           "serviceTier": "default"
         },
         "contract_version": "0.2",
@@ -23095,5 +23075,34 @@
     "file": "agency-operating-model.json",
     "guide": "agency-project.md",
     "view": "agency-blueprint.html"
+  },
+  "codex_policy": {
+    "start": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "serviceTier": "default"
+    },
+    "escalate": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "serviceTier": "default"
+    },
+    "on_model_unavailable": "report_capability_blocker_or_choose_other_eligible_provider",
+    "evidence_status": "user_selected_policy_not_locally_benchmarked"
+  },
+  "synthetic_model_pilot": {
+    "date": "2026-09-30",
+    "model": "gpt-6.1-sol",
+    "efforts": [
+      "high",
+      "xhigh"
+    ],
+    "runs": 6,
+    "acceptance_passes": 6,
+    "cases": 3,
+    "report": "docs/model-pilot-2026-09-30.md",
+    "scope": "synthetic_structured_tasks_not_client_routing_benchmark"
   }
 }

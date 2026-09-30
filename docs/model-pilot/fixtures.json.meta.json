@@ -1,0 +1,24 @@
+{
+  "schema_version": "agency-artifact/1.0",
+  "scope": "shared",
+  "project_id": null,
+  "department": "ops",
+  "task_ref": {
+    "system": "external",
+    "id": "docs/model-upgrade-plan.md"
+  },
+  "owner": {
+    "kind": "role",
+    "id": null
+  },
+  "status": "draft",
+  "version": 1,
+  "created_at": "2026-09-30T16:37:35.710111+00:00",
+  "updated_at": "2026-09-30T16:37:35.710111+00:00",
+  "access": "public",
+  "review": null,
+  "artifact_id": "art_sol61_pilot_fixtures",
+  "artifact_type": "dataset",
+  "title": "Учебные входы сравнения GPT-6.1 Sol",
+  "target": "docs/model-pilot/fixtures.json"
+}

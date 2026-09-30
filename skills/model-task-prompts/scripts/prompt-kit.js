@@ -1,12 +1,9 @@
 /* Shared by the CLI and the standalone routing page. No runtime/API calls. */
 (function(root){
 'use strict';
-const version='0.3.0';
+const version='0.3.1';
 const bindings={
- 'gpt-5.6-luna':{provider:'codex',efforts:['high','max']},
- 'gpt-5.6-terra':{provider:'codex',efforts:['low','medium','high','xhigh','max','ultra']},
- 'gpt-5.6-sol':{provider:'codex',efforts:['low','medium','high','xhigh','max','ultra']},
- 'gpt-6-astra':{provider:'codex',efforts:['low','medium','high','xhigh','max','ultra']},
+ 'gpt-6.1-sol':{provider:'codex',efforts:['low','medium','high','xhigh','max']},
  'claude-opus-5[1m]':{provider:'claude-code',efforts:['low','medium','high','xhigh','max','ultracode']},
  'claude-fable-5-1':{provider:'claude-code',efforts:['low','medium','high','xhigh','max','ultracode']},
  'claude-sonnet-5':{provider:'claude-code',efforts:['low','medium','high','xhigh','max','ultracode']},
@@ -14,16 +11,14 @@ const bindings={
  'grok-4.6':{provider:'acp-cursor',efforts:['low','medium','high','xhigh']}
 };
 function family(model){
- if(/^gpt-5\.6-(luna|terra|sol)$/.test(model))return 'gpt-5.6';
- if(model==='gpt-6-astra')return 'astra';
+ if(model==='gpt-6.1-sol')return 'gpt-6.1';
  if(/^claude-/.test(model))return 'claude';
  if(/^gemini-/.test(model))return 'gemini';
  if(/^grok-/.test(model))return 'grok';
  throw Error('Неизвестное семейство: '+model);
 }
 const adapters={
- 'gpt-5.6':'Сохрани обязательные факты и ограничения в ответе. Выбери достаточный способ выполнения; не расширяй набор инструментов без необходимости.',
- astra:'Продолжай работу в согласованной области; рутинные неизвестные разрешай по доступному контексту. Существенные неизвестные, меняющие результат, обозначь. Проверки соразмерны изменению.',
+ 'gpt-6.1':'Сохрани обязательные факты и ограничения в ответе. Продолжай работу в согласованной области; рутинные неизвестные разрешай по доступному контексту. Существенные неизвестные, меняющие результат, обозначь. Проверки соразмерны изменению.',
  claude:'Соблюдай границы результата и объём приёмки. Примеры задают формат и тон; не расширяют поручение.',
  gemini:'Ссылайся на ID документов, изображений или кадров. Расчёты выполняй доступным вычислительным инструментом; не заменяй отсутствующий факт догадкой.',
  grok:'Для кода используй контекст репозитория и воспроизводимый сценарий. Для данных соблюдай схему; соответствие JSON проверяется отдельно от истинности значений.'
@@ -49,11 +44,10 @@ function validate(t){
   }
  }
  const m=t.model;family(m.model);
- const b=bindings[m.model];if(!b)throw Error('Нет проверенной BB-привязки модели: '+m.model);
+ const b=bindings[m.model];if(!b)throw Error('Нет поддерживаемой BB-привязки модели: '+m.model);
  if(m.provider!==b.provider)throw Error('BB provider для '+m.model+' должен быть '+b.provider);
  if(!['fast','default'].includes(m.serviceTier))throw Error('requested serviceTier должен быть fast или default; effective может быть unknown отдельно');
  for(const k of ['provider','effort','serviceTier'])if(!m[k])throw Error('Не задан model.'+k);
- if(m.model==='gpt-5.6-luna'&&(!['high','max'].includes(m.effort)||m.serviceTier!=='fast'))throw Error('Luna разрешена только High/Max Fast');
  if(!b.efforts.includes(m.effort))throw Error('Не проверен effort для '+m.model);
  for(const k of ['inputs','tools','acceptance','permissions'])if(!Array.isArray(t[k]))throw Error(k+' должен быть массивом');
  if(!t.goal||!t.output||!t.acceptance.length)throw Error('Нужны цель, результат и приёмка');

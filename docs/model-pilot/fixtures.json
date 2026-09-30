@@ -1,0 +1,163 @@
+{
+  "kind": "synthetic_fixture_set",
+  "version": 1,
+  "fixtures": [
+    {
+      "id": "BRIEF-03",
+      "title": "Поздние поправки в протоколе",
+      "input": "Учебный протокол. Даты относятся к 2026 году.\nu01 Марина: Запуск 1 октября, бюджет 100000 рублей.\nu02 Павел: Дизайн будет 30 сентября.\nu03 Анна: Тексты будут 29 сентября.\nu04 Марина: Исправляю запуск на 5 октября, бюджет на 80000 рублей; прежние значения отменяем.\nu05 Павел: Исправляю срок дизайна на 2 октября.\nu06 Анна: Исправляю срок текстов на 30 сентября.\nu07 Марина: Клиент утверждает 3 октября после получения текстов и дизайна. Запуск только после утверждения.\nu08 Марина: За запуск отвечает Иван.\nСоставь актуальные действия с id text/design/approval/launch, ответственным, итоговым сроком ISO, dependencies (id) и source_ids. Неподтверждённые зависимости не добавляй. Отдельно верни актуальный budget_rub.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "budget_rub": {
+            "type": "number"
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "owner": {
+                  "type": "string"
+                },
+                "due": {
+                  "type": "string"
+                },
+                "dependencies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "owner",
+                "due",
+                "dependencies",
+                "source_ids"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "budget_rub",
+          "actions"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "ANALYTICS-02",
+      "title": "Валюты, знаменатели и неполный период",
+      "input": "Учебные данные. Неделя 1 (семь полных дней): реклама A, расход 9000 RUB, лиды 30, клики 150; реклама B, расход 100 USD, лиды 20, клики 100. Неделя 2 (семь полных дней): A, расход 12000 RUB, лиды 24, клики 120; B, расход 80 USD, лиды 16, клики 80. Для этого отчёта фиксированный курс обеих недель 90 RUB за USD. Неделя 3 пока содержит один день: расход 2000 RUB, лиды 2; это неполный период.\nДля первых двух полных недель рассчитай по всем каналам суммарные расходы RUB, лиды, клики, CPL RUB (расход/лиды) и конверсию клик→лид в процентах (лиды/клики). Затем CPL двух полных недель вместе и процентное изменение CPL недели2 относительно недели1. Среднее по CPL каналов использовать нельзя. Верни can_compare_week3 как boolean и causality как \"established\" либо \"not_established\": доказывают ли числа, что ухудшение CPL вызвано изменением рекламных креативов?",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "weeks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "week": {
+                  "type": "number"
+                },
+                "spend_rub": {
+                  "type": "number"
+                },
+                "leads": {
+                  "type": "number"
+                },
+                "clicks": {
+                  "type": "number"
+                },
+                "cpl_rub": {
+                  "type": "number"
+                },
+                "conversion_pct": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "week",
+                "spend_rub",
+                "leads",
+                "clicks",
+                "cpl_rub",
+                "conversion_pct"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "combined_cpl_rub": {
+            "type": "number"
+          },
+          "cpl_change_pct": {
+            "type": "number"
+          },
+          "can_compare_week3": {
+            "type": "boolean"
+          },
+          "causality": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "weeks",
+          "combined_cpl_rub",
+          "cpl_change_pct",
+          "can_compare_week3",
+          "causality"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "CRM-07",
+      "title": "Отрицания, цитаты и условный интерес",
+      "input": "Учебные ответы клиентов.\nr1: \"У вас было написано 'не интересно'. Мне интересно, пришлите цены.\"\nr2: \"Спасибо, не нужно, мы уже выбрали поставщика.\"\nr3: \"Автоматический ответ: сотрудник в отпуске до 10 октября.\"\nr4: \"Сейчас не готовы покупать. Вернитесь в ноябре, если будет рассрочка.\"\nr5: \"Вы спрашиваете, интересно ли нам? Пока не знаю, обсудим внутри.\"\nr6: \"Не пишите и не звоните нам больше.\"\nКлассифицируй каждый ответ id r1..r6. labels: interest, refusal, auto_reply, conditional_interest, unknown. Отдельно do_not_contact. Для r4 отсутствие немедленной покупки не отменяет условный интерес. Для r6 запрет контактов обязателен. Никакие письма не отправляй. Верни только rows.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "do_not_contact": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "do_not_contact"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "rows"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

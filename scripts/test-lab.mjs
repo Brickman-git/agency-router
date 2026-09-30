@@ -1,0 +1,67 @@
+import assert from 'node:assert/strict';
+import {EventEmitter} from 'node:events';
+import {PassThrough,Writable} from 'node:stream';
+import fs from 'node:fs';
+import path from 'node:path';
+import {createLabServer,readLoginStatus} from './lab-server.mjs';
+
+assert.match(readLoginStatus(()=>({status:0,stdout:'',stderr:'Logged in using ChatGPT'})),/Logged in using ChatGPT/);
+
+let child,promptText='',loginStatus='Logged in using ChatGPT',runDir;
+const runCommand=(bin,args,options)=>{
+ assert.ok(bin.endsWith('codex'));
+ assert.deepEqual(args.slice(0,7),['exec','--json','--ephemeral','--sandbox','workspace-write','--skip-git-repo-check','-C']);
+ assert.equal(options.stdio[0],'pipe');
+ assert.equal(options.cwd,args[7]);runDir=options.cwd;
+ assert.deepEqual(args.slice(8),['--model','gpt-6.1-sol','-c','model_reasoning_effort="high"','-c','service_tier="default"','-c','agents.default_subagent_model="gpt-6.1-sol"','-c','agents.default_subagent_reasoning_effort="high"','-']);
+ assert.equal(options.detached,process.platform!=='win32');
+ assert.equal(options.env.OPENAI_API_KEY,undefined);
+ assert.equal(options.env.CODEX_API_KEY,undefined);
+ child=new EventEmitter();child.stdout=new PassThrough();child.stderr=new PassThrough();
+ child.stdin=new Writable({write(chunk,encoding,callback){promptText+=chunk.toString();callback();}});
+ child.kill=()=>{child.killed=true;return true;};
+ return child;
+};
+const server=createLabServer({runCommand,getLoginStatus:()=>loginStatus});
+await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+const url=`http://127.0.0.1:${server.address().port}`;
+const headers={'content-type':'application/json',origin:url};
+const request=(id='BRIEF-02',goal='Нужен бриф для кофейни',files=[],editedPrompt)=>fetch(url+'/api/run',{method:'POST',headers,body:JSON.stringify({id,goal,materials:'Черновые заметки',constraints:'Русский язык',files,editedPrompt})});
+try{
+ const page=await fetch(url);assert.equal(page.status,200);const html=await page.text();assert.match(html,/Тестовая панель/);assert.match(html,/Готовый промпт для агента/);
+ const catalog=await fetch(url+'/index.html');assert.equal(catalog.status,200);assert.match(await catalog.text(),/Каталог/);
+ assert.equal((await request('UNKNOWN')).status,400);
+ assert.equal((await request('BRIEF-02','')).status,400);
+ assert.equal((await request('BRIEF-02','Задача',[{name:'../secret.txt',base64:'dGVzdA=='}])).status,400);
+ assert.equal((await request('BRIEF-02','Задача',[{name:'brief.txt',base64:'@@@'}])).status,400);
+ assert.equal((await request('BRIEF-02','Задача',Array.from({length:6},(_,i)=>({name:`${i}.txt`,base64:'dGVzdA=='})))).status,400);
+ assert.equal((await fetch(url+'/api/run',{method:'POST',headers:{'content-type':'application/json'},body:'{}'})).status,403);
+ loginStatus='Logged in using API key';assert.equal((await request()).status,400);loginStatus='Logged in using ChatGPT';
+ const response=await request('BRIEF-02','Нужен бриф для кофейни',[{name:'brief.txt',base64:Buffer.from('Входной текст').toString('base64')}]);assert.equal(response.status,200);
+ assert.equal(fs.readFileSync(path.join(runDir,'input','brief.txt'),'utf8'),'Входной текст');
+ assert.equal(fs.existsSync(path.join(runDir,'skills','agency-artifacts','SKILL.md')),true);
+ assert.equal(fs.existsSync(path.join(runDir,'skills','model-task-prompts','SKILL.md')),true);
+ assert.match(promptText,/Нужен бриф для кофейни/);assert.match(promptText,/Черновые заметки/);assert.match(promptText,/input\/.*brief.txt/);assert.match(promptText,/output\//);
+ assert.equal((await request()).status,409);
+ fs.writeFileSync(path.join(runDir,'output','report.md'),'Готовый файл');
+ fs.symlinkSync(path.join(runDir,'input','brief.txt'),path.join(runDir,'output','skip.txt'));
+ child.stdout.write(JSON.stringify({type:'item.completed',item:{type:'agent_message',text:'Тестовый результат'}})+'\n');child.emit('close',0);
+ const stream=await response.text();assert.match(stream,/"type":"answer"/);assert.match(stream,/"type":"files"/);assert.match(stream,/"type":"done"/);assert.match(stream,/Тестовый результат/);
+ assert.equal(fs.existsSync(runDir),false);
+ const fileEvent=stream.split('\n').filter(Boolean).map(JSON.parse).find(e=>e.type==='files');
+ assert.equal(fileEvent.value.length,1);
+ assert.equal(fileEvent.value[0].name,'report.md');
+ const download=await fetch(url+fileEvent.value[0].url);assert.equal(download.status,200);assert.equal(await download.text(),'Готовый файл');
+ assert.equal((await fetch(url+'/api/files/00000000-0000-0000-0000-000000000000')).status,404);
+ const locked=await request('BRIEF-02','',[],'Ручной промпт для выбранного поручения');
+ assert.match(promptText,/Ручной промпт для выбранного поручения/);
+ const lockedDir=path.join(runDir,'output','locked');fs.mkdirSync(lockedDir);fs.writeFileSync(path.join(lockedDir,'hidden.txt'),'hidden');fs.chmodSync(lockedDir,0o000);
+ child.stdout.write(JSON.stringify({type:'item.completed',item:{type:'agent_message',text:'Ответ при закрытой папке'}})+'\n');child.emit('close',0);
+ assert.match(await locked.text(),/"type":"done"/);assert.equal(fs.existsSync(runDir),false);
+ const broken=await request();child.stdin.emit('error',Object.assign(new Error('broken pipe'),{code:'EPIPE'}));child.emit('close',1);
+ assert.match(await broken.text(),/"type":"error"/);
+ const cancelled=await request();await cancelled.body.cancel();await new Promise(resolve=>setTimeout(resolve,20));
+ assert.equal(child.killed,true);assert.equal((await request()).status,409);child.emit('close',143);
+ assert.equal((await request('BAD')).status,400);
+ console.log('lab server: passed');
+}finally{const lastRun=runDir;await new Promise(resolve=>server.close(resolve));assert.equal(fs.existsSync(lastRun),false);}
