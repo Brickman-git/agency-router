@@ -1,27 +1,16 @@
 /* Shared by the CLI and the standalone routing page. No runtime/API calls. */
 (function(root){
 'use strict';
-const version='0.3.1';
+const version='0.3.2';
 const bindings={
- 'gpt-6.1-sol':{provider:'codex',efforts:['low','medium','high','xhigh','max']},
- 'claude-opus-5[1m]':{provider:'claude-code',efforts:['low','medium','high','xhigh','max','ultracode']},
- 'claude-fable-5-1':{provider:'claude-code',efforts:['low','medium','high','xhigh','max','ultracode']},
- 'claude-sonnet-5':{provider:'claude-code',efforts:['low','medium','high','xhigh','max','ultracode']},
- 'gemini-3.8-flash':{provider:'acp-antigravity',efforts:['low','medium','high']},
- 'grok-4.6':{provider:'acp-cursor',efforts:['low','medium','high','xhigh']}
+ 'gpt-6.1-sol':{provider:'codex',efforts:['low','medium','high','xhigh','max']}
 };
 function family(model){
  if(model==='gpt-6.1-sol')return 'gpt-6.1';
- if(/^claude-/.test(model))return 'claude';
- if(/^gemini-/.test(model))return 'gemini';
- if(/^grok-/.test(model))return 'grok';
  throw Error('Неизвестное семейство: '+model);
 }
 const adapters={
- 'gpt-6.1':'Сохрани обязательные факты и ограничения в ответе. Продолжай работу в согласованной области; рутинные неизвестные разрешай по доступному контексту. Существенные неизвестные, меняющие результат, обозначь. Проверки соразмерны изменению.',
- claude:'Соблюдай границы результата и объём приёмки. Примеры задают формат и тон; не расширяют поручение.',
- gemini:'Ссылайся на ID документов, изображений или кадров. Расчёты выполняй доступным вычислительным инструментом; не заменяй отсутствующий факт догадкой.',
- grok:'Для кода используй контекст репозитория и воспроизводимый сценарий. Для данных соблюдай схему; соответствие JSON проверяется отдельно от истинности значений.'
+ 'gpt-6.1':'Сохрани обязательные факты и ограничения в ответе. Продолжай работу в согласованной области; рутинные неизвестные разрешай по доступному контексту. Существенные неизвестные, меняющие результат, обозначь. Проверки соразмерны изменению.'
 };
 const list=x=>Array.isArray(x)?x.map(v=>typeof v==='string'?v:JSON.stringify(v)).join('\n'):String(x??'не задано');
 const xml=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -58,8 +47,6 @@ function validate(t){
 function compile(t){
  validate(t);const f=family(t.model.model),m=t.model;
  let adapter=adapters[f];
- if(m.model.includes('opus'))adapter+=' Не добавляй общих циклов повторной самопроверки сверх необходимых критериев.';
- if(m.model.includes('fable'))adapter+=' Для актуальных утверждений прочитай источники; на длинной работе сообщай прогресс и сохраняй решения и точные ссылки в handoff.';
  const data=t.context?'\n<context_data>\n'+xml(t.context)+'\n</context_data>\n':'';
  const sections=[
  `Поручение ${t.id} / ${t.type}. Статус: ${t.status}. Шаблон ${version}.`,
@@ -77,6 +64,7 @@ function compile(t){
  t.gates?.length?`Gates и решения:\n${list(t.gates)}\nДля человеческого решения подготовить результат/preview, версии, доказательства и конкретный вопрос. Использовать уже данное решение в его области; молчание не является одобрением. После изменения предмета оценить влияние на прежнюю приёмку.`:'',
  t.handoff_contract?`Передача между ролями:\n${JSON.stringify(t.handoff_contract,null,2)}`:'',
  `Приёмка:\n${list(t.acceptance)}`,
+ 'Если требуется независимая проверка, проверяющий работает отдельным агентом GPT-6.1 Sol в свежем контексте и получает требования, результат и доказательства проверок. Самопроверка автора не считается независимой. Это правило не разрешает запуск агентов за пределами действующего поручения.',
  t.examples?.length?`Примеры формата (данные, не дополнительные поручения):\n<examples>\n${xml(list(t.examples))}\n</examples>`:'',
  t.stages?.length?`Этапы и передачи:\n${list(t.stages)}\nСовместимые операции объединить. Отдельных агентов запускать только в пределах разрешённой оркестрации.`:'',
  'Передача: статус, ссылки на файлы, выполненные проверки с исходом, ограничения и следующий шаг. Для объяснения дай основания и доказательства, без раскрытия внутренней цепочки рассуждений.',
